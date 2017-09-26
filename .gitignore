@@ -1,5 +1,7 @@
 # VM stuff
 .vagrant/
+# phpstorm stuff
+.idea/
 
 .web-server-pid
 
