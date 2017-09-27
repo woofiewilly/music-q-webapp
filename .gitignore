@@ -1,0 +1,25 @@
+# VM stuff
+.vagrant/
+# phpstorm stuff
+.idea/
+
+.web-server-pid
+
+# Log for Vagrant box
+ubuntu-*
+
+# Email spool folder
+/app/spool/*
+
+# Cache, session files and logs (Symfony3)
+var/cache/
+var/logs/
+var/sessions/
+
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+
+
+# Composer packages
+vendor/
