@@ -1,0 +1,28 @@
+# Most of this script is borrowed from
+# https://coderwall.com/p/oooszg/vagrant-tweaks-to-make-it-more-like-your-local-command-line-app
+
+#########################
+# Misc
+#########################
+alias ls="ls -l"
+
+#########################
+# CD BACKSLASH SHORTHAND
+#########################
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+#########################
+# Project shortcuts
+#########################
+alias webfolder='cd /var/www/html'
+alias server_start='php /var/www/html/bin/console server:start 0.0.0.0:8000'
+alias server_stop='php /var/www/html/bin/console server:stop'
+# Placeholders; scss folders not set up yet. Just change to proper paths
+alias scss_compile='scss --update /var/www/html/scss:/var/www/html/styles'
+alias scss_watch='scss --watch /var/www/html/scss:/var/www/html/styles'
+
+# Go to the web root directory after logging in:
+cd /var/www/html

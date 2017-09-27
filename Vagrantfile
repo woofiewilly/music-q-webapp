@@ -72,14 +72,19 @@ Vagrant.configure("2") do |config|
     sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password rootpass'
     sudo apt-get install -y mysql-server php7.0-mysql
 
+    # Install symfony
+    sudo mkdir -p /usr/local/bin
+    sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+    sudo chmod a+x /usr/local/bin/symfony
+
     # php-xml needed for symfony
-    sudo apt-get install symfony php-xml
+    sudo apt-get install php-xml -y
 
     # restart apache for good measure
     sudo service apache2 restart
 
     # Installing php composer
-    sudo apt-get install composer
+    sudo apt-get install composer -y
 
     # After composer installed, build composer dependencies
     cd /var/www/html/
@@ -87,6 +92,10 @@ Vagrant.configure("2") do |config|
 
     # Installing SASS for css compiling
     sudo apt-get install -y ruby-sass
+
+
+    # Add .bashrc to the VM user
+    # cat /var/www/html/Vagrantbashconfig >> /home/ubuntu/.bashrc
 
     # After everything is installed, upgrade to latest versions
     # Would this be bad practice since working version of library might
