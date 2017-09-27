@@ -11,13 +11,7 @@ ubuntu-*
 # Email spool folder
 /app/spool/*
 
-
 /var/*
-
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
-
 
 # Composer packages
 vendor/
