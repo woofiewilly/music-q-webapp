@@ -13,8 +13,16 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
+
+        //Get All Playlists from DB
+        $playlists = $this->getDoctrine()->getRepository('AppBundle:Playlist')->findAll();
+
+
         // replace this example code with whatever you need
-        return $this->render(':home:home.html.twig');
+        return $this->render(':home:home.html.twig', array(
+            'playlists' => $playlists,
+        ));
     }
 
 

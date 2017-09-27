@@ -16,8 +16,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="input-group">
-                    <input type="text" class="form-control round-form" placeholder="Search MelodyMunk..." aria-describedby="melodymunk_search_bar">
-                    <span class="btn btn-info input-group-addon" id="melodymunk_search_bar"><i class="fa fa-search"></i></span>
+                    <input id="playlist_name_content" type="text" class="form-control round-form" placeholder="Add Playlist MelodyMunk..." aria-describedby="melodymunk_search_bar">
+                    <a id="playlist_add_submit" class="btn btn-info input-group-addon" ><i class="fa fa-plus"></i></a>
                 </div>
             </div>
         </div>
@@ -26,11 +26,12 @@
         <!-- START Playlist Results -->
         <div class="row">
 
+            {% for playlist in playlists %}
             <!-- START Playlist Card -->
             <div class="col-md-4 col-sm-4 mb">
                 <div class="darkblue-panel pn">
                     <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
+                        <h5>{{ playlist.name }}</h5>
                     </div>
                     <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
                     <p>+ 1,789 NEW VISITS</p>
@@ -42,151 +43,7 @@
                 </div>
             </div>
             <!-- END Playlist Card -->
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
-
-            <!-- START Playlist Card -->
-            <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                    <div class="darkblue-header">
-                        <h5>MelodyMunk Party Title</h5>
-                    </div>
-                    <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
-                    <p>+ 1,789 NEW VISITS</p>
-                    <footer>
-                        <div class="centered">
-                            <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
-                        </div>
-                    </footer>
-                </div>
-            </div>
-            <!-- END Playlist Card -->
-
+            {% endfor %}
 
 
         </div>
@@ -329,4 +186,8 @@
 {% endblock %}
 
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+
+    <script src="{{ asset('melody_munk/Pages/home.js') }}"></script>
+
+{% endblock %}
