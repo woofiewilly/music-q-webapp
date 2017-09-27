@@ -11,10 +11,8 @@ ubuntu-*
 # Email spool folder
 /app/spool/*
 
-# Cache, session files and logs (Symfony3)
-var/cache/
-var/logs/
-var/sessions/
+
+/var/*
 
 !var/cache/.gitkeep
 !var/logs/.gitkeep

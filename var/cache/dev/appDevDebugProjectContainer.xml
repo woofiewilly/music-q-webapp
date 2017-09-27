@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app</parameter>
-    <parameter key="kernel.project_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp</parameter>
+    <parameter key="kernel.root_dir">/var/www/html/app</parameter>
+    <parameter key="kernel.project_dir">/var/www/html</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/logs</parameter>
+    <parameter key="kernel.cache_dir">/var/www/html/var/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/var/www/html/var/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -27,72 +27,72 @@
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/monolog-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/swiftmailer-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/doctrine/doctrine-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/doctrine/doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/sensio/framework-extra-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/sensio/framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="AppBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/src/AppBundle</parameter>
+        <parameter key="path">/var/www/html/src/AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
       </parameter>
       <parameter key="FOSUserBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/friendsofsymfony/user-bundle</parameter>
         <parameter key="namespace">FOS\UserBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="SensioDistributionBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/sensio/distribution-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/sensio/distribution-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\DistributionBundle</parameter>
       </parameter>
       <parameter key="SensioGeneratorBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/sensio/generator-bundle</parameter>
+        <parameter key="path">/var/www/html/vendor/sensio/generator-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\GeneratorBundle</parameter>
       </parameter>
       <parameter key="WebServerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle</parameter>
+        <parameter key="path">/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
       </parameter>
     </parameter>
@@ -102,7 +102,7 @@
     <parameter key="database_port">null</parameter>
     <parameter key="database_name">melody_munk</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">rootpass</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -122,7 +122,7 @@
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/sessions/dev</parameter>
+    <parameter key="session.save_path">/var/www/html/var/sessions/dev</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
@@ -131,13 +131,13 @@
       <parameter>twig</parameter>
     </parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
-    <parameter key="validator.mapping.cache.file">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">/var/www/html/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/var/www/html/var/cache/dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/var/www/html/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="router.options.generator_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper</parameter>
@@ -149,7 +149,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">/var/www/html/app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -215,7 +215,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/var/www/html/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -334,7 +334,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/var/www/html/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -517,10 +517,10 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="controller_name_converter"/>
     </service>
-    <service id="2_d33a2245303120ef2d5dc790f96a8c6e588e55976a61ee6839f855c8e65b7595" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
+    <service id="2_5520c222e1c44945c4ee422b426b4135573422b4c1c7f2a0733c6e6877e883f2" class="Symfony\Component\Config\Resource\SelfCheckingResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-990"/>
     </service>
-    <service id="1_d33a2245303120ef2d5dc790f96a8c6e588e55976a61ee6839f855c8e65b7595" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
+    <service id="1_5520c222e1c44945c4ee422b426b4135573422b4c1c7f2a0733c6e6877e883f2" class="Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker" public="false">
       <tag name="config_cache.resource_checker" priority="-980"/>
       <argument type="service" id="service_container"/>
     </service>
@@ -534,7 +534,6 @@
     <service id="cache_warmer" class="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate">
       <argument type="collection">
         <argument type="service" id="templating.cache_warmer.template_paths"/>
-        <argument type="service" id="kernel.class_cache.cache_warmer"/>
         <argument type="service" id="validator.mapping.cache_warmer"/>
         <argument type="service" id="router.cache_warmer"/>
         <argument type="service" id="annotations.cache_warmer"/>
@@ -544,7 +543,6 @@
       </argument>
     </service>
     <service id="kernel.class_cache.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer">
-      <tag name="kernel.cache_warmer"/>
       <argument type="collection">
         <argument>Symfony\Component\HttpFoundation\ParameterBag</argument>
         <argument>Symfony\Component\HttpFoundation\HeaderBag</argument>
@@ -553,6 +551,7 @@
         <argument>Symfony\Component\HttpFoundation\Request</argument>
         <argument>Symfony\Component\HttpKernel\Kernel</argument>
       </argument>
+      <deprecated>The "%service_id%" option is deprecated since version 3.3, to be removed in 4.0.</deprecated>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="collection">
@@ -563,9 +562,9 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources</argument>
+      <argument>/var/www/html/app/Resources</argument>
       <argument type="collection">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app</argument>
+        <argument>/var/www/html/app</argument>
       </argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
@@ -573,8 +572,8 @@
     </service>
     <service id="config_cache_factory" class="Symfony\Component\Config\ResourceCheckerConfigCacheFactory">
       <argument type="iterator">
-        <argument type="service" id="1_d33a2245303120ef2d5dc790f96a8c6e588e55976a61ee6839f855c8e65b7595"/>
-        <argument type="service" id="2_d33a2245303120ef2d5dc790f96a8c6e588e55976a61ee6839f855c8e65b7595"/>
+        <argument type="service" id="1_5520c222e1c44945c4ee422b426b4135573422b4c1c7f2a0733c6e6877e883f2"/>
+        <argument type="service" id="2_5520c222e1c44945c4ee422b426b4135573422b4c1c7f2a0733c6e6877e883f2"/>
       </argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler">
@@ -658,8 +657,8 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -668,7 +667,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -688,7 +687,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -727,7 +726,7 @@
       <argument type="service" id="translator.selector"/>
     </service>
     <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
-    <service id="1_7a976392b78cbfc5036a32854a59e118f5baee0a41aecefa8e1bba68aa6ff463" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="1_49c51e250022ea2c366ae86bda4e77e81eb4eefd522e305fad4a0f3ca75930d8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
@@ -757,23 +756,23 @@
     <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
     <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/sessions</argument>
+      <argument>/var/www/html/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/sessions/dev</argument>
+      <argument>/var/www/html/var/sessions/dev</argument>
     </service>
     <service id="session.handler.write_check" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\WriteCheckSessionHandler" public="false"/>
     <service id="session_listener" class="Symfony\Component\HttpKernel\EventListener\SessionListener">
       <tag name="kernel.event_subscriber"/>
-      <argument type="service" id="1_7a976392b78cbfc5036a32854a59e118f5baee0a41aecefa8e1bba68aa6ff463"/>
+      <argument type="service" id="1_49c51e250022ea2c366ae86bda4e77e81eb4eefd522e305fad4a0f3ca75930d8"/>
     </service>
     <service id="session.save_listener" class="Symfony\Component\HttpKernel\EventListener\SaveSessionListener">
       <tag name="kernel.event_subscriber"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
-      <argument type="service" id="1_a0285ecdde2001070c95e5c3e2103b5d37e9602f430936e42b11ea2dc91fa493"/>
+      <argument type="service" id="1_75ec5ae8a7419ea23653679349dc1abee84961eb317e054eb555bda4eebe3ad9"/>
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry">
@@ -1020,12 +1019,12 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev</argument>
+      <argument>/var/www/html/var/cache/dev</argument>
     </service>
     <service id="templating.finder" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
       <argument type="service" id="kernel"/>
       <argument type="service" id="templating.filename_parser"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources</argument>
+      <argument>/var/www/html/app/Resources</argument>
     </service>
     <service id="templating.cache_warmer.template_paths" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer" priority="20"/>
@@ -1049,13 +1048,13 @@
         <argument type="service" id="monolog.logger.templating" on-invalid="ignore"/>
       </call>
     </service>
-    <service id="2_c6780b1f311c88b54d598a9d7af1f5dd453e6eda0eac7689accf2d9f73004f00" class="Doctrine\Common\Cache\ApcCache" public="false">
+    <service id="2_47d5f737b45d64de82b6d8f93ec0029748d722767ead9b8818afbbee8988ec59" class="Doctrine\Common\Cache\ApcCache" public="false">
       <call method="setNamespace">
         <argument></argument>
       </call>
     </service>
-    <service id="1_c6780b1f311c88b54d598a9d7af1f5dd453e6eda0eac7689accf2d9f73004f00" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/validation.php</argument>
+    <service id="1_47d5f737b45d64de82b6d8f93ec0029748d722767ead9b8818afbbee8988ec59" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/var/www/html/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1074,8 +1073,8 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
-          <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle/Resources/config/validation.xml</argument>
+          <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/var/www/html/vendor/friendsofsymfony/user-bundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1091,21 +1090,21 @@
         </argument>
       </call>
       <call method="addXmlMapping">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle/DependencyInjection/Compiler/../../Resources/config/storage-validation/orm.xml</argument>
+        <argument>/var/www/html/vendor/friendsofsymfony/user-bundle/DependencyInjection/Compiler/../../Resources/config/storage-validation/orm.xml</argument>
       </call>
       <factory class="Symfony\Component\Validator\Validation" method="createValidatorBuilder"/>
     </service>
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/validation.php</argument>
+      <argument>/var/www/html/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
-      <argument type="service" id="1_c6780b1f311c88b54d598a9d7af1f5dd453e6eda0eac7689accf2d9f73004f00"/>
+      <argument type="service" id="1_47d5f737b45d64de82b6d8f93ec0029748d722767ead9b8818afbbee8988ec59"/>
     </service>
     <service id="validator.mapping.cache.doctrine.apc" class="Symfony\Component\Validator\Mapping\Cache\DoctrineCache" public="false">
-      <argument type="service" id="2_c6780b1f311c88b54d598a9d7af1f5dd453e6eda0eac7689accf2d9f73004f00"/>
+      <argument type="service" id="2_47d5f737b45d64de82b6d8f93ec0029748d722767ead9b8818afbbee8988ec59"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
       <argument type="service" id="service_locator.39e66930232432ca5ba91e98fdd8a17b"/>
@@ -1176,7 +1175,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-      <argument>file:/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/profiler</argument>
+      <argument>file:/var/www/html/var/cache/dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -1210,7 +1209,7 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/appDevDebugProjectContainer</argument>
+      <argument>/var/www/html/var/cache/dev/appDevDebugProjectContainer</argument>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
       <tag name="data_collector" template="@WebProfiler/Collector/time.html.twig" id="time" priority="330"/>
@@ -1247,7 +1246,7 @@
         <argument type="service" id="cache.annotations"/>
       </call>
     </service>
-    <service id="1_a0285ecdde2001070c95e5c3e2103b5d37e9602f430936e42b11ea2dc91fa493" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+    <service id="1_75ec5ae8a7419ea23653679349dc1abee84961eb317e054eb555bda4eebe3ad9" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
       <argument type="service" id="data_collector.form"/>
@@ -1284,7 +1283,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp</argument>
+      <argument>/var/www/html</argument>
       <argument>/_profiler/open?file=%%f&amp;line=%%l#line%%l</argument>
     </service>
     <service id="debug.event_dispatcher" class="Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher">
@@ -1430,14 +1429,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -1796,9 +1787,9 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/config/routing_dev.yml</argument>
+      <argument>/var/www/html/app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev</argument>
+        <argument key="cache_dir">/var/www/html/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -1836,13 +1827,13 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
     </service>
-    <service id="3_a933e0733bb47d1e2fb1e7ab069ed5fd12fa713d26dff1b40a879ee4da91823b" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/annotations.php</argument>
+    <service id="3_ef0d2b1cf7b8bf51aa5469521715e2433473fbb8c05ccae8f2e45914144ab010" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>/var/www/html/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id="2_a933e0733bb47d1e2fb1e7ab069ed5fd12fa713d26dff1b40a879ee4da91823b" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
-    <service id="1_a933e0733bb47d1e2fb1e7ab069ed5fd12fa713d26dff1b40a879ee4da91823b" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
+    <service id="2_ef0d2b1cf7b8bf51aa5469521715e2433473fbb8c05ccae8f2e45914144ab010" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id="1_ef0d2b1cf7b8bf51aa5469521715e2433473fbb8c05ccae8f2e45914144ab010" class="Doctrine\Common\Annotations\AnnotationRegistry" public="false">
       <call method="registerLoader">
         <argument>class_exists</argument>
       </call>
@@ -1850,7 +1841,7 @@
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
-        <argument type="service" id="1_a933e0733bb47d1e2fb1e7ab069ed5fd12fa713d26dff1b40a879ee4da91823b"/>
+        <argument type="service" id="1_ef0d2b1cf7b8bf51aa5469521715e2433473fbb8c05ccae8f2e45914144ab010"/>
       </call>
     </service>
     <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\FilesystemCache" public="false">
@@ -1859,11 +1850,11 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/annotations.php</argument>
+      <argument>/var/www/html/var/cache/dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id="3_a933e0733bb47d1e2fb1e7ab069ed5fd12fa713d26dff1b40a879ee4da91823b"/>
+      <argument type="service" id="3_ef0d2b1cf7b8bf51aa5469521715e2433473fbb8c05ccae8f2e45914144ab010"/>
     </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
@@ -2529,12 +2520,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59c4704fc89690.23666890</argument>
+      <argument>59cb08448396f1.93301322</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59c4704fc89690.23666890</argument>
+      <argument>59cb08448396f1.93301322</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2602,7 +2593,7 @@
           <argument>form_div_layout.html.twig</argument>
         </argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/twig</argument>
+        <argument key="cache">/var/www/html/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
         <argument key="date" type="collection">
@@ -2703,7 +2694,7 @@
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app</argument>
+      <argument>/var/www/html/app</argument>
       <argument type="collection"/>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
@@ -2713,48 +2704,48 @@
     </service>
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader" public="false">
       <argument type="collection"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp</argument>
+      <argument>/var/www/html</argument>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources/FOSUserBundle/views</argument>
+        <argument>/var/www/html/app/Resources/FOSUserBundle/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources/views</argument>
+        <argument>/var/www/html/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -2779,7 +2770,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app</argument>
+      <argument>/var/www/html/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -2863,48 +2854,48 @@
       <tag name="twig.loader"/>
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp</argument>
+      <argument>/var/www/html</argument>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources/FOSUserBundle/views</argument>
+        <argument>/var/www/html/app/Resources/FOSUserBundle/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/Resources/views</argument>
+        <argument>/var/www/html/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/var/www/html/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="templating.engine.twig" class="Symfony\Bundle\TwigBundle\TwigEngine" public="false">
@@ -2956,7 +2947,7 @@
     </service>
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/logs/dev.log</argument>
+      <argument>/var/www/html/var/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2975,9 +2966,9 @@
       <argument>100</argument>
       <argument>true</argument>
     </service>
-    <service id="3_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
-    <service id="2_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
-    <service id="1_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
+    <service id="3_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
+    <service id="2_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
+    <service id="1_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
     <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" abstract="true">
       <argument type="service" id="swiftmailer.transport"/>
     </service>
@@ -2994,9 +2985,9 @@
     </service>
     <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" public="false" abstract="true">
       <argument type="collection">
-        <argument type="service" id="1_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
-        <argument type="service" id="2_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
-        <argument type="service" id="3_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
+        <argument type="service" id="1_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
+        <argument type="service" id="2_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
+        <argument type="service" id="3_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
       </argument>
     </service>
     <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" public="false" abstract="true"/>
@@ -3008,7 +2999,7 @@
     <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true"/>
     <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true"/>
     <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/app/../data/swiftmailer/spool</argument>
+      <argument>/var/www/html/app/../data/swiftmailer/spool</argument>
     </service>
     <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true"/>
     <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
@@ -3023,9 +3014,9 @@
     <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
     <service id="swiftmailer.mailer.default.transport.authhandler" class="Swift_Transport_Esmtp_AuthHandler" public="false">
       <argument type="collection">
-        <argument type="service" id="1_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
-        <argument type="service" id="2_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
-        <argument type="service" id="3_ed5883ac0cf8efbb36a9180cfbb36003753e0f8c46c8e27777e42f28a5323b4d"/>
+        <argument type="service" id="1_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
+        <argument type="service" id="2_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
+        <argument type="service" id="3_93ae018366c9223e594738dc39ae7719e185e74eafd085b2763e18c4a2641590"/>
       </argument>
       <call method="setUsername">
         <argument>null</argument>
@@ -3175,7 +3166,7 @@
         <argument key="port">null</argument>
         <argument key="dbname">melody_munk</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="password">rootpass</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -3240,7 +3231,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>/var/www/html/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -3267,7 +3258,7 @@
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
-        <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/src/AppBundle/Entity</argument>
+        <argument>/var/www/html/src/AppBundle/Entity</argument>
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
@@ -3281,7 +3272,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
                 <argument type="collection">
-                  <argument key="/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping">FOS\UserBundle\Model</argument>
+                  <argument key="/var/www/html/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping">FOS\UserBundle\Model</argument>
                 </argument>
                 <argument>.orm.xml</argument>
               </service>
@@ -3293,17 +3284,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1f381648b1c44a245596de9add73411047c4ab539da460328d4a55f96d8e75d</argument>
+        <argument>sf2orm_default_2724e8f80285a8a9930f0ba361972294454e5f79b45cc40b593060dd9a101360</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1f381648b1c44a245596de9add73411047c4ab539da460328d4a55f96d8e75d</argument>
+        <argument>sf2orm_default_2724e8f80285a8a9930f0ba361972294454e5f79b45cc40b593060dd9a101360</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_e1f381648b1c44a245596de9add73411047c4ab539da460328d4a55f96d8e75d</argument>
+        <argument>sf2orm_default_2724e8f80285a8a9930f0ba361972294454e5f79b45cc40b593060dd9a101360</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
@@ -3594,7 +3585,7 @@
         </argument>
       </call>
     </service>
-    <service id="2_4f51c2f495bac77d3db345a6bb3cf091deddd70aa005a850c42d12171ce90e35" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+    <service id="2_506a50e836414baf80aff6687bb0d043a97b95722f70313f417ad083de353d47" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -3605,7 +3596,7 @@
         </argument>
       </call>
     </service>
-    <service id="1_4f51c2f495bac77d3db345a6bb3cf091deddd70aa005a850c42d12171ce90e35" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+    <service id="1_506a50e836414baf80aff6687bb0d043a97b95722f70313f417ad083de353d47" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3678,7 +3669,7 @@
       </argument>
       <argument>bottom</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp</argument>
+      <argument>/var/www/html</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3691,11 +3682,11 @@
       <argument>true</argument>
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
-      <argument type="service" id="1_4f51c2f495bac77d3db345a6bb3cf091deddd70aa005a850c42d12171ce90e35"/>
+      <argument type="service" id="1_506a50e836414baf80aff6687bb0d043a97b95722f70313f417ad083de353d47"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
       <tag name="twig.extension"/>
-      <argument type="service" id="2_4f51c2f495bac77d3db345a6bb3cf091deddd70aa005a850c42d12171ce90e35"/>
+      <argument type="service" id="2_506a50e836414baf80aff6687bb0d043a97b95722f70313f417ad083de353d47"/>
     </service>
     <service id="sensio_distribution.security_checker" class="SensioLabs\Security\SecurityChecker"/>
     <service id="sensio_distribution.security_checker.command" class="SensioLabs\Security\Command\SecurityCheckerCommand">
@@ -3704,12 +3695,12 @@
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/public</argument>
+      <argument>/var/www/html/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_start" class="Symfony\Bundle\WebServerBundle\Command\ServerStartCommand" public="false">
       <tag name="console.command"/>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/public</argument>
+      <argument>/var/www/html/public</argument>
       <argument>dev</argument>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
@@ -3937,42 +3928,42 @@
       <argument>true</argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false" lazy="true">
-      <argument>mPUDNFAJ7k</argument>
+      <argument>czXZ4LM8Gd</argument>
       <argument>0</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>UFKkSAJdF5</argument>
+      <argument>y07GajEjel</argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>c7KCHweS8H</argument>
+      <argument>Jb5bVUNkWK</argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>wqglv-jnHx</argument>
+      <argument>erfzXbFn3c</argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
-      <argument>cNz0mjY4TN</argument>
+      <argument>zjgXxX8mSM</argument>
       <argument>0</argument>
-      <argument>4dmnT-Q3wg12VuNrBHX6Y2</argument>
-      <argument>/Users/mttwardowski/Desktop/MelodyMunk.com/music-q-webapp/var/cache/dev/pools</argument>
+      <argument>val8Ny-svzt1osTff5iMHE</argument>
+      <argument>/var/www/html/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -4080,7 +4071,7 @@
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstopcommand" alias="web_server.command.server_stop"/>
     <service id="console.command.symfony_bundle_webserverbundle_command_serverstatuscommand" alias="web_server.command.server_status"/>
     <service id="twig.loader" alias="twig.loader.filesystem"/>
-    <service id="service_locator.b8d2046fb854cde05549fb309e1a80d2" alias="1_7a976392b78cbfc5036a32854a59e118f5baee0a41aecefa8e1bba68aa6ff463" public="false"/>
+    <service id="service_locator.b8d2046fb854cde05549fb309e1a80d2" alias="1_49c51e250022ea2c366ae86bda4e77e81eb4eefd522e305fad4a0f3ca75930d8" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
     <service id="controller_resolver" alias="debug.controller_resolver" public="false"/>
     <service id="argument_resolver" alias="debug.argument_resolver" public="false"/>
