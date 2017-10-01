@@ -47,5 +47,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/public/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/generateqr, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/(.*), role: ROLE_USER }
