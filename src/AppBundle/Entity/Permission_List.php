@@ -22,15 +22,22 @@ class Permission_List
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="placeholder", type="string", length=255, nullable=true)
+     */
+    private $placeholder;
+
+
+    /**
      * Many lists have many permissions.
      * @ManyToMany(targetEntity="Permission")
-     * @JoinTable(name="list_permission",
+     * @JoinTable(name="List_Has_Permission",
      *      joinColumns={@JoinColumn(name="list_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="permission_id", referencedColumnName="id")}
      *      )
      */
-    private $placeholder;
-
+    private $permissions;
 
     /**
      * Get id

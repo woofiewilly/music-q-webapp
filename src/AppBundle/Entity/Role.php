@@ -32,6 +32,10 @@ class Role
      * @var int
      *
      * @ORM\Column(name="permission_list", type="integer")
+     *
+     * One role has One permission list.
+     * @OneToOne(targetEntity="Permission_List")
+     * @JoinColumn(name="list_id", referencedColumnName="id")
      */
     private $permissionList;
 

@@ -28,6 +28,15 @@ class Room_Permissions
      */
     private $roomId;
 
+    /**
+     * One room has many roles.
+     * @ManyToMany(targetEntity="Role")
+     * @JoinTable(name="room_roles",
+     *      joinColumns={@JoinColumn(name="room_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="role_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $roles;
 
     /**
      * Get id
