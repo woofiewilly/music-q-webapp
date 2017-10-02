@@ -15,10 +15,10 @@ class Role
 
     // Constants representing Role types
     // Can use self::CONST_NAME to reference inside class
-    const DEF = 0;
-    const ADMIN = 1;
-    const AUTHENTICATED_GUEST = 2;
-    const ANONYMOUS_GUEST = 3;
+    public static $DEFAULT = 0;
+    public static $ADMIN = 1;
+    public static $AUTHENTICATED_GUEST = 2;
+    public static $ANONYMOUS_GUEST = 3;
 
 
     /**
@@ -31,11 +31,11 @@ class Role
     private $id;
 
     /**
-     * @var int
+     * @var \DateTime
      *
-     *
+     * @ORM\Column(name="dateCreated", type="datetime")
      */
-    private $roomId;
+    private $dateCreated;
 
     /**
      * @var int
@@ -44,15 +44,49 @@ class Role
      */
     private $type;
 
+
+
+    /* --- ManyToOne SQL Relationships --- */
+
     /**
-     * Many roles have Many permissions.
-     * @ORM\ManyToMany(targetEntity="Permission")
-     * @ORM\JoinTable(name="role_permissions",
-     *      joinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="perm_id", referencedColumnName="id")}
-     *      )
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
-    private $permissions;
+    private $user;
+
+
+    /**
+     * @var Room
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room")
+     */
+    private $room;
+
+
+    /* --- OneToMany SQL Relationships --- */
+
+    /**
+     * @var RolePermission
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\RolePermission", mappedBy="role")
+     */
+    private $rolePermissions;
+
+
+
+    public function __construct(User $user, Room $room, $type = null) {
+        $this->dateCreated = new \DateTime();
+        $this->user = $user;
+        $this->room = $room;
+        $this->type = $this::$DEFAULT;
+
+        //If Type is passed to constructor set Role Type
+        if ($type) {
+            $this->type = $type;
+        }
+
+    }
 
 
 
@@ -112,6 +146,62 @@ class Role
     public function getPermissionList()
     {
         return $this->permissionList;
+    }
+
+    /**
+     * @return Room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * @param Room $room
+     */
+    public function setRoom($room)
+    {
+        $this->room = $room;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @param \DateTime $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return RolePermission
+     */
+    public function getRolePermissions()
+    {
+        return $this->rolePermissions;
     }
 }
 
