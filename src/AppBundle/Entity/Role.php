@@ -46,41 +46,9 @@ class Role
 
 
 
-    /* --- ManyToOne SQL Relationships --- */
-
-    /**
-     * @var User
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     */
-    private $user;
-
-
-    /**
-     * @var Room
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room")
-     */
-    private $room;
-
-
-    /* --- OneToMany SQL Relationships --- */
-
-    /**
-     * @var RolePermission
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\RolePermission", mappedBy="role")
-     */
-    private $rolePermissions;
-
-
-
-    public function __construct(User $user, Room $room, $type = null) {
+    public function __construct($type = null) {
         $this->dateCreated = new \DateTime();
-        $this->user = $user;
-        $this->room = $room;
         $this->type = $this::$DEFAULT;
-
         //If Type is passed to constructor set Role Type
         if ($type) {
             $this->type = $type;
@@ -124,45 +92,6 @@ class Role
         return $this->type;
     }
 
-    /**
-     * Set permissionList
-     *
-     * @param integer $permissionList
-     *
-     * @return Role
-     */
-    public function setPermissionList($permissionList)
-    {
-        $this->permissionList = $permissionList;
-    
-        return $this;
-    }
-
-    /**
-     * Get permissionList
-     *
-     * @return integer
-     */
-    public function getPermissionList()
-    {
-        return $this->permissionList;
-    }
-
-    /**
-     * @return Room
-     */
-    public function getRoom()
-    {
-        return $this->room;
-    }
-
-    /**
-     * @param Room $room
-     */
-    public function setRoom($room)
-    {
-        $this->room = $room;
-    }
 
     /**
      * @return \DateTime
@@ -180,28 +109,5 @@ class Role
         $this->dateCreated = $dateCreated;
     }
 
-    /**
-     * @return User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param User $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-    /**
-     * @return RolePermission
-     */
-    public function getRolePermissions()
-    {
-        return $this->rolePermissions;
-    }
 }
 

@@ -48,17 +48,6 @@ class Room
 
 
 
-    /* --- OneToMany SQL Relationships --- */
-
-    /**
-     * @var RoomPermission
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\RoomPermission", mappedBy="room")
-     */
-    private $roomPermissions;
-
-
-
     public function __construct(User $roomOwner, $name) {
         $this->dateCreated = new \DateTime();
         $this->roomOwner = $roomOwner;
@@ -125,13 +114,6 @@ class Room
         return $this->dateCreated;
     }
 
-    /**
-     * @return RoomPermission
-     */
-    public function getRoomPermissions()
-    {
-        return $this->roomPermissions;
-    }
 
     /**
      * @return User

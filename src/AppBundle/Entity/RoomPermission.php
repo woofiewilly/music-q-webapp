@@ -34,9 +34,17 @@ class RoomPermission
     /**
      * @var Room
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room", inversedBy="roomPermissions")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room")
      */
     private $room;
+
+
+    /**
+     * @var Role
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role")
+     */
+    private $role;
 
 
     /**
@@ -48,9 +56,10 @@ class RoomPermission
 
 
 
-    public function __construct(Room $room, Permission $permission) {
+    public function __construct(Room $room, Role $role, Permission $permission) {
         $this->dateCreated = new \DateTime();
         $this->room = $room;
+        $this->role = $role;
         $this->permission = $permission;
     }
 
@@ -119,6 +128,22 @@ class RoomPermission
     public function setPermission($permission)
     {
         $this->permission = $permission;
+    }
+
+    /**
+     * @return Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 }
 

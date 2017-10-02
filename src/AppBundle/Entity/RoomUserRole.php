@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * RolePermission
+ * RoomUserRole
  *
- * @ORM\Table(name="role_permission")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\RolePermissionRepository")
+ * @ORM\Table(name="room_user_role")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomUserRoleRepository")
  */
-class RolePermission
+class RoomUserRole
 {
     /**
      * @var int
@@ -29,30 +29,40 @@ class RolePermission
     private $dateCreated;
 
 
-
     /* --- ManyToOne SQL Relationships --- */
+
+
+    /**
+     * @var Room
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room")
+     */
+    private $room;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     */
+    private $user;
+
 
     /**
      * @var Role
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role", inversedBy="rolePermissions")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role")
      */
     private $role;
 
 
-    /**
-     * @var Permission
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Permission")
-     */
-    private $permission;
 
-
-    public function __construct(Role $role, Permission $permission) {
+    public function __construct(Room $room, User $user, Role $role) {
         $this->dateCreated = new \DateTime();
+        $this->user = $user;
         $this->role = $role;
-        $this->permission = $permission;
     }
+
+
 
 
     /**
@@ -70,7 +80,7 @@ class RolePermission
      *
      * @param \DateTime $dateCreated
      *
-     * @return RolePermission
+     * @return RoomUserRole
      */
     public function setDateCreated($dateCreated)
     {
@@ -90,6 +100,38 @@ class RolePermission
     }
 
     /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return Room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * @param Room $room
+     */
+    public function setRoom($room)
+    {
+        $this->room = $room;
+    }
+
+    /**
      * @return Role
      */
     public function getRole()
@@ -103,22 +145,6 @@ class RolePermission
     public function setRole($role)
     {
         $this->role = $role;
-    }
-
-    /**
-     * @return Permission
-     */
-    public function getPermission()
-    {
-        return $this->permission;
-    }
-
-    /**
-     * @param Permission $permission
-     */
-    public function setPermission($permission)
-    {
-        $this->permission = $permission;
     }
 }
 

@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\Role;
+use AppBundle\Entity\Room;
 
 /**
  * RoomPermissionRepository
@@ -10,4 +12,23 @@ namespace AppBundle\Repository;
  */
 class RoomPermissionRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+    /**
+     * Query Function
+     * --------------
+     * Returns all the permissions a role has in a room
+     *
+     * @param Room $room
+     * @param Role $role
+     * @return array
+     */
+    public function getPermissionsForRole(Room $room, Role $role) {
+        $query = $this->createQueryBuilder('permission')
+            ->where('permission.room = :room')
+            ->andWhere('permission.role = :role')
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }
