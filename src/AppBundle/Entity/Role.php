@@ -24,20 +24,27 @@ class Role
     /**
      * @var int
      *
+     *
+     */
+    private $roomId;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="type", type="integer")
      */
     private $type;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="permission_list", type="integer")
-     *
-     * One role has One permission list.
-     * @OneToOne(targetEntity="Permission_List")
-     * @JoinColumn(name="list_id", referencedColumnName="id")
+     * Many roles have Many permissions.
+     * @ORM\ManyToMany(targetEntity="Permission")
+     * @ORM\JoinTable(name="role_permissions",
+     *      joinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="perm_id", referencedColumnName="id")}
+     *      )
      */
-    private $permissionList;
+    private $permissions;
+
 
 
     /**

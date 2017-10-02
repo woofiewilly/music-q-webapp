@@ -30,10 +30,10 @@ class Room_Permissions
 
     /**
      * One room has many roles.
-     * @ManyToMany(targetEntity="Role")
-     * @JoinTable(name="room_roles",
-     *      joinColumns={@JoinColumn(name="room_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="role_id", referencedColumnName="id", unique=true)}
+     * @ORM\ManyToMany(targetEntity="Role")
+     * @ORM\JoinTable(name="room_roles",
+     *      joinColumns={@ORM\JoinColumn(name="room_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id", unique=true)}
      *      )
      */
     private $roles;
