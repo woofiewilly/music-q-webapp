@@ -11,25 +11,26 @@ use Endroid\QrCode\QrCode;
 class QRController extends Controller
 {
     /**
-     * @Route("/generateqr")
+     * @Route("/generateqr/{room_code}")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $room_code)
     {
-        // Get parameter sent with request
+        // TODO: Check that room code is valid first
 
         // Get QR Code from handler function using parameter
-        $qr = $this->generateQR('test');
+        $qr = $this->generateQR($room_code);
 
         // Return the QR code (as an image maybe?)
         header('Content-Type: ' . $qr->getContentType());
-        return $qr->writeString();
 
-//        $response = new Response($qr->writeString(), Response::HTTP_OK, ['Content-Type' => $qr->getContentType()]);
+        // Create response image
+        $response = new Response($qr->writeString(), Response::HTTP_OK, ['Content-Type' => $qr->getContentType()]);
+        return $response;
     }
 
     public function generateQR($url) {
         // TODO: This should come somewhere in the config
-        $base_url = "localhost:8080/";
+        $base_url = "https://localhost:8080/";
         $full_url = $base_url . $url;
 
         $qrCode = new QrCode($full_url);
