@@ -12,6 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Role
 {
+
+    // Constants representing Role types
+    // Can use self::CONST_NAME to reference inside class
+    const DEF = 0;
+    const ADMIN = 1;
+    const AUTHENTICATED_GUEST = 2;
+    const ANONYMOUS_GUEST = 3;
+
+
     /**
      * @var int
      *
