@@ -5,7 +5,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
 
             <p class="centered"><a href="{{ path('my_profile') }}"><img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="60"></a></p>
-            <h5 class="centered">MelodyMunk</h5>
+            <h5 class="centered"><span class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</span></h5>
 
             <li class="mt mm_nav_hover">
                 <a href="{{ path('homepage') }}">

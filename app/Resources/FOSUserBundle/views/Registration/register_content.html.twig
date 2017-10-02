@@ -4,6 +4,11 @@
 <h2 class="form-login-heading">Create MelodyMunk Account</h2>
 
 <div class="login-wrap">
+
+    {{ form_widget(form.firstName, {'attr': { 'class': 'form-control', 'placeholder': 'First Name' } }) }}
+    <br>
+    {{ form_widget(form.lastName, {'attr': { 'class': 'form-control', 'placeholder': 'Last Name' } }) }}
+    <br>
     {{ form_widget(form.email, {'attr': { 'class': 'form-control', 'placeholder': 'Email' } }) }}
     <br>
     {{ form_widget(form.username, {'attr': { 'class': 'form-control', 'placeholder': 'Username' } }) }}
