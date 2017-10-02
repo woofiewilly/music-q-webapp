@@ -1,7 +1,6 @@
 <?php
 
 namespace AppBundle\Repository;
-use AppBundle\Entity\Role;
 use AppBundle\Entity\Room;
 use AppBundle\Entity\User;
 
