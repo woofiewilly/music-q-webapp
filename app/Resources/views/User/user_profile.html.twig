@@ -5,6 +5,190 @@
 
 {% block body %}
 
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="border-head">
+                <h3>My Profile</h3>
+            </div>
+
+
+
+            <!-- START Info Card -->
+            <div class="col-md-3">
+                <div class="darkblue-panel">
+                    <div class="darkblue-header">
+                        <div class="user mt">
+                            <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="80">
+                            <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel">
+                    <div class="col-xs-12">
+
+                        <h4>About Me</h4>
+
+                        {% if user.description %}
+                            <p>{{ user.description }}</p>
+                        {% else %}
+                            <p class="text-center mb">No User Description</p>
+                        {% endif %}
+
+
+
+                        <table class="table table-hover table-borderless">
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-user mm_orange"></i></td>
+                                <td>{{ user.username }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-envelope mm_orange"></i></td>
+                                <td> {{ user.email }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <button class="btn btn-block btn-orange">Edit Profile</button>
+
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+
+            </div>
+            <!-- END Info Card -->
+
+            <div class="col-md-9">
+                <div class="showback">
+                    <h4>My Playlist Rooms</h4>
+                    <br/>
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+
+                    <!-- START Playlist Card -->
+                    <div class="col-xs-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>Playlist</h5>
+                            </div>
+                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 
 
 {% endblock %}
