@@ -25,7 +25,7 @@ class PermissionService {
      * @param $requested_action
      * @return bool Is this user authorized to perform this action?
      */
-    public function action_authorized($user_id, $requested_action) {
+    public function action_authorized($room_id, $user_id, $requested_action) {
 
     }
 
@@ -36,7 +36,7 @@ class PermissionService {
      * @param $role_type
      * @param $permission
      */
-    public function add_permission($role_type, $permission) {
+    public function add_permission($room_id, $role_type, $permission) {
 
     }
 
