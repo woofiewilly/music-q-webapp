@@ -7,11 +7,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RoomPermission
  *
+ *
  * @ORM\Table(name="room_permission")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomPermissionRepository")
  */
 class RoomPermission
 {
+
+    // Constants representing Role types
+    public static $DEFAULT = 0;
+    public static $ADMIN = 1;
+    public static $AUTHENTICATED_GUEST = 2;
+    public static $ANONYMOUS_GUEST = 3;
+
     /**
      * @var int
      *
