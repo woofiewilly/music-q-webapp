@@ -2,11 +2,14 @@
 
 namespace AppBundle\Service;
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityNotFoundException;
+use AppBundle\Entity\Permission;
 use AppBundle\Entity\Room;
+use AppBundle\Entity\RoomPermission;
 use AppBundle\Entity\User;
 use AppBundle\Entity\RoomUserRole;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityNotFoundException;
+
 
 class PermissionService {
 
@@ -37,7 +40,7 @@ class PermissionService {
         // Get user's role
         // Search for link that is linked between room and user
         $user_room_link = $this->db_manager->getRepository('RoomUserRole')
-            ->findBy(array('room' => $room, 'user' => $user));
+            ->findOneBy(array('room' => $room, 'user' => $user));
         if ($user_room_link == null) {
             // TODO: Should we be using a different exception?
             throw new EntityNotFoundException('User is not in this room');
@@ -45,7 +48,9 @@ class PermissionService {
 
         // Might need this repo more than once, so store it
         $rp_repo = $this->db_manager->getRepository('RoomPermission');
-        $permission_entry = $rp_repo->findBy(
+
+        // Get the relevant permission entry
+        $permission_entry = $rp_repo->findOneBy(
                 array('role' => $user_room_link->getRole(),
                     'room' => $room,
                     'permission' => $requested_action
@@ -54,10 +59,24 @@ class PermissionService {
         // Check if permission entry exists for the user's role
         if ($permission_entry == null) {
             // If not, check what the default is
+            $default = $rp_repo->findOneBy(
+                array(
+                    'role' => RoomPermission::$DEFAULT,
+                    'room' => $room,
+                    'permission' => $requested_action
+                )
+            );
 
+            if ($default == null) {
+                // I think this shouldn't happen, because there should always be a default
+                throw new EntityNotFoundException('No entry for user role, and no default set');
+            }
+
+            return $default->getValue() === true; // This action is allowed by default
         }
 
         // Return result
+        return $permission_entry->getValue() === true; // This action is allowed for user's role
     }
 
     /**
