@@ -23,7 +23,6 @@ class QRController extends Controller
         $qr = $this->generateQR($room_code);
 
         // Return the QR code (as an image maybe?)
-        header('Content-Type: ' . $qr->getContentType());
 
         // Create response image
         $response = new Response($qr->writeString(), Response::HTTP_OK, ['Content-Type' => $qr->getContentType()]);
