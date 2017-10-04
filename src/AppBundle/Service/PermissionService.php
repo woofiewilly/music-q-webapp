@@ -86,12 +86,39 @@ class PermissionService {
      * @param $role_type
      * @param $permission
      */
-    public function add_permission($room_id, $role_type, $permission, $value = true) {
-        // Check if permission exists
-            // If it exists, does it match the given value parameter?
-                // If not, update the value
-            // Else nothing needs to be done
+    public function add_permission(Room $room, int $role_type, Permission $permission, bool $value = true) {
+        // Get repo
+        $rp_repo = $this->db_manager->getRepository('RoomPermission');
 
+        // Check if permission exists
+        $old_entry = $rp_repo->findOneBy(
+            array(
+                'room' => $room,
+                'role' => $role_type,
+                'permission' => $permission
+            )
+        );
+
+        // If it exists, does it match the given value parameter?
+        if ($old_entry !== null) {
+
+            if ($old_entry->getValue() !== $value) {
+                // Update value and persist change
+                $old_entry->setValue($value);
+                $this->db_manager->persist($old_entry);
+                $this->db_manager->flush();
+            }
+            /*
+             * At this point, entry already exists and doesn't need to be updated,
+             * or it was just updated. We can now return.
+             */
+            return;
+        }
+
+        // At this point, there is no entry, and we need to make one
+        $new_entry = new RoomPermission($room, $role_type, $permission, $value);
+        $this->db_manager->persist($new_entry);
+        $this->db_manager->flush();
 
     }
 
@@ -102,9 +129,21 @@ class PermissionService {
      * @param $role_type
      * @param $permission
      */
-    public function remove_permission($room_id, $role_type, $permission) {
+    public function remove_permission(Room $room, int $role_type, Permission $permission) {
         // Check if permission exists
-            // If it exists, remove it
+        $old_entry = $this->db_manager->getRepository('RoomPermission')
+            ->findOneBy(
+                array(
+                    'room' => $room,
+                    'role' => $role_type,
+                    'permission' => $permission
+                )
+            );
+        // If it exists, remove it
+        if ($old_entry !== null) {
+            $this->db_manager->remove($old_entry);
+            $this->db_manager->flush();
+        }
     }
 
     /**
