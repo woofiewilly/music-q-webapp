@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
 
   # Symfony server on port 8000, port 8080 is forwarded
   config.vm.network "forwarded_port", guest: 8000, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
