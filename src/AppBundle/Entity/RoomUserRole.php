@@ -48,22 +48,23 @@ class RoomUserRole
 
 
     /**
-     * @var Role
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role")
      */
     private $role;
 
+    /**
+     * @var bool
+     *
+     * Is this user currently active in the room?
+     */
+    private $active;
 
-
-    public function __construct(Room $room, User $user, Role $role) {
+    public function __construct(Room $room, User $user, int $role) {
         $this->dateCreated = new \DateTime();
         $this->user = $user;
         $this->role = $role;
     }
-
-
-
 
     /**
      * Get id
@@ -132,7 +133,7 @@ class RoomUserRole
     }
 
     /**
-     * @return Role
+     * @return int
      */
     public function getRole()
     {
@@ -140,11 +141,27 @@ class RoomUserRole
     }
 
     /**
-     * @param Role $role
+     * @param int $role
      */
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active)
+    {
+        $this->active = $active;
     }
 }
 
