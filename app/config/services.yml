@@ -29,7 +29,12 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+
+
+
+    # Permissions Service
+    melody_munk.permissions:
+          class: AppBundle\Service\PermissionService
+          arguments: ['@doctrine.orm.entity_manager']
+
+
