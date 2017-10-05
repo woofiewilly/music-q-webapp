@@ -23,7 +23,6 @@ class PermissionService {
     public function __construct(EntityManager $em)
     {
         $this->db_manager = $em;
-
     }
 
 
@@ -33,8 +32,6 @@ class PermissionService {
      * @param $requested_action
      * @return bool Is this user authorized to perform this action?
      * @throws EntityNotFoundException
-     * @internal param User $user_id
-     * @internal param $room_id
      */
     public function action_authorized(Room $room, User $user, Permission $requested_action) {
         // Get user's role
@@ -83,8 +80,10 @@ class PermissionService {
      * Add the specified permission to the role type.
      *
      * If permission already exists, ignore.
-     * @param $role_type
-     * @param $permission
+     * @param Room $room
+     * @param int $role_type
+     * @param Permission $permission
+     * @param bool $value
      */
     public function add_permission(Room $room, int $role_type, Permission $permission, bool $value = true) {
         // Get repo
@@ -126,8 +125,9 @@ class PermissionService {
      * Remove specified permission from the role type.
      *
      * If permission doesn't exist, ignore.
-     * @param $role_type
-     * @param $permission
+     * @param Room $room
+     * @param int $role_type
+     * @param Permission $permission
      */
     public function remove_permission(Room $room, int $role_type, Permission $permission) {
         // Check if permission exists
