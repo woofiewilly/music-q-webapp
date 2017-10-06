@@ -1,45 +1,53 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MelodyMunk
- * Date: 10/3/2017
- * Time: 12:35 PM
- */
-
 namespace AppBundle\Entity;
 
-use function Sodium\add;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="guest_recommended_queue")
+ */
 class GuestRecommendedQueue
 {
-    private $recommendedQueue;
-    private $maxSongs;
-    private $currentNum;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var
+     *
+     * @ORM\OneToMany(targetEntity="GuestRecommendedSong", mappedBy="guestRecommendedQueue")
+     */
+    private $songs;
 
     public function __construct(GuestRecommendedSong $guestRecommended = null)
     {
-        $this->recommendedQueue = new GuestRecommendedSong[25];
-        $this->maxSongs = 25;
-        $this->currentNum = 0;
+        $this->songs = new ArrayCollection();
+
         if($guestRecommended != null) {
             $this->addSong($guestRecommended);
         }
     }
 
     public function addSong(GuestRecommendedSong $guestRecommended) {
-        if($this->currentNum >= $this->maxSongs) {
-            $this->expandArray();
-        }
-        $this->recommendedQueue[$this->currentNum] = $guestRecommended;
-        $this->currentNum++;
+        array_push($songs, $guestRecommended);
     }
 
-    private function expandArray(){
-        $temp = new GuestRecommendedSong[$this->maxSongs*2];
-        for($i = 0; $i < $this->maxSongs; $i++) {
-            $temp[$i] = $this->recommendedQueue[$i];
+    //Comparator functions - May not be needed
+    public function updateRank() {
+        usort($this->songs[], "compareByScore");
+    }
+
+    public function compareByScore(GuestRecommendedSong $song1, GuestRecommendedSong $song2) {
+        $diff = $song1->getScore() - $song2->getScore();
+        if($diff == 0) {
+            return 1;
         }
-        $this->recommendedQueue = $temp;
-        $this->maxSongs *= 2;
+        return ($diff > 0) ? 1 : -1;
     }
 }
