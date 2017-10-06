@@ -15,7 +15,7 @@ use Doctrine\ORM\EntityManager;
 class PermissionTestController extends Controller
 {
     /**
-     * @Route("/testperm/query", name="")
+     * @Route("/public/testperm", name="")
      *
      * Send GET parameters
      * room = id of room
@@ -25,7 +25,7 @@ class PermissionTestController extends Controller
      * value = string {'true', 'false'}
      *
      * request_type = {'query' || 'add' || 'remove'}
-     * 
+     *
      * @param Request $request
      * @return Response
      */
