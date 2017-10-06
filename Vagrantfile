@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
 
   # Symfony server on port 8000, port 8080 is forwarded
   config.vm.network "forwarded_port", guest: 8000, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -77,8 +78,8 @@ Vagrant.configure("2") do |config|
     sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
     sudo chmod a+x /usr/local/bin/symfony
 
-    # php-xml needed for symfony
-    sudo apt-get install php-xml -y
+    # php-xml needed for symfony, gd needed for a composer package
+    sudo apt-get install php-xml php7.0-gd -y
 
     # restart apache for good measure
     sudo service apache2 restart

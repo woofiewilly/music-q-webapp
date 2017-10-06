@@ -1711,7 +1711,12 @@ label {
   font-weight: 300; }
 
 .login-wrap {
+<<<<<<< HEAD
   padding: 20px; }
+=======
+  padding: 20px;
+  background: #f8f5ea; }
+>>>>>>> origin/login-reg-ui
 
 .login-wrap .registration {
   text-align: center; }
