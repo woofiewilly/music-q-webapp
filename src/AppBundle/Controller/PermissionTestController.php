@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Service\PermissionService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\User;
@@ -21,12 +22,11 @@ class PermissionTestController extends Controller
      * room = id of room
      * user = id of user
      * permission = name of requested permission
-     *
+     * request_type = {'query' || 'add' || 'remove'}
      *
      */
     public function indexAction(Request $request)
     {
-        // $request->query->get('param_name');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -44,12 +44,28 @@ class PermissionTestController extends Controller
         $user = $em->getRepository('AppBundle\User')
             ->findOneBy($request->query->get('user'));
 
-        // Use permission service to check if allowed
         $permission_service = new PermissionService($em);
-        $result = $permission_service->action_authorized($room, $user, $req_perm);
 
+        switch ($request->query->get('request_type')) {
+
+            case 'query':
+                // Use permission service to check if allowed
+                // Just assuming that previous queries were successful
+                $result = $permission_service->action_authorized($room, $user, $req_perm);
+                break;
+
+            case 'add':
+
+                break;
+
+            case 'remove':
+
+                break;
+
+            default:
+                throw new Exception('Unknown request_type');
+        }
         return new Response($result);
     }
-
 
 }
