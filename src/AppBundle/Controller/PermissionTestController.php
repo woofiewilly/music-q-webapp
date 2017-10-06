@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\User;
@@ -35,21 +36,23 @@ class PermissionTestController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Get the relevant objects
-        $permission = $em->getRepository('AppBundle\Permission')
+        $permission = $em->getRepository('AppBundle:Permission')
             ->findOneBy(
                 array(
                     'name' => $request->query->get('permission')
                 )
             );
 
-        $room = $em->getRepository('AppBundle\Room')
-            ->findOneBy($request->query->get('room'));
+        $room = $em->getRepository('AppBundle:Room')
+            ->find((int) $request->query->get('room'));
 
-        $user = $em->getRepository('AppBundle\User')
-            ->findOneBy($request->query->get('user'));
+        $user = $em->getRepository('AppBundle:User')
+            ->find((int) $request->query->get('user'));
 
         $permission_service = $this->get('melody_munk.permissions');
+
         $result = 'Request done';
+
         switch ($request->query->get('request_type')) {
 
             case 'query':
@@ -69,6 +72,7 @@ class PermissionTestController extends Controller
 
             default:
                 throw new Exception('Unknown request_type');
+                break;
         }
         return new Response($result);
     }

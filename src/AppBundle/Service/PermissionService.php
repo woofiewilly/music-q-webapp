@@ -36,7 +36,7 @@ class PermissionService {
     public function action_authorized(Room $room, User $user, Permission $requested_action) {
         // Get user's role
         // Search for link that is linked between room and user
-        $user_room_link = $this->db_manager->getRepository('RoomUserRole')
+        $user_room_link = $this->db_manager->getRepository('AppBundle:RoomUserRole')
             ->findOneBy(array('room' => $room, 'user' => $user));
         if ($user_room_link == null) {
             // TODO: Should we be using a different exception?
@@ -87,7 +87,7 @@ class PermissionService {
      */
     public function add_permission(Room $room, int $role_type, Permission $permission, bool $value = true) {
         // Get repo
-        $rp_repo = $this->db_manager->getRepository('RoomPermission');
+        $rp_repo = $this->db_manager->getRepository('AppBundle:RoomPermission');
 
         // Check if permission exists
         $old_entry = $rp_repo->findOneBy(
@@ -131,7 +131,7 @@ class PermissionService {
      */
     public function remove_permission(Room $room, int $role_type, Permission $permission) {
         // Check if permission exists
-        $old_entry = $this->db_manager->getRepository('RoomPermission')
+        $old_entry = $this->db_manager->getRepository('AppBundle:RoomPermission')
             ->findOneBy(
                 array(
                     'room' => $room,

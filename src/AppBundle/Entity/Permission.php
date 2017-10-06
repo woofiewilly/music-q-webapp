@@ -37,6 +37,9 @@ class Permission
 
 
     /**
+     * This field currently obsolete, but if we have a static set of permissions, we can
+     * simplify permission setting relations
+     *
      * @var int
      *
      * @ORM\Column(name="type", type="integer")
