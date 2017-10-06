@@ -169,7 +169,7 @@ class RoomPermission
     /**
      * @return bool
      */
-    public function isValue()
+    public function getValue()
     {
         return $this->value;
     }

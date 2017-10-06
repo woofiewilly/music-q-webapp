@@ -62,12 +62,12 @@ class PermissionTestController extends Controller
                 break;
 
             case 'add':
-                $permission_service->add_permission($room, $request->query->get('role_type'),
+                $permission_service->add_permission($room, $request->query->get('role'),
                     $permission, ($request->query->get('value') === 'true' ));
                 break;
 
             case 'remove':
-                $permission_service->remove_permission($room, $request->query->get('role_type'), $permission);
+                $permission_service->remove_permission($room, $request->query->get('role'), $permission);
                 break;
 
             default:

@@ -44,7 +44,7 @@ class PermissionService {
         }
 
         // Might need this repo more than once, so store it
-        $rp_repo = $this->db_manager->getRepository('RoomPermission');
+        $rp_repo = $this->db_manager->getRepository('AppBundle:RoomPermission');
 
         // Get the relevant permission entry
         $permission_entry = $rp_repo->findOneBy(
