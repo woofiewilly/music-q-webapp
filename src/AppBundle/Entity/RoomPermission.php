@@ -70,6 +70,7 @@ class RoomPermission
      * @var bool
      *
      * Is this permission specifically allowed or disallowed?
+     * @ORM\Column(name="value", type="boolean")
      */
     private $value;
 
