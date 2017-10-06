@@ -58,6 +58,7 @@ class RoomUserRole
      * @var bool
      *
      * Is this user currently active in the room?
+     * @ORM\Column(name="active", type="boolean")
      */
     private $active;
 
@@ -65,6 +66,7 @@ class RoomUserRole
         $this->dateCreated = new \DateTime();
         $this->user = $user;
         $this->role = $role;
+        $this->active = false;
     }
 
     /**
