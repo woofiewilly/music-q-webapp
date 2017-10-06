@@ -66,13 +66,19 @@ class RoomPermission
      */
     private $permission;
 
+    /**
+     * @var bool
+     *
+     * Is this permission specifically allowed or disallowed?
+     */
+    private $value;
 
-
-    public function __construct(Room $room, int $role, Permission $permission) {
+    public function __construct(Room $room, int $role, Permission $permission, bool $value = true) {
         $this->dateCreated = new \DateTime();
         $this->room = $room;
         $this->role = $role;
         $this->permission = $permission;
+        $this->value = $value;
     }
 
 
@@ -156,6 +162,23 @@ class RoomPermission
     public function setRole(int $role)
     {
         $this->role = $role;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param bool $value
+     */
+    public function setValue(bool $value)
+    {
+        $this->value = $value;
     }
 }
 
