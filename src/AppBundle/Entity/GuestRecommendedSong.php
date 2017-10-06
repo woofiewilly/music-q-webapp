@@ -8,18 +8,19 @@
 
 namespace AppBundle\Entity;
 
+//TODO: Create entity to hold recommended songs
 
 class GuestRecommendedSong
 {
-    private $spotifyId;
+    private $spotifyId;//ID used by Spotify for song
 
-    private $upVotes;
+    private $upVotes;//Number of upvotes given to a song
 
-    private $score;
+    private $score;//Score based off upvotes and time of request
 
-    private $timeRequested;
+    private $timeRequested;//time requested relative to set date
 
-    private $songName;
+    private $songName;//name of song retrieved from Spotify
 
     public function __construct($spotifyId)
     {
@@ -87,11 +88,17 @@ class GuestRecommendedSong
     }
 
 
+    /**
+     * Called when score needs to be updated. Uses same algo in constructor
+     */
     public function updateScore() {
         $this->score = log10($this->upVotes) + $this->timeRequested/300;//Logarithmic scale for increasing score with additional points for each 5 minutes passed
     }
 
-    public function increaseUpVotes() {
+    /**
+     * Called when upvotes have been increased
+     */
+    public function incrementUpVotes() {
         $this->upVotes++;
         $this->updateScore();
     }
