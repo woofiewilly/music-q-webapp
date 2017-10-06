@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Service\PermissionService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -21,9 +20,14 @@ class PermissionTestController extends Controller
      * Send GET parameters
      * room = id of room
      * user = id of user
-     * permission = name of requested permission
-     * request_type = {'query' || 'add' || 'remove'}
+     * permission = name of permission
+     * role_type = integer role type
+     * value = string {'true', 'false'}
      *
+     * request_type = {'query' || 'add' || 'remove'}
+     * 
+     * @param Request $request
+     * @return Response
      */
     public function indexAction(Request $request)
     {
@@ -31,7 +35,7 @@ class PermissionTestController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // Get the relevant objects
-        $req_perm = $em->getRepository('AppBundle\Permission')
+        $permission = $em->getRepository('AppBundle\Permission')
             ->findOneBy(
                 array(
                     'name' => $request->query->get('permission')
@@ -44,22 +48,23 @@ class PermissionTestController extends Controller
         $user = $em->getRepository('AppBundle\User')
             ->findOneBy($request->query->get('user'));
 
-        $permission_service = new PermissionService($em);
-
+        $permission_service = $this->get('melody_munk.permissions');
+        $result = 'Request done';
         switch ($request->query->get('request_type')) {
 
             case 'query':
                 // Use permission service to check if allowed
                 // Just assuming that previous queries were successful
-                $result = $permission_service->action_authorized($room, $user, $req_perm);
+                $result = $permission_service->action_authorized($room, $user, $permission);
                 break;
 
             case 'add':
-
+                $permission_service->add_permission($room, $request->query->get('role_type'),
+                    $permission, ($request->query->get('value') === 'true' ));
                 break;
 
             case 'remove':
-
+                $permission_service->remove_permission($room, $request->query->get('role_type'), $permission);
                 break;
 
             default:
