@@ -48,15 +48,15 @@ class RoomUserRole
 
 
     /**
-     * @var Role
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role")
+     * @ORM\Column(name="role", type="integer")
      */
     private $role;
 
 
 
-    public function __construct(Room $room, User $user, Role $role) {
+    public function __construct(Room $room, User $user, int $role) {
         $this->dateCreated = new \DateTime();
         $this->user = $user;
         $this->role = $role;
@@ -132,7 +132,7 @@ class RoomUserRole
     }
 
     /**
-     * @return Role
+     * @return int
      */
     public function getRole()
     {
@@ -140,7 +140,7 @@ class RoomUserRole
     }
 
     /**
-     * @param Role $role
+     * @param int $role
      */
     public function setRole($role)
     {
