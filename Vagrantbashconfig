@@ -1,3 +1,6 @@
+# This script is sourced by the virtual machine when you are ssh'ed. If you change this, it will affect
+# the .bashrc configuration without
+
 # Most of this script is borrowed from
 # https://coderwall.com/p/oooszg/vagrant-tweaks-to-make-it-more-like-your-local-command-line-app
 
@@ -7,7 +10,7 @@ PS1="\[\e[32m\]\u\[\e[m\]\[\e[34m\]@\[\e[m\]\[\e[31m\]VIRTUALMACHINE\[\e[m\]\[\e
 #########################
 # Misc
 #########################
-alias ls="ls -l"
+# alias ls="ls -l"
 
 #########################
 # CD BACKSLASH SHORTHAND
@@ -20,7 +23,7 @@ alias .....='cd ../../../../'
 #########################
 # Project shortcuts
 #########################
-alias webfolder='cd ~/project'
+alias project='cd ~/project'
 alias server_start='php ~/project/bin/console server:start 0.0.0.0:8000'
 alias server_stop='php ~/project/bin/console server:stop'
 # Placeholders; scss folders not set up yet. Just change to proper paths

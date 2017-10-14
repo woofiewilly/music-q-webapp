@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install composer -y
 
     # After composer installed, build composer dependencies
-    cd /var/www/html/
+    cd /home/ubuntu/project/
     composer install
 
     # Installing SASS for css compiling
@@ -96,7 +96,12 @@ Vagrant.configure("2") do |config|
 
 
     # Add .bashrc to the VM user
-    # cat /var/www/html/Vagrantbashconfig >> /home/ubuntu/.bashrc
+    rm /home/ubuntu/.bashrc
+    echo "source ~/project/Vagrantbashconfig" >> /home/ubuntu/.bashrc
+
+    # Use the custom php.ini by copying it over
+    rm /etc/php/7.0/cli/php.ini
+    cp /home/ubuntu/project/Vagrantphpini /etc/php/7.0/cli/php.ini
 
     # After everything is installed, upgrade to latest versions
     # Would this be bad practice since working version of library might
