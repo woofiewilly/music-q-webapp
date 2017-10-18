@@ -23,7 +23,7 @@ $(function() {
             },
             success: function(response) {
                 console.log(response);
-                window.location.reload();
+                window.location.assign('/playlist_page/' + response.playlistID);
             }
 
         })

@@ -1,0 +1,28 @@
+{% extends ":Auth:auth_base.html.twig" %}
+
+
+{% block title %}Join a room{% endblock %}
+
+
+{% block stylesheets %} {% endblock %}
+
+
+{% block fos_user_content %}
+
+
+<div class = "form-login">
+    <h2 class="form-login-heading">Do you want to join this room?</h2>
+    <div class="login-wrap">
+
+        <img src="/web/img/ny.jpg">
+
+        <h3>The Best Partay</h3>
+
+        <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required="required">
+        <br>
+
+        <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"><i class="fa fa-lock"></i> JOIN</button>
+
+    </div>
+</div>
+{% endblock %}

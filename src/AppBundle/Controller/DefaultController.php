@@ -19,13 +19,23 @@ class DefaultController extends Controller
         $playlists = $this->getDoctrine()->getRepository('AppBundle:Playlist')->findAll();
 
 
+        $permissionService = $this->get('melodymunk.permissions');
+
+
+
+
         // replace this example code with whatever you need
         return $this->render(':home:home.html.twig', array(
             'playlists' => $playlists,
         ));
     }
 
-
+    /**
+     * @Route("/public/ui", name="testui")
+     */
+    public function uiTest(Request $request) {
+      return $this->render(':home:test.html.twig');
+    }
 
 
 
