@@ -4,8 +4,9 @@ parameters:
     #parameter_name: value
 
 services:
+
     # Permissions Service
-    melody_munk.permissions:
+    melodymunk.permissions:
           class: AppBundle\Service\PermissionService
           arguments: ['@doctrine.orm.entity_manager']
 
