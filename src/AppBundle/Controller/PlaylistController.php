@@ -22,8 +22,11 @@ class PlaylistController extends Controller
 
         //TODO: FIND PLAYLISTS
 
+
+        $playlist = $this->getDoctrine()->getRepository('AppBundle:Playlist')->find($variable);
+
         return $this->render(':playlists:playlist.html.twig', array(
-            'testingVar' => $variable
+            'playlist' => $playlist
         ));
     }
 
@@ -61,6 +64,7 @@ class PlaylistController extends Controller
             return new JsonResponse(array(
                 'success' => true,
                 'message' => 'Playlist was created!',
+                'playlistID' => $playlist->getId(),
             ));
         }
 
