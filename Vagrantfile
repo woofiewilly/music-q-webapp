@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
 
   # Symfony server on port 8000, port 8080 is forwarded
   config.vm.network "forwarded_port", guest: 8000, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -39,7 +40,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/var/www/html", user: "www-data", group: "www-data"
+  config.vm.synced_folder ".", "/home/ubuntu/project/", user: "www-data", group: "www-data", type: "nfs"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -87,7 +88,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install composer -y
 
     # After composer installed, build composer dependencies
-    cd /var/www/html/
+    cd /home/ubuntu/project/
     composer install
 
     # Installing SASS for css compiling
@@ -95,7 +96,12 @@ Vagrant.configure("2") do |config|
 
 
     # Add .bashrc to the VM user
-    # cat /var/www/html/Vagrantbashconfig >> /home/ubuntu/.bashrc
+    rm /home/ubuntu/.bashrc
+    echo "source ~/project/Vagrantbashconfig" >> /home/ubuntu/.bashrc
+
+    # Use the custom php.ini by copying it over
+    rm /etc/php/7.0/cli/php.ini
+    cp /home/ubuntu/project/Vagrantphpini /etc/php/7.0/cli/php.ini
 
     # After everything is installed, upgrade to latest versions
     # Would this be bad practice since working version of library might

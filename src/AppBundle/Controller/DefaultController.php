@@ -30,7 +30,12 @@ class DefaultController extends Controller
         ));
     }
 
-
+    /**
+     * @Route("/public/ui", name="testui")
+     */
+    public function uiTest(Request $request) {
+      return $this->render(':home:test.html.twig');
+    }
 
 
 

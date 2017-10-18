@@ -7,11 +7,14 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RoomPermission
  *
+ * Map a permission to a room for a given role.
+ *
  * @ORM\Table(name="room_permission")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomPermissionRepository")
  */
 class RoomPermission
 {
+
     /**
      * @var int
      *
@@ -39,10 +42,19 @@ class RoomPermission
     private $room;
 
 
+
+    // Constants representing Role types
+    public static $DEFAULT = 0;
+    public static $ADMIN = 1;
+    public static $AUTHENTICATED_GUEST = 2;
+    public static $ANONYMOUS_GUEST = 3;
+
     /**
-     * @var Role
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Role")
+     * This should be one of the valid role type constants
+     *
+     * @ORM\Column(name="role", type="integer")
      */
     private $role;
 
@@ -54,13 +66,20 @@ class RoomPermission
      */
     private $permission;
 
+    /**
+     * @var bool
+     *
+     * Is this permission specifically allowed or disallowed?
+     * @ORM\Column(name="value", type="boolean")
+     */
+    private $value;
 
-
-    public function __construct(Room $room, Role $role, Permission $permission) {
+    public function __construct(Room $room, int $role, Permission $permission, bool $value = true) {
         $this->dateCreated = new \DateTime();
         $this->room = $room;
         $this->role = $role;
         $this->permission = $permission;
+        $this->value = $value;
     }
 
 
@@ -131,7 +150,7 @@ class RoomPermission
     }
 
     /**
-     * @return Role
+     * @return int
      */
     public function getRole()
     {
@@ -139,11 +158,28 @@ class RoomPermission
     }
 
     /**
-     * @param Role $role
+     * @param int $role
      */
-    public function setRole($role)
+    public function setRole(int $role)
     {
         $this->role = $role;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param bool $value
+     */
+    public function setValue(bool $value)
+    {
+        $this->value = $value;
     }
 }
 

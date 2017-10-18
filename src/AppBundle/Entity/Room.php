@@ -35,6 +35,15 @@ class Room
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * Unique room code for URL prefix
+     *
+     * TODO: how to make unique constraint?
+     * @ORM\Column(name="room_code", type="string", length=6)
+     */
+    private $room_code;
 
     /* --- ManyToOne SQL Relationships --- */
 
@@ -112,6 +121,22 @@ class Room
     public function getDateCreated()
     {
         return $this->dateCreated;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoomCode()
+    {
+        return $this->room_code;
+    }
+
+    /**
+     * @param string $room_code
+     */
+    public function setRoomCode(string $room_code)
+    {
+        $this->room_code = $room_code;
     }
 
 
