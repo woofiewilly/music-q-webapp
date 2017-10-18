@@ -11,7 +11,7 @@ ubuntu-*
 # Email spool folder
 /app/spool/*
 
-/var/*
+var/
 
 # Composer packages
 vendor/

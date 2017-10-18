@@ -1,0 +1,40 @@
+
+
+/* --- MAIN NAVBAR CSS --- */
+.mm_nav_hover:hover {
+    background-color:  #fed67e;
+}
+
+.mm_nav_break {
+    width: 80%;
+    border-color: #5e697f;
+}
+
+/* --- TEXT CSS --- */
+.mm_orange {
+    color: #fed67e;
+}
+
+
+/* --- PROFILE CSS --- */
+
+.profile_info {
+    padding-left: 2px;
+}
+
+.profile_info_item {
+    padding-top: 2rem;
+}
+
+.info_icon {
+    font-size: 2rem;
+    color: #fed67e;
+    text-align: center;
+    margin: auto;
+    padding-right: 2rem;
+    padding-left: 1rem;
+}
+
+.btn-orange {
+    background-color:  #fed67e;
+}
