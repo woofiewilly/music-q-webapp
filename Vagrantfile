@@ -78,8 +78,8 @@ Vagrant.configure("2") do |config|
     sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
     sudo chmod a+x /usr/local/bin/symfony
 
-    # php-xml needed for symfony, gd needed for a composer package
-    sudo apt-get install php-xml php7.0-gd -y
+    # php-xml needed for symfony, gd needed for a composer package, curl is need for spotify package
+    sudo apt-get install php-xml php7.0-gd php7.0-curl -y
 
     # restart apache for good measure
     sudo service apache2 restart
