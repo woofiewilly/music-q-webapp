@@ -1,10 +1,14 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends ":Auth:auth_base.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
-    {% endif %}
+    <h2 class="form-login-heading">MelodyMunk Account Created</h2>
+
+    <div class="login-wrap">
+
+
+        <a href="{{ path('homepage') }}">Go to Homepage</a>
+
+    </div>
 {% endblock fos_user_content %}
