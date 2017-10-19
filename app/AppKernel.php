@@ -40,20 +40,12 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/cache/' .  $this->environment;
-        }
-
-        return parent::getCacheDir();
+        return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
 
     public function getLogDir()
     {
-        if (in_array($this->environment, array('dev', 'test'))) {
-            return '/dev/shm/appname/logs';
-        }
-
-        return parent::getLogDir();
+        return dirname(__DIR__).'/var/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
