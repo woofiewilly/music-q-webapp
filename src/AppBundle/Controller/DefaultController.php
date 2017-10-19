@@ -14,6 +14,8 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
+        //Get Current User
+        $user = $this->getUser();
 
         //Get All Playlists from DB
         $playlists = $this->getDoctrine()->getRepository('AppBundle:Playlist')->findAll();
@@ -22,11 +24,10 @@ class DefaultController extends Controller
         $permissionService = $this->get('melodymunk.permissions');
 
 
-
-
         // replace this example code with whatever you need
         return $this->render(':home:home.html.twig', array(
             'playlists' => $playlists,
+            'user' => $user
         ));
     }
 
