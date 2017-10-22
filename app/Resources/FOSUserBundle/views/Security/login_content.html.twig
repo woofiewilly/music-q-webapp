@@ -4,7 +4,6 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-
 <form class="form-login" action="{{ path("fos_user_security_check") }}" method="post">
     <h2 class="form-login-heading">sign in now</h2>
     <div class="login-wrap">
@@ -13,7 +12,7 @@
         <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required="required">
         <label class="checkbox">
             <span class="pull-left">
-                <label>
+                <label> <!-- why does this label exist? -->
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                     Remember Me
                 </label>

@@ -56,7 +56,10 @@
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+	"process-timeout": 600,
+	"preferred-install": "dist",
+	"github-protocols": ["https"]
     },
     "extra": {
         "symfony-app-dir": "app",
