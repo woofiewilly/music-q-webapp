@@ -7,20 +7,19 @@
 <form class="form-login" action="{{ path("fos_user_security_check") }}" method="post">
     <h2 class="form-login-heading">sign in now</h2>
     <div class="login-wrap">
-        <input type="text" id="username" name="_username" class="form-control" placeholder="User ID" autofocus required="required">
+        <input type="text" class="form-control" id="username" name="_username"  placeholder="User ID" autofocus required="required">
         <br>
         <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required="required">
-        <label class="checkbox">
-            <span class="pull-left">
-                <label> <!-- why does this label exist? -->
-                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    Remember Me
-                </label>
-            </span>
-            <span class="pull-right">
-                <a data-toggle="modal" href="#"> Forgot Password?</a>
-            </span>
-        </label>
+        <span class="pull-left">
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">Remember Me</label>
+        </span>
+        <span class="pull-right">
+            <a data-toggle="modal" href="#"> Forgot Password?</a>
+
+
+
+        </span>
         <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
         <hr>
 
