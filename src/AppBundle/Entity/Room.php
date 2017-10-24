@@ -45,6 +45,22 @@ class Room
      */
     private $room_code;
 
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="blacklist_id", referencedColumnName="id")
+     */
+    private $blacklist;
+
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="whitelist_id", referencedColumnName="id")
+     */
+    private $whitelist;
+
     /* --- ManyToOne SQL Relationships --- */
 
 
@@ -61,9 +77,9 @@ class Room
         $this->dateCreated = new \DateTime();
         $this->roomOwner = $roomOwner;
         $this->name = $name;
+        $this->blacklist = new UserList();
+        $this->whitelist = new UserList();
     }
-
-
 
     /**
      * Get id
@@ -155,5 +171,69 @@ class Room
     {
         $this->roomOwner = $roomOwner;
     }
+
+
+    /**
+     * @return UserList
+     */
+    public function getBlacklist()
+    {
+        return $this->blacklist;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function addToBlacklist(User $user)
+    {
+        $this->blacklist->addUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function removeFromBlacklist(User $user) {
+        $this->blacklist->removeUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function isBlacklisted(User $user) {
+        return $this->blacklist->userInList($user);
+    }
+
+    /**
+     * @param User $user
+     * @return Room
+     */
+    public function addToWhitelist(User $user)
+    {
+        $this->whitelist->addUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function removeFromWhitelist(User $user) {
+        $this->whitelist->removeUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function isWhitelisted(User $user) {
+        return $this->whitelist->userInList($user);
+    }
+
 }
 
