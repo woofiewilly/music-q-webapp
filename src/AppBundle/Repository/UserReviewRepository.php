@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\User;
 
 /**
  * UserReviewRepository
@@ -10,4 +11,28 @@ namespace AppBundle\Repository;
  */
 class UserReviewRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+    /**
+     * User Review Query
+     * -----------------
+     * Gets all the user reviews for the user provided into params
+     *
+     * @param User $user
+     * @return array
+     */
+    public function getAllReviewsForUser(User $user) {
+
+        $query = $this->createQueryBuilder('review')
+            ->where('review.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('review.dateCreated', 'DESC')
+            ->getQuery();
+
+
+        return $query->getResult();
+
+    }
+
+
 }

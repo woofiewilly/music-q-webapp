@@ -80,12 +80,16 @@
                     <div class="task-content">
                         <ul id="sortable" class="task-list ui-sortable">
 
-                            <li class="list-info">
-                                <div class="task-title">
-                                    <h4><span class="task-title-sp">Review User Name</span></h4>
-                                </div>
-                                <p>Testing review content view</p>
-                            </li>
+
+                            {% for review in reviews %}
+                                <li class="list-info">
+                                    <div class="task-title">
+                                        <h4><span class="task-title-sp">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</span></h4>
+                                        <span class="task-title-sp">{{ review.dateCreated | date }}</span>
+                                    </div>
+                                    <p>{{ review.content }}</p>
+                                </li>
+                            {% endfor %}
 
 
 
