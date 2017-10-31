@@ -160,7 +160,7 @@ class RoomPermission
     /**
      * @param int $role
      */
-    public function setRole(int $role)
+    public function setRole($role)
     {
         $this->role = $role;
     }
@@ -177,7 +177,7 @@ class RoomPermission
     /**
      * @param bool $value
      */
-    public function setValue(bool $value)
+    public function setValue($value)
     {
         $this->value = $value;
     }

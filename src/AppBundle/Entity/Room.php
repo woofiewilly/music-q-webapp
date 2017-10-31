@@ -63,6 +63,10 @@ class Room
 
     /* --- ManyToOne SQL Relationships --- */
 
+    //TODO: Connect with route to database
+    //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
+    private $roomMode;
+
 
     /**
      * @var User
@@ -79,6 +83,7 @@ class Room
         $this->name = $name;
         $this->blacklist = new UserList();
         $this->whitelist = new UserList();
+        $this->roomMode = 0;
     }
 
     /**
@@ -233,6 +238,22 @@ class Room
      */
     public function isWhitelisted(User $user) {
         return $this->whitelist->userInList($user);
+    }
+
+    public function setRoomMode($mode) {
+        $this->roomMode = $mode;
+    }
+
+    public function setModeBlacklist() {
+        $this->setRoomMode(-1);
+    }
+
+    public function setModeWhitelist() {
+        $this->setRoomMode(1);
+    }
+
+    public function setModeNeither() {
+        $this->roomMode(0);
     }
 
 }
