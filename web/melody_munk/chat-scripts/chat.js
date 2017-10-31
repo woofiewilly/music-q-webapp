@@ -1,4 +1,6 @@
-
+$(document).ready(function() {
+    alert('test');
+});
 // This object will be sent everytime you submit a message in the sendMessage function.
 var clientInformation = {
     username: new Date().getTime().toString()
