@@ -22,6 +22,7 @@ class PlaylistController extends Controller
 
         //TODO: FIND PLAYLISTS
 
+        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findBy(array('room_code' => $variable));
 
         $playlist = $this->getDoctrine()->getRepository('AppBundle:Playlist')->find($variable);
 
@@ -29,6 +30,8 @@ class PlaylistController extends Controller
             'playlist' => $playlist
         ));
     }
+
+
 
 
     /**
