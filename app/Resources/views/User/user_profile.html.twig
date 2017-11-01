@@ -17,7 +17,7 @@
             <!-- START Info Card -->
             <div class="col-md-3">
                 <div class="darkblue-panel">
-                    <div class="darkblue-header">
+                    <div class="mm_profile_header">
                         <div class="user mt">
                             {% if user.imageURL %}
                                 <img src="{{ user.imageURL }}" class="img-circle" width="80">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="panel">
+                <div class="panel mm_profile_info_panel">
                     <div class="col-xs-12">
 
                         <h4>About Me</h4>
@@ -60,7 +60,7 @@
                     </div>
 
                     <a href="{{ path('profile_settings') }}">
-                        <button class="btn btn-block btn-orange">Edit Profile</button>
+                        <button class="btn btn-block btn_edit_profile">Edit Profile</button>
                     </a>
 
 
@@ -74,26 +74,33 @@
 
             <div class="col-md-9">
                 <div class="showback">
-                    <h4>My Reviews</h4>
+
+                    <div class="mm_page_header">
+                        <h3 class="no-padding">My Reviews</h3>
+                    </div>
+
                     <br/>
 
-                    <div class="task-content">
-                        <ul id="sortable" class="task-list ui-sortable">
-
+                    <div class="mm_review">
 
                             {% for review in reviews %}
-                                <li class="list-info">
-                                    <div class="task-title">
-                                        <h4><span class="task-title-sp">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</span></h4>
-                                        <span class="task-title-sp">{{ review.dateCreated | date }}</span>
+                                <div class="desc">
+                                    <div class="thumb">
+                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
                                     </div>
-                                    <p>{{ review.content }}</p>
-                                </li>
+                                    <div class="details">
+                                        <p><a href="#">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</a></p>
+                                        <p><muted>Review Submitted: {{ review.dateCreated | date }}</muted></p>
+                                        <div class="content">
+                                            <p>{{ review.content }}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
                             {% endfor %}
 
 
 
-                        </ul>
                     </div>
 
 

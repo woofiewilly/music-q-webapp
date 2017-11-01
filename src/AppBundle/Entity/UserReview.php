@@ -60,6 +60,7 @@ class UserReview
         $this->dateCreated = new \DateTime();
         $this->user = $user;
         $this->reviewUser = $reviewUser;
+        $this->content = $content;
     }
 
 
