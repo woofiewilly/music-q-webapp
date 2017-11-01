@@ -1,6 +1,4 @@
-$(document).ready(function() {
-    alert('test');
-});
+
 // This object will be sent everytime you submit a message in the sendMessage function.
 var clientInformation = {
     username: new Date().getTime().toString()
@@ -13,7 +11,7 @@ var clientInformation = {
  * According to the configuration in Sockets/Chat.php , change the port if you need to.
  * @type WebSocket
  */
-var conn = new WebSocket('ws://localhost:8081');
+var conn = new WebSocket('ws://localhost:8081/chatserv');
 
 conn.onopen = function(e) {
     console.info("Connection established succesfully");
@@ -27,6 +25,7 @@ conn.onmessage = function(e) {
 };
 
 conn.onerror = function(e){
+    // TODO: Change error showing method
     alert("Error: something went wrong with the socket.");
     console.error(e);
 };
@@ -51,7 +50,7 @@ var Chat = {
     appendMessage: function(username,message){
         var from;
 
-        if(username == clientInformation.username){
+        if(username === clientInformation.username){
             from = "me";
         }else{
             from = clientInformation.username;
