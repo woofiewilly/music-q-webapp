@@ -38,7 +38,8 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-  background: #86DEB7; }
+  background: #fbbe55;
+}
 
 .modal-title {
   color: white; }
@@ -89,20 +90,22 @@ a, a:hover, a:focus {
   background-color: #5ed39f;
   border-color: #83e5d5; }
 
-/*
+
 .btn-theme02 {
-  color: #fff;
-  background-color: #ac92ec;
-  border-color: #967adc;
+  color: #fbbe55;
+  font-weight: 600;
+  background-color: rgba(255, 194, 85, 0.15);
+  border: 2px solid #fbbe55;
 }
+
 .btn-theme02:hover,
 .btn-theme02:focus,
 .btn-theme02:active,
 .btn-theme02.active,
 .open .dropdown-toggle.btn-theme02 {
   color: #fff;
-  background-color: #967adc;
-  border-color: #967adc;
+  background-color: #fdd584;
+  border-color: #fdd584;
 }
 
 .btn-theme03 {
@@ -134,7 +137,7 @@ a, a:hover, a:focus {
   background-color: #da4453;
   border-color: #da4453;
 }
-*/
+
 .btn-clear-g {
   color: #48bcb4;
   background: transparent;
@@ -1713,6 +1716,7 @@ label {
 .login-wrap {
   padding: 20px;
 }
+
 
 .login-wrap .registration {
   text-align: center; }

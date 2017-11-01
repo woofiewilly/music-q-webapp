@@ -4,7 +4,7 @@ $(function() {
     //Input fields
     var playlist_name = $('#playlist_name_content');
 
-    var playlist_submit = $('#playlist_add_submit');
+    var playlist_submit = $('#mm_create_room_submit');
 
 
     playlist_submit.on('click', function() {
