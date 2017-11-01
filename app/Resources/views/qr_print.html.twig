@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}QR Code{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        img {
+            width: 100px;
+            margin: auto;
+            /* vertically center */
+        }
+
+        #menu {
+            background-color: gray;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        @media print {
+            #menu {
+                display: none !important;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <ul id="menu">
+        <li><button>Small</button></li>
+        <li><button>Medium</button></li>
+        <li><button>Large</button></li>
+        <li><button>Print</button></li>
+    </ul>
+    <img src="/generateqr/{{ room_code }}" alt="QR Code for Room">
+
+{% endblock %}
+// Does the above string insertion protect from XSS?
+
+{% block javascripts %}
+    <script>
+
+    </script>
+{% endblock %}

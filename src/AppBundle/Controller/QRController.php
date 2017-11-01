@@ -30,6 +30,17 @@ class QRController extends Controller
     }
 
     /**
+     *
+     * @Route("/printqr/{room_code}")
+     */
+    public function printQR($room_code) {
+
+        return $this->render('qr_print.html.twig', array(
+            'room_code' => $room_code
+        ));
+    }
+
+    /**
      * Pass in the room code, it will generate qr code for the full web URL to the room
      *
      * @param $room_code
