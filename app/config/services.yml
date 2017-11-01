@@ -11,6 +11,10 @@ services:
           arguments: ['@doctrine.orm.entity_manager']
 
 
+    #Security Service
+    melodymunk.security:
+          class: AppBundle\Service\SecurityService
+
     greek_row_api.amazon_s3:
         class: Aws\S3\S3Client
         factory_class: Aws\S3\S3Client

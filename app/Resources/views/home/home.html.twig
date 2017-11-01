@@ -125,12 +125,14 @@
                     <h4 class="modal-title" id="myModalLabel">Create MelodyMunk Room</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal style-form" method="get">
+                    {{ form_start(newRoomForm, { attr: {'class': 'form-horizontal style-form'} } ) }}
+
 
                         <div class="form-group">
                             <label class="col-sm-3 col-sm-3 control-label">Room Name</label>
                             <div class="col-sm-9">
-                                <input id="playlist_name_content" type="text" class="form-control round-form" placeholder="Add Playlist MelodyMunk..." aria-describedby="melodymunk_search_bar">
+                                {{ form_widget(newRoomForm.name) }}
+                                {#<input id="playlist_name_content" type="text" class="form-control round-form" placeholder="Add Playlist MelodyMunk..." aria-describedby="melodymunk_search_bar">#}
                             </div>
                         </div>
 
@@ -138,14 +140,20 @@
                         <div class="form-group">
                             <label class="col-sm-3 col-sm-3 control-label">Room Description</label>
                             <div class="col-sm-9">
-                                <textarea rows="3" class="form-control"></textarea>
+                                {{ form_widget(newRoomForm.description) }}
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" id="mm_create_room_submit" class="btn btn-orange">Create Room</button>
+
+                    <div class="form-group no-margin">
+                        <button type="submit" class="btn btn-orange pull-right">Create Room</button>
+                        <button type="button" class="btn btn-default pull-right mr" data-dismiss="modal">Close</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    {{ form_end(newRoomForm) }}
+
+
                 </div>
             </div>
         </div>

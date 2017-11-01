@@ -68,6 +68,7 @@ class Room
         $this->dateCreated = new \DateTime();
         $this->roomOwner = $roomOwner;
         $this->name = $name;
+        $this->room_code = random_bytes(10);
     }
 
 
@@ -141,7 +142,7 @@ class Room
     /**
      * @param string $room_code
      */
-    public function setRoomCode(string $room_code)
+    public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
     }
