@@ -10,6 +10,8 @@
     <textarea id="form-message" placeholder="Your public message here"></textarea>
     <input type="button" id="form-submit" value="Send message"/>
 
-    <script src="{{ asset('melody_munk/chat-scripts/chat.js') }}"></script>
+{% endblock %}
 
+{% block javascripts %}
+<script src="{{ asset('melody_munk/chat-scripts/chat.js') }}"></script>
 {% endblock %}
