@@ -32,14 +32,14 @@
                     <h3>My MelodyMunk Rooms</h3>
                 </div>
 
-                {% for playlist in playlists %}
+                {% for room in rooms %}
                     <!-- START Playlist Card -->
                     <div class="col-md-4 col-sm-4 mb">
                         <div class="darkblue-panel pn">
                             <div class="darkblue-header">
-                                <h5>{{ playlist.name }}</h5>
+                                <h5>{{ room.name }}</h5>
                             </div>
-                            <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
+                            <h1 class="mt"><a href="{{ path('room_page', {id: room.id}) }}" class="mm_hp_room_link"><i class="fa fa-play fa-3x"></i></a></h1>
                             <p>+ 1,789 NEW VISITS</p>
                             <footer>
                                 <div class="centered">

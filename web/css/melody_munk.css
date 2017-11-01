@@ -16,6 +16,20 @@
 }
 
 
+/* --- HOMEPAGE CSS --- */
+
+.mm_hp_room_link {
+    text-decoration: none;
+    color: #fbbe55;
+}
+
+
+.mm_hp_room_link:hover {
+    text-decoration: none;
+    color: #fed67e;
+}
+
+
 
 /* --- PROFILE CSS --- */
 

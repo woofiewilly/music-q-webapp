@@ -21,7 +21,7 @@ class DefaultController extends Controller
         $user = $this->getUser();
 
         //Get All Rooms from DB
-        $rooms = $this->getDoctrine()->getRepository('AppBundle:Playlist')->findAll();
+        $rooms = $this->getDoctrine()->getRepository('AppBundle:Room')->getAllRoomsForUser($user);
 
         //Create instance of new room form
         $newRoomForm = $this->createForm(CreateRoomFormType::class);
@@ -60,7 +60,7 @@ class DefaultController extends Controller
 
         // replace this example code with whatever you need
         return $this->render(':home:home.html.twig', array(
-            'playlists' => $rooms,
+            'rooms' => $rooms,
             'user' => $user,
             'newRoomForm' => $newRoomForm->createView()
         ));
