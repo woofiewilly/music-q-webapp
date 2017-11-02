@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\User;
 
 /**
  * RoomRepository
@@ -10,4 +11,26 @@ namespace AppBundle\Repository;
  */
 class RoomRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * ROOM QUERY FUNCTION
+     * -------------------
+     * Returns all the rooms that the user owns
+     *
+     * @param User $user
+     * @return array
+     */
+    public function getAllRoomsForUser(User $user) {
+        $query = $this->createQueryBuilder('room')
+            ->where('room.roomOwner = :user')
+            ->setParameter('user', $user)
+            ->orderBy('room.dateCreated', 'DESC')
+            ->getQuery();
+
+
+        return $query->getResult();
+
+    }
+
+
 }

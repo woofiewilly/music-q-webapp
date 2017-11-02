@@ -22,13 +22,19 @@ class PlaylistController extends Controller
 
         //TODO: FIND PLAYLISTS
 
+        $user = $this->getUser();
+
+        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findBy(array('room_code' => $variable));
 
         $playlist = $this->getDoctrine()->getRepository('AppBundle:Playlist')->find($variable);
 
-        return $this->render(':playlists:playlist.html.twig', array(
-            'playlist' => $playlist
+        return $this->render(':Room:room.html.twig', array(
+            'room' => $playlist,
+            'user' => $user
         ));
     }
+
+
 
 
     /**
