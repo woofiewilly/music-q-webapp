@@ -26,7 +26,7 @@ class RoomController extends Controller
         $user = $this->getUser();
 
         //Look for the room with ID
-        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->find($id);
+        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findRoomByRoomCode($id);
 
         //If No Room found, redirect to error page
         if (!$room) {

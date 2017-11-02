@@ -19,8 +19,7 @@ parameters:
     amazon_s3_version: '2006-03-01'
 
 
-    amazon_aws_key: AKIAJKEMNBS5N3HPLOSA
-    amazon_aws_secret_key: 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
+    
     amazon_aws_region: 'us-west-2'
     amazon_aws_version: 'latest'
 
