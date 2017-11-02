@@ -1,5 +1,13 @@
 
 
+/* --- IMAGE CSS --- */
+
+.mm-img-av {
+    height: 75px;
+    width: 75px;
+}
+
+
 /* --- MAIN NAVBAR CSS --- */
 .mm_nav_hover:hover {
     background-color:  #fed67e;

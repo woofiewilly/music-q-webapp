@@ -20,9 +20,9 @@
                     <div class="darkblue-header">
                         <div class="user mt">
                             {% if user.imageURL %}
-                                <img src="{{ user.imageURL }}" class="img-circle" width="80">
+                                <img src="{{ user.imageURL }}" class="img-circle mm-img-av">
                             {% else %}
-                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="80">
+                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av">
                             {% endif %}
                             <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
                         </div>
