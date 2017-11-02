@@ -65,6 +65,13 @@ class Room
 
     //TODO: Connect with route to database
     //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
+    /**
+     * @var int
+     *
+     * Room permission restriction type
+     *
+     * @ORM\Column(name="roomMode", type="int")
+     */
     private $roomMode;
 
 
@@ -155,7 +162,7 @@ class Room
     /**
      * @param string $room_code
      */
-    public function setRoomCode(string $room_code)
+    public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
     }
@@ -240,6 +247,9 @@ class Room
         return $this->whitelist->userInList($user);
     }
 
+    /**
+     * @param int $mode
+     */
     public function setRoomMode($mode) {
         $this->roomMode = $mode;
     }

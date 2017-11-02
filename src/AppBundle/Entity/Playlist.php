@@ -36,6 +36,15 @@ class Playlist
      */
     private $name;
 
+    /**
+     * @var array
+     *
+     * Playlist array to contain the songs for a room
+     *
+     * @ORM\Column(name="songArray", type="array", length=511)
+     */
+    private $songArray;
+
 
 
     public function __construct($name) {
