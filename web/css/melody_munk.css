@@ -7,6 +7,11 @@
     width: 75px;
 }
 
+.mm-chat-img-av {
+    height: 35px;
+    width: 35px;
+}
+
 
 /* --- MAIN NAVBAR CSS --- */
 .mm_nav_hover:hover {
@@ -107,7 +112,7 @@
 
 
 /* --- REVIEWS CSS --- */
-/* Dash Side */
+
 .mm_review {
     background: #ffffff;
     padding-top: 20px;
@@ -222,3 +227,125 @@
     text-align: left;
     vertical-align: middle;
 }
+
+
+/* --- CHAT CSS --- */
+
+.mm_chat {
+    background: #ffffff;
+    padding-top: 20px;
+}
+
+
+.mm_chat .desc {
+    border-bottom: 1px solid #eaeaea;
+    display: inline-block;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.mm_chat .desc:hover {
+    background: #f2f2f2; }
+
+.mm_chat .thumb {
+    width: 30px;
+    margin: 0 10px 0 20px;
+    display: block;
+    float: left;
+}
+
+.mm_chat .details {
+    width: 80%;
+    float: left;
+    margin-left: 10px;
+}
+
+.mm_chat .details .content {
+    width: 100%;
+    margin-top: 10px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+
+.mm_chat .details .chat-content {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    color: #464e57;
+}
+
+
+
+.mm_chat > .desc p {
+    font-size: 11px;
+    margin: 0px;
+}
+
+.mm_chat > muted {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+
+/* --- Soptify Panel --- */
+#spotify {
+    background: url(../img/bank_account.jpg) no-repeat center top;
+    opacity: 0.8;
+    margin-top: -15px;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 250px;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#spotify .btn-clear-g {
+    top: 15%;
+    right: 10px;
+    position: absolute;
+    margin-top: 5px;
+    color: #efefef;
+    text-shadow: 2px 2px #000000;
+}
+
+#spotify .sp-title {
+    bottom: 5%;
+    margin-left: 5px;
+    position: absolute;
+    color: #efefef;
+    text-shadow: 1px 1px #000000;
+}
+
+#spotify .sp-title h3 {
+    font-weight: 900;
+}
+
+#spotify .sp-title h4 {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+#spotify .play {
+    bottom: 18%;
+    right: 25px;
+    position: absolute;
+    color: #efefef;
+    font-size: 20px;
+    color: #efefef;
+    text-shadow: 1px 1px #000000;
+}
+
+.followers {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
