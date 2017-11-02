@@ -11,3 +11,7 @@ services:
           arguments: ['@doctrine.orm.entity_manager']
 
 
+    melodymunk.spotify:
+        class: AppBundle\Service\SpotifyService
+
+
