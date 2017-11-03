@@ -17,6 +17,7 @@
         <div class="container">
             <div >
                 <h1>Spotify</h1>
+                <button id="playbutton" class="btn btn-primary">Play a song</button>
             </div> 
         </div>
     </body>
@@ -27,6 +28,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script>
-
+        $(document).ready(function() {
+            console.log('doc loaded');
+            $('#playbutton').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/play/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+        });
     </script>
 </html>
