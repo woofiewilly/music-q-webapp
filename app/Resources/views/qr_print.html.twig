@@ -1,13 +1,43 @@
-{% extends '::base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-{% block title %}QR Code{% endblock %}
+    <title>MelodyMunk | {% block title %}QR Code{% endblock %}</title>
 
-{% block stylesheets %}
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <!--external css-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}"/>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+
+    <!-- CUSTOM CSS FILE FOR MELODYMUNK -->
+    <link href="{{ asset('css/melody_munk.css') }}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
     <style>
-        img {
-            width: 100px;
+        #qr_container {
+            width: 300px;
             margin: auto;
             /* vertically center */
+        }
+
+        #qr {
+            width: 100%;
+            height: 100%;
         }
 
         #menu {
@@ -15,30 +45,79 @@
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border-radius: 5px;
+
+            padding: 10px;
+            width: 500px;
+        }
+
+        #menu li, #menu button {
+            display: inline;
         }
 
         @media print {
             #menu {
                 display: none !important;
             }
+
+            #qr_container {
+                margin: 0;
+            }
         }
     </style>
-{% endblock %}
+</head>
 
-{% block body %}
+<body>
+
+<section id="container">
+
     <ul id="menu">
-        <li><button>Small</button></li>
-        <li><button>Medium</button></li>
-        <li><button>Large</button></li>
-        <li><button>Print</button></li>
+        <li><button id="small" class="btn btn-default">Small</button></li>
+        <li><button id="medium" class="btn btn-default">Medium</button></li>
+        <li><button id="large" class="btn btn-default">Large</button></li>
+        <li><button id="xlarge" class="btn btn-default">X-Large</button></li>
+        <li><button id="print" class="btn btn-primary">Print</button></li>
+        <li><a id="download" class="btn btn-primary" href="/generateqr/{{ room_code }}" download>Download</a></li>
     </ul>
-    <img src="/generateqr/{{ room_code }}" alt="QR Code for Room">
+    <div id="qr_container">
+        <img id="qr" src="/generateqr/{{ room_code }}" alt="QR Code for Room">
+    </div>
 
-{% endblock %}
-// Does the above string insertion protect from XSS?
+</section>
 
 {% block javascripts %}
-    <script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script>
+        $(document).ready(function () {
+
+            $('#small').click(function() {
+                $('#qr_container').width('100px');
+            });
+
+
+            $('#medium').click(function() {
+                $('#qr_container').width('300px');
+            });
+
+
+            $('#large').click(function() {
+                $('#qr_container').width('450px');
+            });
+
+            $('#xlarge').click(function() {
+                $('#qr_container').width('600px');
+            });
+
+            $('#print').click(function() {
+                window.print();
+            });
+
+
+        });
     </script>
 {% endblock %}
+
+</body>
+</html>

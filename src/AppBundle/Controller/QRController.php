@@ -30,8 +30,23 @@ class QRController extends Controller
     }
 
     /**
+     * @param $room_code
+     *
+     * @Route("/viewqr/{room_code}")
+     * @return Response
+     */
+    public function viewQR($room_code) {
+
+        return $this->render('qr_view_test.html.twig', array(
+           'room_code' => $room_code
+        ));
+    }
+
+    /**
      *
      * @Route("/printqr/{room_code}")
+     * @param $room_code
+     * @return Response
      */
     public function printQR($room_code) {
 

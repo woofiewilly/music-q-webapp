@@ -2,11 +2,41 @@
 
 {% block title %}Test QR View Page{% endblock %}
 
+{% block stylesheets %}
+    <style>
+        #qr {
+            display: block;
+            margin: auto;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#qr_code">
+        Show QR Code
+    </button>
+
+    <div class="modal fade" id="qr_code" tabindex="-1" role="dialog" aria-labelledby="QR Code for sharing" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">QR Code for Room {{ room_code }}</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="qr" src="/generateqr/{{ room_code }}">
+                </div>
+                <div class="modal-footer">
+                    <a href="/printqr/{{ room_code }}" class="btn btn-primary">Print Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('melody_munk/chat-scripts/chat.js') }}"></script>
 {% endblock %}
