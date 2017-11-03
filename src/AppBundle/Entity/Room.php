@@ -38,6 +38,13 @@ class Room
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=1024, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * Unique room code for URL prefix
      *
      * @ORM\Column(name="room_code", type="string", length=6)
@@ -89,6 +96,7 @@ class Room
         $this->blacklist = new UserList();
         $this->whitelist = new UserList();
         $this->roomMode = 0;
+        $this->room_code = random_bytes(10);
     }
 
     /**
@@ -182,7 +190,6 @@ class Room
         $this->roomOwner = $roomOwner;
     }
 
-
     /**
      * @return UserList
      */
@@ -261,8 +268,23 @@ class Room
     }
 
     public function setModeNeither() {
-        $this->roomMode(0);
+        $this->setRoomMode(0);
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 }
 

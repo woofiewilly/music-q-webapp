@@ -23,9 +23,13 @@ class UserController extends Controller
         //Get the Current User
         $user = $this->getUser();
 
+        //Get all the reviews for the user
+        $reviews = $this->getDoctrine()->getRepository('AppBundle:UserReview')->getAllReviewsForUser($user);
+
         //Render User Profile Page
         return $this->render(':User:user_profile.html.twig', array(
             'user' => $user,
+            'reviews' => $reviews,
         ));
     }
 
@@ -76,8 +80,6 @@ class UserController extends Controller
 
             return $this->redirectToRoute('profile_settings');
         }
-
-
 
 
         return $this->render(':User:user_settings.html.twig', array(
