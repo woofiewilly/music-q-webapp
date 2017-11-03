@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\GuestRecommendedQueue;
 use AppBundle\Entity\GuestRecommendedSong;
 use Symfony\Component\HttpFoundation\Request;

@@ -38,6 +38,13 @@ class Room
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=1024, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * Unique room code for URL prefix
      *
      * TODO: how to make unique constraint?
@@ -61,6 +68,7 @@ class Room
         $this->dateCreated = new \DateTime();
         $this->roomOwner = $roomOwner;
         $this->name = $name;
+        $this->room_code = random_bytes(10);
     }
 
 
@@ -134,7 +142,7 @@ class Room
     /**
      * @param string $room_code
      */
-    public function setRoomCode(string $room_code)
+    public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
     }
@@ -154,6 +162,22 @@ class Room
     public function setRoomOwner($roomOwner)
     {
         $this->roomOwner = $roomOwner;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
 
