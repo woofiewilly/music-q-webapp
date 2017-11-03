@@ -42,6 +42,22 @@ class User extends BaseUser
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="dob", type="string", nullable=true)
+     */
+    private $dob;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", nullable=true)
+     */
+    private $country;
+
+
+    /**
      * @var String
      *
      * @ORM\Column(name="description", type="string", length=512, nullable=true)
@@ -116,6 +132,38 @@ class User extends BaseUser
     public function setImageURL($imageURL)
     {
         $this->imageURL = $imageURL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDob()
+    {
+        return $this->dob;
+    }
+
+    /**
+     * @param string $dob
+     */
+    public function setDob($dob)
+    {
+        $this->dob = $dob;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
     }
 
 

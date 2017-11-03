@@ -207,6 +207,10 @@
     background: #fbbe55;
 }
 
+.mm_more_info {
+    margin-right: 10px;
+}
+
 
 /* --- MODAL CENTER CSS --- */
 .modal {
@@ -344,8 +348,33 @@
     text-shadow: 1px 1px #000000;
 }
 
-.followers {
-    margin-left: 5px;
-    margin-top: 5px;
+
+.mm_visualize_panel {
+    background: #464e57;
+    margin: 0;
+    padding: 0;
 }
+
+
+.bar-wrapper {
+    position: relative;
+    height: 300px;
+
+}
+.bar {
+    position: relative;
+    width: 5px;
+    display: inline-block;
+    border: 1px solid red;
+    height: 5px;
+    border-bottom: 3px solid #fff;
+}
+
+
+audio#audio {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
 

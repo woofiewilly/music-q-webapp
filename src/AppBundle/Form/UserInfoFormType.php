@@ -15,6 +15,8 @@ class UserInfoFormType extends AbstractType
     {
         $builder->add('firstName', TextType::class, array('attr' => array('class' => 'form-control', 'placeholder' => 'First Name')));
         $builder->add('lastName', TextType::class, array('attr' => array('class' => 'form-control', 'placeholder' => 'Last Name')));
+        $builder->add('dob', TextType::class, array('attr' => array('class' => 'form-control', 'placeholder' => 'DOB')));
+        $builder->add('country', TextType::class, array('attr' => array('class' => 'form-control', 'placeholder' => 'Country')));
         $builder->add('description', TextareaType::class, array('attr' => array('rows' => 9, 'class' => 'form-control', 'placeholder' => 'Last Name')));
         $builder->add('imageURL', FileType::class, array('attr' => array('class' => 'form-control'), 'label' => 'Profile Picture (JPEG)', 'required' => false, 'data_class' => null));
 
