@@ -54,7 +54,30 @@ class UserController extends Controller
         //If User Form is submitted, update user
         if ($userForm->isSubmitted()) {
 
+            $file = $userForm['imageURL']->getData();
+
+            if ($file !== null) {
+
+                //Upload the Photo to Amazon S3 Server
+                $uploader = $this->get('greek_row_api.photo_uploader');
+                $uploadedUrl = $uploader->upload($file, 3);
+                $s3ImageUrl = $this->container->getParameter('amazon_s3_base_url') . $uploadedUrl;
+                //Set the S3 url to the image url
+                $user->setImageUrl($s3ImageUrl);
+
+            }
+
+
+            $db_manager = $this->getDoctrine()->getManager();
+
+            $db_manager->persist($user);
+            $db_manager->flush();
+            $db_manager->clear();
+
+            return $this->redirectToRoute('profile_settings');
         }
+
+
 
 
         return $this->render(':User:user_settings.html.twig', array(
