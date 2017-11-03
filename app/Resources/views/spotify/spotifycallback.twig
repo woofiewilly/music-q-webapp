@@ -18,6 +18,12 @@
             <div >
                 <h1>Spotify</h1>
                 <button id="playbutton" class="btn btn-primary">Play a song</button>
+                <button id="pausebutton" class="btn btn-primary">Pause a song</button>
+                <button id="raisevolumebutton" class="btn btn-primary">Raise Volume</button>
+                <button id="lowervolumebutton" class="btn btn-primary">Lower Volume</button>
+                <button id="nextsong" class="btn btn-primary">Next Song</button>
+                <button id="prevsong" class="btn btn-primary">Previous Song</button>
+                <button id="fastforward" class="btn btn-primary">Fast Forward</button>
             </div> 
         </div>
     </body>
@@ -35,6 +41,84 @@
                 {
                     console.log('click registered');
                     $.getJSON('/play/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#pausebutton').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/pause/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#raisevolumebutton').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/raisevolume/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#lowervolumebutton').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/lowervolume/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#nextsong').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/nextsong/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#prevsong').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/prevsong/', function(data) {
+                        console.log('Got response');
+                        console.log(JSON.stringify(data));
+                    }).fail(function (data) {
+                        console.log('failure');
+                        console.log(JSON.stringify(data));
+                    });
+                }
+            );
+            $('#fastforward').click(
+                function ()
+                {
+                    console.log('click registered');
+                    $.getJSON('/fastforward/', function(data) {
                         console.log('Got response');
                         console.log(JSON.stringify(data));
                     }).fail(function (data) {

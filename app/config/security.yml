@@ -53,5 +53,11 @@ security:
         - { path: ^/callback, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/getauthorizeurl/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/play/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/pause/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/raisevolume/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/lowervolume/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/nextsong/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/prevsong/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/fastforward/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/(.*), role: ROLE_USER }
