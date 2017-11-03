@@ -40,7 +40,6 @@ class Room
      *
      * Unique room code for URL prefix
      *
-     * TODO: how to make unique constraint?
      * @ORM\Column(name="room_code", type="string", length=6)
      */
     private $room_code;
@@ -63,7 +62,6 @@ class Room
 
     /* --- ManyToOne SQL Relationships --- */
 
-    //TODO: Connect with route to database
     //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
     /**
      * @var int
