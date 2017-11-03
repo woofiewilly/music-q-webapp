@@ -2,8 +2,35 @@
 
 {% block title %}Create Room{% endblock %}
 
-{% block body %}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-login'}}) }}
+<h2 class="form-login-heading">Create Room</h2>
 
-    <p>content goes here</p>
+<div class="login-wrap">
 
-{% endblock %}
+    {{ form_widget(form.Name, {'attr': { 'class': 'form-control', 'placeholder': 'Name' } }) }}
+    <br>
+    {{ form_widget(form.lastName, {'attr': { 'class': 'form-control', 'placeholder': 'Last Name' } }) }}
+    <br>
+    {{ form_widget(form.email, {'attr': { 'class': 'form-control', 'placeholder': 'Email' } }) }}
+    <br>
+    {{ form_widget(form.username, {'attr': { 'class': 'form-control', 'placeholder': 'Username' } }) }}
+    <br>
+    {{ form_widget(form.plainPassword.first, {'attr': { 'class': 'form-control', 'placeholder': 'Pasword' } }) }}
+    <br>
+    {{ form_widget(form.plainPassword.second, {'attr': { 'class': 'form-control', 'placeholder': 'Confirm Pasword' } }) }}
+
+    <br>
+
+    <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"><i class="fa fa-lock"></i> Create Account</button>
+    <hr>
+
+    <div class="registration">
+        Already Have Account?<br/>
+        <a class="" href="{{ path('fos_user_security_login') }}">
+            Go to Login Page
+        </a>
+    </div>
+
+</div>
+
+{{ form_end(form) }}
