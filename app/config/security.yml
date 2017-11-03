@@ -50,5 +50,7 @@ security:
         - { path: ^/generateqr/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/spotifyintegration/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/callback/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/callback, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/getauthorizeurl/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/(.*), role: ROLE_USER }

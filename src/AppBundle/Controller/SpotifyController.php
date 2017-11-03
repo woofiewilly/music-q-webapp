@@ -42,6 +42,11 @@ class SpotifyController extends Controller
                 'user-modify-playback-state'
             ],
         ];
-        return new JsonResponse(array("redirect_url" => $session->getAuthorizeUrl($options)));
+
+        $url = $session->getAuthorizeUrl($options);
+
+
+
+        return new JsonResponse(array("redirect_url" => $url));
     }
 }
