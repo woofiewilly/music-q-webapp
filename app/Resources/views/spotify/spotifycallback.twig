@@ -16,9 +16,8 @@
     <body>
         <div class="container">
             <div >
-                <h1>Spotify Integration for MelodyMunk</h1>
-                <button id="spotifyloginbutton" class="btn btn-primary">Log in with Spotify</button>
-            </div>
+                <h1>Spotify</h1>
+            </div> 
         </div>
     </body>
 
@@ -28,23 +27,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script>
-        $(document).ready(function() {
-            console.log('doc loaded');
-            $('#spotifyloginbutton').click(
-                function ()
-                {
-                    console.log('click registered');
-                    $.getJSON('/getauthorizeurl/', function(data) {
-                        console.log('Got response');
-                        console.log(JSON.stringify(data));
 
-                        window.location = data.redirect_url;
-                    }).fail(function (data) {
-                        console.log('failure');
-                        console.log(JSON.stringify(data));
-                    });
-                }
-            );
-        });
     </script>
 </html>
