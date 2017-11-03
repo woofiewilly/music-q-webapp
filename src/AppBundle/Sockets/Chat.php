@@ -2,14 +2,18 @@
 // Change the namespace according to your bundle, and that's all !
 namespace AppBundle\Sockets;
 
+use AppBundle\Entity\Message;
+use Doctrine\ORM\EntityManager;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
 class Chat implements MessageComponentInterface {
     protected $clients;
+    protected $em;
 
-    public function __construct() {
+    public function __construct(EntityManager $em) {
         $this->clients = new \SplObjectStorage;
+        $this->em = $em;
     }
 
     public function onOpen(ConnectionInterface $conn) {
@@ -19,10 +23,23 @@ class Chat implements MessageComponentInterface {
         echo "New connection! ({conn->resourceId})\n";
     }
 
+    /**
+     * @param ConnectionInterface $from
+     * @param string $msg
+     */
     public function onMessage(ConnectionInterface $from, $msg) {
         $numRecv = count($this->clients) - 1;
         echo sprintf('Connection  sending message "%s" to %d other connection%s' . "\n"
             ,  $msg, $numRecv, $numRecv == 1 ? '' : 's');
+
+        // Add message into database
+        $json = json_decode($msg, true);
+        $new_message = new Message($json['username'], $json['message']);
+
+//        $em = $this->getDoctrine()->getManager();
+        $this->em->persist($new_message);
+        $this->em->flush();
+
 
         foreach ($this->clients as $client) {
             if ($from !== $client) {

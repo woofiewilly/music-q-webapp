@@ -2,7 +2,7 @@
 // Change the namespace according to your bundle
 namespace AppBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -11,7 +11,7 @@ use Ratchet\App;
 // Chat instance
 use AppBundle\Sockets\Chat;
 
-class SocketCommand extends Command
+class SocketCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
@@ -38,14 +38,11 @@ class SocketCommand extends Command
         // $app = new \Ratchet\App('sandbox', 8080,'0.0.0.0');
         // Domain as first parameter
         $app = new App('localhost', 8081,'0.0.0.0');
-        // Add route to chat with the handler as second parameter
-        $app->route('/chatserv', new Chat);
 
-        // To add another routes, then you can use :
-        //$app->route('/america-chat', new AmericaChat);
-        //$app->route('/europe-chat', new EuropeChat);
-        //$app->route('/africa-chat', new AfricaChat);
-        //$app->route('/asian-chat', new AsianChat);
+        // Add route to chat with the handler as second parameter
+        // The warning is OK; the object retrieved still implements the expected interface and should not
+        // give any runtime error
+        $app->route('/chatserv', $this->getContainer()->get('melodymunk.chat'));
 
         // Run !
         $app->run();

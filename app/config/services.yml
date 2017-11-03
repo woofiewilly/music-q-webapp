@@ -10,4 +10,6 @@ services:
           class: AppBundle\Service\PermissionService
           arguments: ['@doctrine.orm.entity_manager']
 
-
+    melodymunk.chat:
+          class: AppBundle\Sockets\Chat
+          arguments: ['@doctrine.orm.entity_manager']
