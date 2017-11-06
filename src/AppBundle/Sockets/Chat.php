@@ -7,6 +7,14 @@ use Doctrine\ORM\EntityManager;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
+/**
+ * Class Chat
+ *
+ * Much of the chat functionality was inspired from
+ * https://ourcodeworld.com/articles/read/242/creating-an-agnostic-realtime-chat-with-php-using-sockets-in-symfony-93
+ *
+ * @package AppBundle\Sockets
+ */
 class Chat implements MessageComponentInterface {
     protected $clients;
     protected $em;
