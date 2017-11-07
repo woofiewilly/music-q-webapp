@@ -3,7 +3,9 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use SpotifyWebAPI\SpotifyWebAPIException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -44,7 +46,13 @@ class SpotifyCallbackController extends Controller
         $accessToken = fread($myfile,filesize("spotifyat.txt"));
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        $api->play();
+        try{
+            $api->play();
+        }
+        catch (SpotifyWebAPIException $exception)
+        {
+            return new JsonResponse(array("exception" => $exception));
+        }
         return new JsonResponse(array());
     }
     /**
