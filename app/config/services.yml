@@ -10,6 +10,10 @@ services:
           class: AppBundle\Service\PermissionService
           arguments: ['@doctrine.orm.entity_manager']
 
+    melodymunk.chat:
+          class: AppBundle\Sockets\Chat
+          arguments: ['@doctrine.orm.entity_manager']
+
     melodymunk.spotify:
         class: AppBundle\Service\SpotifyService
 
@@ -33,5 +37,3 @@ services:
 #    greek_row_api.photo_uploader:
 #        class: AppBundle\Service\PhotoUploader
 #        arguments: ['@photo_storage_filesystem']
-
-
