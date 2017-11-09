@@ -1,0 +1,46 @@
+
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+
+            <p class="centered">
+                <a href="{{ path('my_profile') }}">
+                    {% if app.user.imageURL %}
+                        <img src="{{ app.user.imageURL }}" class="img-circle mm-img-av" width="80">
+                    {% else %}
+                        <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="80">
+                    {% endif %}
+                </a>
+            </p>
+            <h5 class="centered"><span class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</span></h5>
+
+            <li class="mt mm_nav_hover">
+                <a href="{{ path('homepage') }}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ path('my_profile') }}">
+                    <i class="fa fa-user"></i>
+                    <span>My Profile</span>
+                </a>
+            </li>
+
+            <hr class="mm_nav_break"/>
+
+            <li>
+                <a href="{{ path('fos_user_security_logout') }}">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

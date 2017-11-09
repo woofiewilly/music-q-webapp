@@ -1,0 +1,169 @@
+{% extends '::base.html.twig' %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block stylesheets %} {% endblock %}
+
+
+{% block body %}
+
+    <div class="row">
+
+        <!-- START SECTION MIDDLE -->
+        <div class="col-xs-10 ">
+
+            <div class="row mt">
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-theme02 btn-lg btn-block">Join Room</button>
+                </div>
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-theme02 btn-lg btn-block" data-toggle="modal" data-target="#new_room_modal">Create New Room</button>
+                </div>
+
+            </div>
+
+            <br/>
+            <!-- START Playlist Results -->
+            <div class="row">
+
+                <div class="border-head">
+                    <h3>My MelodyMunk Rooms</h3>
+                </div>
+
+                {% for room in rooms %}
+                    <!-- START Playlist Card -->
+                    <div class="col-md-4 col-sm-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>{{ room.name }}</h5>
+                            </div>
+                            <h1 class="mt"><a href="{{ path('room_page', {id: room.roomCode}) }}" class="mm_hp_room_link"><i class="fa fa-play fa-3x"></i></a></h1>
+                            <p>+ 1,789 NEW VISITS</p>
+                            <footer>
+                                <div class="centered">
+                                    <h5><i class="fa fa-music"></i> &nbsp;1,234 Songs Played</h5>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- END Playlist Card -->
+                {% endfor %}
+
+
+            </div>
+            <!-- END Playlist Results -->
+
+
+        </div>
+        <!-- END SECTION MIDDLE -->
+
+
+        <div class="col-xs-2 mt">
+            <h4>MelodyMunk Stats</h4>
+            <hr/>
+
+
+            <div class="row">
+                <div class="col-xs-12 box0">
+                    <div class="box1">
+                        <span class="fa fa-group mm_orange"></span>
+                        <h3>1654</h3>
+                    </div>
+                    <p>1654 MelodyMunk Users</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 box0">
+                    <div class="box1">
+                        <span class="fa fa-play-circle-o mm_orange"></span>
+                        <h3>933</h3>
+                    </div>
+                    <p>933 Playlist Rooms</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 box0">
+                    <div class="box1">
+                        <span class="fa fa-music mm_orange"></span>
+                        <h3>1234</h3>
+                    </div>
+                    <p>1234 Songs Played</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12 box0">
+                    <div class="box1">
+                        <span class="fa fa-chevron-up mm_orange"></span>
+                        <h3>4543</h3>
+                    </div>
+                    <p>4543 Song Queue Upvotes</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div><! --/row -->
+
+
+{% endblock %}
+
+
+{% block modals %}
+
+    <div class="modal fade" id="new_room_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Create MelodyMunk Room</h4>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(newRoomForm, { attr: {'class': 'form-horizontal style-form'} } ) }}
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 col-sm-3 control-label">Room Name</label>
+                            <div class="col-sm-9">
+                                {{ form_widget(newRoomForm.name) }}
+                                {#<input id="playlist_name_content" type="text" class="form-control round-form" placeholder="Add Playlist MelodyMunk..." aria-describedby="melodymunk_search_bar">#}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 col-sm-3 control-label">Room Description</label>
+                            <div class="col-sm-9">
+                                {{ form_widget(newRoomForm.description) }}
+                            </div>
+                        </div>
+
+                    <div class="form-group no-margin">
+                        <button type="submit" class="btn btn-orange pull-right">Create Room</button>
+                        <button type="button" class="btn btn-default pull-right mr" data-dismiss="modal">Close</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    {{ form_end(newRoomForm) }}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+    <script src="{{ asset('melody_munk/Pages/home.js') }}"></script>
+
+{% endblock %}

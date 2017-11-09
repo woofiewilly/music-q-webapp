@@ -1,0 +1,20 @@
+# VM stuff
+.vagrant/
+# phpstorm stuff
+.idea/
+
+.web-server-pid
+
+# Log for Vagrant box
+ubuntu-*
+
+# Email spool folder
+/app/spool/*
+
+var/
+
+# Composer packages
+vendor/
+/app/AppKernel.php
+/app/config/parameters.yml
+/app/config/parameters.yml.dist
