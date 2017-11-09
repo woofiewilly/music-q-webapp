@@ -87,6 +87,13 @@ class Room
      */
     private $roomOwner;
 
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="usersInRoom", referencedColumnName="id")
+     */
+    private $usersInRoom;
 
 
     public function __construct(User $roomOwner, $name) {
@@ -95,6 +102,7 @@ class Room
         $this->name = $name;
         $this->blacklist = new UserList();
         $this->whitelist = new UserList();
+        $this->usersInRoom = new UserList();
         $this->roomMode = 0;
         $this->room_code = random_bytes(10);
     }
@@ -271,6 +279,14 @@ class Room
         $this->setRoomMode(0);
     }
 
+    public function addUser(User $user) {
+        $this->usersInRoom->addUser($user);
+    }
+
+    public function removeUser(User $user) {
+        $this->usersInRoom->removeUser($user);
+    }
+
     /**
      * @return string
      */
@@ -285,6 +301,33 @@ class Room
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * Checks if user attempting to join a room is valid given the roomMode and whitelist/blacklist
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isValidUser(User $user) {
+        if($this->roomMode == 0) {
+            //Room mode not set to whitelist or blacklist
+            return true;
+        } else if($this->roomMode == 1) {
+            //Room mode is set to whitelist
+            if($this->whitelist->userInList($user)) {
+                return true;
+            }
+            return false;
+        } else if ($this->roomMode == -1) {
+            //Room mode set to blacklist
+            if($this->blacklist->userInList($user)) {
+                return false;
+            }
+            return true;
+        }
+        //TODO: Add error catch for if roomMode is not set
+        return false;
     }
 }
 
