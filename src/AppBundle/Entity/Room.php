@@ -38,14 +38,46 @@ class Room
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=1024, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * Unique room code for URL prefix
      *
-     * TODO: how to make unique constraint?
      * @ORM\Column(name="room_code", type="string", length=6)
      */
     private $room_code;
 
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="blacklist_id", referencedColumnName="id")
+     */
+    private $blacklist;
+
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="whitelist_id", referencedColumnName="id")
+     */
+    private $whitelist;
+
     /* --- ManyToOne SQL Relationships --- */
+
+    //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
+    /**
+     * @var int
+     *
+     * Room permission restriction type
+     *
+     * @ORM\Column(name="roomMode", type="int")
+     */
+    private $roomMode;
 
 
     /**
@@ -55,15 +87,25 @@ class Room
      */
     private $roomOwner;
 
+    /**
+     * @var UserList
+     *
+     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\JoinColumn(name="usersInRoom", referencedColumnName="id")
+     */
+    private $usersInRoom;
 
 
     public function __construct(User $roomOwner, $name) {
         $this->dateCreated = new \DateTime();
         $this->roomOwner = $roomOwner;
         $this->name = $name;
+        $this->blacklist = new UserList();
+        $this->whitelist = new UserList();
+        $this->usersInRoom = new UserList();
+        $this->roomMode = 0;
+        $this->room_code = random_bytes(10);
     }
-
-
 
     /**
      * Get id
@@ -134,7 +176,7 @@ class Room
     /**
      * @param string $room_code
      */
-    public function setRoomCode(string $room_code)
+    public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
     }
@@ -154,6 +196,138 @@ class Room
     public function setRoomOwner($roomOwner)
     {
         $this->roomOwner = $roomOwner;
+    }
+
+    /**
+     * @return UserList
+     */
+    public function getBlacklist()
+    {
+        return $this->blacklist;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function addToBlacklist(User $user)
+    {
+        $this->blacklist->addUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function removeFromBlacklist(User $user) {
+        $this->blacklist->removeUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function isBlacklisted(User $user) {
+        return $this->blacklist->userInList($user);
+    }
+
+    /**
+     * @param User $user
+     * @return Room
+     */
+    public function addToWhitelist(User $user)
+    {
+        $this->whitelist->addUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function removeFromWhitelist(User $user) {
+        $this->whitelist->removeUser($user);
+        return $this;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function isWhitelisted(User $user) {
+        return $this->whitelist->userInList($user);
+    }
+
+    /**
+     * @param int $mode
+     */
+    public function setRoomMode($mode) {
+        $this->roomMode = $mode;
+    }
+
+    public function setModeBlacklist() {
+        $this->setRoomMode(-1);
+    }
+
+    public function setModeWhitelist() {
+        $this->setRoomMode(1);
+    }
+
+    public function setModeNeither() {
+        $this->setRoomMode(0);
+    }
+
+    public function addUser(User $user) {
+        $this->usersInRoom->addUser($user);
+    }
+
+    public function removeUser(User $user) {
+        $this->usersInRoom->removeUser($user);
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Checks if user attempting to join a room is valid given the roomMode and whitelist/blacklist
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function isValidUser(User $user) {
+        if($this->roomMode == 0) {
+            //Room mode not set to whitelist or blacklist
+            return true;
+        } else if($this->roomMode == 1) {
+            //Room mode is set to whitelist
+            if($this->whitelist->userInList($user)) {
+                return true;
+            }
+            return false;
+        } else if ($this->roomMode == -1) {
+            //Room mode set to blacklist
+            if($this->blacklist->userInList($user)) {
+                return false;
+            }
+            return true;
+        }
+        //TODO: Add error catch for if roomMode is not set
+        return false;
     }
 }
 

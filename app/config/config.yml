@@ -78,5 +78,22 @@ fos_user:
           form:
             type: AppBundle\Form\RegistrationFormType
     from_email:
-      address:        noreply@greekrow.online
-      sender_name:    GreekRow Robots
+      address:        noreply@melodymunk.com
+      sender_name:    MelodyMunk.com
+
+
+
+#KNPGaufretteBundle Configuration
+#-------------------------------
+#knp_gaufrette:
+#    adapters:
+#        photo_storage:
+#            aws_s3:
+#                service_id: greek_row_api.amazon_s3
+#                bucket_name:  '%amazon_s3_bucket_name%'
+#                options:
+#                    create: false
+#    filesystems:
+#        photo_storage:
+#            adapter:    photo_storage
+#            alias:      photo_storage_filesystem
