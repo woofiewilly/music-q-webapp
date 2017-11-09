@@ -54,7 +54,7 @@ class Room
     /**
      * @var UserList
      *
-     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\OneToOne(targetEntity="UserList", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="blacklist_id", referencedColumnName="id")
      */
     private $blacklist;
@@ -62,7 +62,7 @@ class Room
     /**
      * @var UserList
      *
-     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\OneToOne(targetEntity="UserList", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="whitelist_id", referencedColumnName="id")
      */
     private $whitelist;
@@ -71,11 +71,11 @@ class Room
 
     //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
     /**
-     * @var int
+     * @var integer
      *
      * Room permission restriction type
      *
-     * @ORM\Column(name="roomMode", type="int")
+     * @ORM\Column(name="roomMode", type="integer")
      */
     private $roomMode;
 
@@ -90,7 +90,7 @@ class Room
     /**
      * @var UserList
      *
-     * @ORM\OneToOne(targetEntity="UserList")
+     * @ORM\OneToOne(targetEntity="UserList", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="usersInRoom", referencedColumnName="id")
      */
     private $usersInRoom;

@@ -26,7 +26,7 @@ class UserList
      * One UserList has many users
      * @var User
      *
-     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\ManyToMany(targetEntity="User", cascade={})
      * @ORM\JoinTable(name="user_in_list",
      *      joinColumns={@ORM\JoinColumn(name="list_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", unique=true)}
