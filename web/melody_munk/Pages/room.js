@@ -8,7 +8,6 @@ $(function() {
     var host_review_content = $('#mm_host_review_content');
     var host_review_submit = $('#mm_host_review_submit');
 
-
     var mm_reported_users = $('#mm_reported_users');
 
 
@@ -36,6 +35,7 @@ $(function() {
 
         });
 
+
     });
 
 
@@ -43,7 +43,7 @@ $(function() {
 
         mm_reported_users.attr('class', 'row');
 
-    });
 
+    });
 
 });

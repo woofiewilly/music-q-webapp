@@ -16,3 +16,4 @@ var/
 # Composer packages
 vendor/
 /app/AppKernel.php
+/app/config/parameters.yml

@@ -49,7 +49,7 @@ class PermissionTestController extends Controller
         $user = $em->getRepository('AppBundle:User')
             ->find((int) $request->query->get('user'));
 
-        $permission_service = $this->get('melody_munk.permissions');
+        $permission_service = $this->get('melodymunk.permissions');
 
         $result = 'Request done';
 

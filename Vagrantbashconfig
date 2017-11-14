@@ -30,5 +30,4 @@ alias server_stop='php ~/project/bin/console server:stop'
 alias scss_compile='scss --update ~/project/scss:/var/www/html/styles'
 alias scss_watch='scss --watch ~/project/scss:/var/www/html/styles'
 
-# Go to the web root directory after logging in:
-# cd /var/www/html
+alias testthing='echo "testing stuff"'
