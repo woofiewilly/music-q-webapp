@@ -39,7 +39,7 @@ class RoomRepository extends \Doctrine\ORM\EntityRepository
      * Finds a room with the room code provided and returns object
      *
      * @param $roomCode
-     * @return mixed
+     * @return Room
      */
     public function findRoomByRoomCode($roomCode) {
         $query =  $this->createQueryBuilder('room')
