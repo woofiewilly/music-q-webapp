@@ -6,6 +6,8 @@ $(function() {
 
     var playlist_submit = $('#mm_create_room_submit');
 
+    var join_room_submit = $('#mm_join_room_btn');
+
 
     playlist_submit.on('click', function() {
 
@@ -29,6 +31,12 @@ $(function() {
         })
 
 
+    });
+
+
+    join_room_submit.on('click', function() {
+
+        window.location.assign('/room/' + $('#join_room_content').val());
     });
 
 

@@ -9,6 +9,12 @@ $(function() {
     var host_review_submit = $('#mm_host_review_submit');
 
 
+    var mm_reported_users = $('#mm_reported_users');
+
+
+    var mm_report_user_btn = $('.mm_report_user_btn');
+
+
     host_review_submit.on('click', function() {
 
         var content = host_review_content.val();
@@ -30,9 +36,14 @@ $(function() {
 
         });
 
-
     });
 
+
+    mm_report_user_btn.on('click', function() {
+
+        mm_reported_users.attr('class', 'row');
+
+    });
 
 
 });
