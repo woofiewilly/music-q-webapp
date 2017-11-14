@@ -74,7 +74,16 @@ class DefaultController extends Controller
     }
 
 
-
-
+    /**
+     *
+     * @Route("/testing")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function testAction() {
+        return $this->render(':Room:visualize.html.twig');
+    }
 
 }
+
+

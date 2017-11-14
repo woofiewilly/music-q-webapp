@@ -10,26 +10,33 @@ services:
           class: AppBundle\Service\PermissionService
           arguments: ['@doctrine.orm.entity_manager']
 
+    melodymunk.chat:
+          class: AppBundle\Sockets\Chat
+          arguments: ['@doctrine.orm.entity_manager']
+
+
+    melodymunk.spotify:
+        class: AppBundle\Service\SpotifyService
 
     #Security Service
     melodymunk.security:
           class: AppBundle\Service\SecurityService
 
-    greek_row_api.amazon_s3:
-        class: Aws\S3\S3Client
-        factory_class: Aws\S3\S3Client
-        factory_method: 'factory'
-        arguments:
-        -
-          credentials:
-            key: '%amazon_aws_key%'
-            secret: '%amazon_aws_secret_key%'
-          region: '%amazon_s3_region%'
-          version: '%amazon_s3_version%'
 
-
-    greek_row_api.photo_uploader:
-        class: AppBundle\Service\PhotoUploader
-        arguments: ['@photo_storage_filesystem']
-
+#    greek_row_api.amazon_s3:
+#        class: Aws\S3\S3Client
+#        factory_class: Aws\S3\S3Client
+#        factory_method: 'factory'
+#        arguments:
+#        -
+#          credentials:
+#            key: '%amazon_aws_key%'
+#            secret: '%amazon_aws_secret_key%'
+#          region: '%amazon_s3_region%'
+#          version: '%amazon_s3_version%'
+#
+#
+#    greek_row_api.photo_uploader:
+#        class: AppBundle\Service\PhotoUploader
+#        arguments: ['@photo_storage_filesystem']
 

@@ -33,4 +33,27 @@ class RoomRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
+
+    /**
+     * ROOM QUERY FUNCTION
+     * -------------------
+     * Finds a room with the room code provided and returns object
+     *
+     * @param $roomCode
+     * @return mixed
+     */
+    public function findRoomByRoomCode($roomCode) {
+        $query =  $this->createQueryBuilder('room')
+            ->where('room.room_code = :roomCode')
+            ->setParameter('roomCode', $roomCode)
+            ->orderBy('room.dateCreated', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery();
+
+        return $query->getSingleResult();
+
+    }
+
+
+
 }

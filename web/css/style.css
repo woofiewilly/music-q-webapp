@@ -1137,49 +1137,6 @@ PANELS CONFIGURATIONS
   text-align: center;
   border-radius: 100%; }
 
-/* Soptify Panel */
-#spotify {
-  background: url(../img/lorde.jpg) no-repeat center top;
-  margin-top: -15px;
-  background-attachment: relative;
-  background-position: center center;
-  min-height: 220px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-
-#spotify .btn-clear-g {
-  top: 15%;
-  right: 10px;
-  position: absolute;
-  margin-top: 5px; }
-
-#spotify .sp-title {
-  bottom: 15%;
-  left: 25px;
-  position: absolute;
-  color: #efefef; }
-
-#spotify .sp-title h3 {
-  font-weight: 900; }
-
-#spotify .play {
-  bottom: 18%;
-  right: 25px;
-  position: absolute;
-  color: #efefef;
-  font-size: 20px; }
-
-.followers {
-  margin-left: 5px;
-  margin-top: 5px; }
-
 /* BLOG PANEL */
 #blog-bg {
   background: url(../img/blog-bg.jpg) no-repeat center top;

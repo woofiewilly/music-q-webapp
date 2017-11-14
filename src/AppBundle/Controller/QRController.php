@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +28,32 @@ class QRController extends Controller
         // Create response image
         $response = new Response($qr->writeString(), Response::HTTP_OK, ['Content-Type' => $qr->getContentType()]);
         return $response;
+    }
+
+    /**
+     * @param $room_code
+     *
+     * @Route("/viewqr/{room_code}")
+     * @return Response
+     */
+    public function viewQR($room_code) {
+
+        return $this->render('qr_view_test.html.twig', array(
+           'room_code' => $room_code
+        ));
+    }
+
+    /**
+     *
+     * @Route("/printqr/{room_code}")
+     * @param $room_code
+     * @return Response
+     */
+    public function printQR($room_code) {
+
+        return $this->render('qr_print.html.twig', array(
+            'room_code' => $room_code
+        ));
     }
 
     /**

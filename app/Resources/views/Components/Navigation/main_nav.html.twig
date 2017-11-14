@@ -7,7 +7,7 @@
             <p class="centered">
                 <a href="{{ path('my_profile') }}">
                     {% if app.user.imageURL %}
-                        <img src="{{ app.user.imageURL }}" class="img-circle" width="80">
+                        <img src="{{ app.user.imageURL }}" class="img-circle mm-img-av" width="80">
                     {% else %}
                         <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="80">
                     {% endif %}

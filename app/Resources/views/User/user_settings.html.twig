@@ -20,9 +20,9 @@
                     <div class="darkblue-header">
                         <div class="user mt">
                             {% if user.imageURL %}
-                                <img src="{{ user.imageURL }}" class="img-circle" width="80">
+                                <img src="{{ user.imageURL }}" class="img-circle mm-img-av">
                             {% else %}
-                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle" width="80">
+                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av">
                             {% endif %}
                             <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
                         </div>
@@ -52,6 +52,16 @@
                             <tr>
                                 <td><i class="fa fa-envelope mm_orange"></i></td>
                                 <td> {{ user.email }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.dob }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.country }}</td>
                             </tr>
 
                             </tbody>
@@ -93,6 +103,20 @@
                         <label class="col-sm-2 col-sm-2 control-label">Description</label>
                         <div class="col-sm-10">
                             {{ form_widget(userForm.description) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Date Of Birth</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.dob) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.country) }}
                         </div>
                     </div>
 
