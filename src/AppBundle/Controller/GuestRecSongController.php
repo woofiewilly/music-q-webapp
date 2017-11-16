@@ -15,7 +15,9 @@ class GuestRecSongController extends \Symfony\Bundle\FrameworkBundle\Controller\
      * Send GET parameters
      *
      */
-    public function indexAction(Request $request) {
+
+
+    /*public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
 
         $songs = $em->getRepository('AppBundle:GuestRecommendedQueue')
@@ -39,5 +41,5 @@ class GuestRecSongController extends \Symfony\Bundle\FrameworkBundle\Controller\
 
     public function onAddSong(GuestRecommendedSong $recommendedSong) {
 
-    }
+    }*/
 }
