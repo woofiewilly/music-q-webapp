@@ -15,7 +15,6 @@ class ExplicitController extends Controller
      *
      * Send GET parameters
      * room = id of room
-     * user = id of user
      * value = string {'true', 'false'}
      *
      * @param Request $request
@@ -28,7 +27,7 @@ class ExplicitController extends Controller
 
         $em->getRepository('AppBundle:Room')
             ->find((int) $request->query->get('room'))
-            ->setExplicit($request->query->get('value'));
+            ->setExplicit($request->query->get('value') === 'true');
 
         $result = 'Request done';
 

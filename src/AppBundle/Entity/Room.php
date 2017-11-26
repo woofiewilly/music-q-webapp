@@ -113,6 +113,7 @@ class Room
         $this->usersInRoom = new UserList();
         $this->roomMode = 0;
         $this->room_code = random_bytes(10);
+        $this->explicit = true;
     }
 
 

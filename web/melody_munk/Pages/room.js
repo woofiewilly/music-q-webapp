@@ -33,6 +33,28 @@ $(function() {
 
     });
 
+    $('#op2').click( function() {
+        console.log("explicit checked")
+        $.ajax({
+            type: 'POST',
+            url: '/explicit/',
+            data: {
+                room_id: roomID,
+                value: document.getElementById('op2').checked
+            },
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (response) {
+                console.log(response);
+            }
+
+        });
+    });
+
+
+
+
 
 
 });
