@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -13,9 +14,9 @@ class ExplicitController extends Controller
     /**
      * @Route("/explicit/", name="explicit")
      *
-     * Send GET parameters
-     * room = id of room
-     * value = string {'true', 'false'}
+     * Send POST parameters
+     * room_id = id of room
+     * value = boolean
      *
      * @param Request $request
      * @return Response
@@ -23,15 +24,41 @@ class ExplicitController extends Controller
     public function indexAction(Request $request)
     {
 
-        $em = $this->getDoctrine()->getManager();
+        if ($request->isXmlHttpRequest()) {
 
-        $em->getRepository('AppBundle:Room')
-            ->find((int) $request->query->get('room'))
-            ->setExplicit($request->query->get('value') === 'true');
+            //Get Current User
+            $user = $this->getUser();
 
-        $result = 'Request done';
+            //Get Request Params
+            $roomID = $request->request->get('room_id');
+            $value = $request->request->get('value');
 
-        return new Response($result);
+
+            //Find room with ID
+            $room = $this->getDoctrine()->getRepository('AppBundle:Room')->find($roomID);
+
+            //If no room found, return error response
+            if (!$room) {
+                return new JsonResponse(array(
+                    'success' => false,
+                    'message' => "Room Not Found!"
+                ));
+            }
+            $room->setExplicit($value == "true");
+            //Persist Review to DB
+            $db_manager = $this->getDoctrine()->getManager();
+
+            $db_manager->persist($room);
+            $db_manager->flush();
+            $db_manager->clear();
+
+
+            return new JsonResponse(array(
+                'success' => true,
+                'message' => "Explicit Paramater Updated"
+            ));
+
+        }
     }
 
 }
