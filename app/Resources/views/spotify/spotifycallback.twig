@@ -24,8 +24,14 @@
                 <button id="nextsong" class="btn btn-primary">Next Song</button>
                 <button id="prevsong" class="btn btn-primary">Previous Song</button>
                 <button id="fastforward" class="btn btn-primary">Fast Forward</button>
-            </div> 
+            </div>
+            <div>
+                <input type="search" id="mySearch" placeholder="Search for a song">
+                <button id="search" class="btn btn-primary">Search</button>
+                <p id="demo"></p>
+            </div>
         </div>
+
     </body>
 
 
@@ -36,6 +42,13 @@
     <script>
         $(document).ready(function() {
             console.log('doc loaded');
+            $('#searchbutton').click(
+                function ()
+                {
+                    var x = document.getElementById("mySearch");
+                    document.getElementById("demo").innerHTML = x;
+                }
+            );
             $('#playbutton').click(
                 function ()
                 {
