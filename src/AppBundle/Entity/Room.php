@@ -52,6 +52,24 @@ class Room
     private $room_code;
 
     /**
+     * @var string
+     *
+     * Access Token For Spotify
+     *
+     * @ORM\Column(name="access_token", type="string")
+     */
+    private $access_token;
+
+    /**
+     * @var string
+     *
+     * Refresh Token For Spotify
+     *
+     * @ORM\Column(name="refresh_token", type="string")
+     */
+    private $refresh_token;
+
+    /**
      * @var boolean
      *
      * Unique room code for URL prefix
@@ -189,6 +207,38 @@ class Room
     public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+
+    /**
+     * @param string $access_token
+     */
+    public function setAccessToken($access_token)
+    {
+        $this->access_token = $access_token;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRefreshToken()
+    {
+        return $this->refresh_token;
+    }
+
+    /**
+     * @param string $refresh_token
+     */
+    public function setRefreshToken($refresh_token)
+    {
+        $this->refresh_token = $refresh_token;
     }
 
     /**
