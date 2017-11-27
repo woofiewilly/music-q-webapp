@@ -132,6 +132,8 @@ class Room
         $this->roomMode = 0;
         $this->room_code = random_bytes(10);
         $this->explicit = true;
+        $this->access_token = "";
+        $this->refresh_token = "";
     }
 
 
