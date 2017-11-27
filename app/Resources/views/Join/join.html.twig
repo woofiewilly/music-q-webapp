@@ -1,27 +1,59 @@
 {% extends ":Auth:auth_base.html.twig" %}
+{% block title %}MelodyMunk | Join{% endblock %}
 
-
-{% block title %}Join a room{% endblock %}
-
-
-{% block stylesheets %} {% endblock %}
-
+{% block stylesheets %}
+<style>
+    .form-login {
+        margin-top: 20px;
+    }
+    .modal-dialog {
+        max-width: 400px;
+        margin: 10px auto;
+    }
+</style>
+{% endblock %}
 
 {% block fos_user_content %}
 
 
 <div class = "form-login">
+    <h3 class="text-center">Welcome to MelodyMunk!</h3>
     <h2 class="form-login-heading">Do you want to join this room?</h2>
-    <div class="login-wrap">
+    <div class="login-wrap text-center">
 
-        <img src="/web/img/ny.jpg">
+        <h1 class="mt"><i class="fa fa-play fa-3x"></i></h1>
 
-        <h3>The Best Partay</h3>
+        <h3>{{ name }}</h3>
 
-        <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required="required">
+        <!-- <form class="form-join" action="{ path("fos_user_security_check") }}" method="post"> -->
+            <input type="password" class="form-control" id="password" name="_password" placeholder="Password" required="required">
+            <br>
+        <!-- </form> -->
         <br>
 
-        <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"><i class="fa fa-lock"></i> JOIN</button>
+        {%  if app.user %}
+        hey you're logged in. neat
+        {% else %}
+        <p> Want to join with your MelodyMunk account? </p>
+        <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"
+                data-toggle="modal" data-target="#login">JOIN AS USER</button>
+
+
+        <div class="modal fade" id="login" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{ include('@FOSUser/Security/login_content.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
 
     </div>
 </div>

@@ -34,6 +34,12 @@
                         <label>Request Song</label>
                         <label>Leave Room</label>
                         <a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>
+<<<<<<< HEAD
+=======
+
+                        <label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>
+
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
                         <!-- END ROOM INFO SECTION -->
 
 
@@ -152,6 +158,10 @@
                                                 <muted>Available</muted>
                                             </p>
                                         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
                                         <div class="dropdown">
                                             <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
                                             <ul class="dropdown-menu dropdown-menu-right">
@@ -185,6 +195,10 @@
                                                 <muted>Available</muted>
                                             </p>
                                         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
                                         <div class="dropdown">
                                             <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
                                             <ul class="dropdown-menu dropdown-menu-right">
@@ -194,8 +208,12 @@
                                                 <li><a href="#">Promote to Admin</a></li>
                                             </ul>
                                         </div>
+<<<<<<< HEAD
 
                                     </div>
+=======
+\                                    </div>
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
 
                                     <div class="desc">
                                         <div class="thumb">
@@ -218,7 +236,10 @@
 
                                     </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
                                     <div class="desc">
                                         <div class="thumb">
                                             <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
@@ -236,7 +257,10 @@
                                                 <li><a href="#">Promote to Admin</a></li>
                                             </ul>
                                         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
                                     </div>
 
 
@@ -298,6 +322,25 @@
         </div>
     </div>
 
+    <div class="modal fade" id="qr_code_modal" tabindex="-1" role="dialog" aria-labelledby="QR Code for sharing" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">QR Code for Room {{ room.name|e('html') }}</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="qr" src="{{ path('generate_qr', {room_code: room.roomCode}) }}" width="300px">
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ path('print_qr', {room_code: room.roomCode}) }}" class="btn btn-primary" target="_blank">Print Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 
@@ -307,7 +350,10 @@
 
     <script src="{{ asset('melody_munk/Pages/room.js') }}"></script>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 2df816a422ebae913eccc557e4a8251b5d348e47
 {% endblock %}

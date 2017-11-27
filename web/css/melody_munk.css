@@ -377,5 +377,8 @@ audio#audio {
     width: 100%;
 }
 
-
+.followers {
+    margin-left: 5px;
+    margin-top: 5px;
+}
 

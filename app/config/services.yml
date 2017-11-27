@@ -37,5 +37,3 @@ services:
     greek_row_api.photo_uploader:
         class: AppBundle\Service\PhotoUploader
         arguments: ['@photo_storage_filesystem']
-
-
