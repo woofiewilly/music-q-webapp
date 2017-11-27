@@ -15,18 +15,18 @@ class RoomController extends Controller
      * --------------------
      * Renders the Playlist Room Page
      *
-     * @Route("/room/{id}", name="room_page")
+     * @Route("/room/{room_code}", name="room_page")
      * @param Request $request
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function roomPageAction(Request $request, $id) {
+    public function roomPageAction(Request $request, $room_code) {
 
         //Get the current user
         $user = $this->getUser();
 
         //Look for the room with ID
-        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findRoomByRoomCode($id);
+        $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findRoomByRoomCode($room_code);
 
         //If No Room found, redirect to error page
         if (!$room) {

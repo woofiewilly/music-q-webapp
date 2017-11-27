@@ -34,6 +34,7 @@
                         <label>Request Song</label>
                         <label>Leave Room</label>
                         <a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>
+                        <label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>
                         <!-- END ROOM INFO SECTION -->
 
 
@@ -274,6 +275,25 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button id="mm_host_review_submit" type="button" class="btn btn-orange">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="qr_code_modal" tabindex="-1" role="dialog" aria-labelledby="QR Code for sharing" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">QR Code for Room {{ room.name|e('html') }}</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="qr" src="{{ path('generate_qr', {room_code: room.roomCode}) }}" width="300px">
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ path('print_qr', {room_code: room.roomCode}) }}" class="btn btn-primary" target="_blank">Print Code</a>
                 </div>
             </div>
         </div>
