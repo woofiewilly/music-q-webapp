@@ -17,8 +17,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new \Aws\Symfony\AwsBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new \Aws\Symfony\AwsBundle(),
 
         ];
 
