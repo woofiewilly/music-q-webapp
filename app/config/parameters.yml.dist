@@ -29,3 +29,9 @@ parameters:
     aws_database_name: greekrow_platform
     aws_database_user: '$RDS_USERNAME'
     aws_database_password: '$RDS_PASSWORD'
+
+
+    facebook_app_id: 1625764377476791
+    facebook_app_secret: [ADD_KEY]
+
+

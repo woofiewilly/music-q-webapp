@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Aws\Symfony\AwsBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle()
 
         ];
 
