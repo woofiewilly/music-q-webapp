@@ -17,7 +17,7 @@ class RoomController extends Controller
      *
      * @Route("/room/{room_code}", name="room_page")
      * @param Request $request
-     * @param $id
+     * @param $room_code
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function roomPageAction(Request $request, $room_code) {
@@ -26,6 +26,7 @@ class RoomController extends Controller
         $user = $this->getUser();
 
         //Look for the room with ID
+
         $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findRoomByRoomCode($room_code);
 
         //If No Room found, redirect to error page
@@ -62,6 +63,5 @@ class RoomController extends Controller
             'room' => $room,
         ));
     }
-
 
 }
