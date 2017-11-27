@@ -10,11 +10,13 @@
     #roomInfo, #chat, #playlist{
         padding-right: 0;
     }
+
 }
 /* big device, medium and up */
 @media only screen and (min-width : 768px) {
     #room > .device-big, #room > .tab-content > .tab-pane {
         display: block;
+
     }
     #room > .device-small { /*don't display tabs*/
         display: none;
