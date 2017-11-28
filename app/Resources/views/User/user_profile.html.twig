@@ -1,0 +1,132 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}My Profile{% endblock %}
+
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="border-head">
+                <h3>My Profile</h3>
+            </div>
+
+
+
+            <!-- START Info Card -->
+            <div class="col-md-3">
+                <div class="darkblue-panel">
+                    <div class="mm_profile_header">
+                        <div class="user mt">
+                            {% if user.imageURL %}
+                                <img src="{{ user.imageURL }}" class="img-circle mm-img-av" width="80">
+                            {% else %}
+                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av" width="80">
+                            {% endif %}
+                            <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel mm_profile_info_panel">
+                    <div class="col-xs-12">
+
+                        <h4>About Me</h4>
+
+                        {% if user.description %}
+                            <p>{{ user.description }}</p>
+                        {% else %}
+                            <p class="text-center mb">No User Description</p>
+                        {% endif %}
+
+
+
+                        <table class="table table-hover table-borderless">
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-user mm_orange"></i></td>
+                                <td>{{ user.username }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-envelope mm_orange"></i></td>
+                                <td> {{ user.email }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.dob }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.country }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <a href="{{ path('profile_settings') }}">
+                        <button class="btn btn-block btn_edit_profile">Edit Profile</button>
+                    </a>
+
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+
+            </div>
+            <!-- END Info Card -->
+
+            <div class="col-md-9">
+                <div class="showback">
+
+                    <div class="mm_page_header">
+                        <h3 class="no-padding">My Reviews</h3>
+                    </div>
+
+                    <br/>
+
+                    <div class="mm_review">
+
+                            {% for review in reviews %}
+                                <div class="desc">
+                                    <div class="thumb">
+                                        {% if review.reviewUser.imageURL %}
+                                            <img src="{{ review.reviewUser.imageURL }}" class="img-circle"  width="35px" height="35px">
+                                        {% else %}
+                                            <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle"  width="35px" height="35px">
+                                        {% endif %}
+                                    </div>
+                                    <div class="details">
+                                        <p><a href="#">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</a></p>
+                                        <p><muted>Review Submitted: {{ review.dateCreated | date }}</muted></p>
+                                        <div class="content">
+                                            <p>{{ review.content }}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+
+
+
+                    </div>
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

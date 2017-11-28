@@ -1,0 +1,45 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    my_user_provider.class: AppBundle\Security\Core\User\FOSUBUserProvider
+
+services:
+
+    # Permissions Service
+    melodymunk.permissions:
+          class: AppBundle\Service\PermissionService
+          arguments: ['@doctrine.orm.entity_manager']
+
+    melodymunk.chat:
+          class: AppBundle\Sockets\Chat
+          arguments: ['@doctrine.orm.entity_manager']
+
+    melodymunk.spotify:
+        class: AppBundle\Service\SpotifyService
+
+    #Security Service
+    melodymunk.security:
+          class: AppBundle\Service\SecurityService
+
+    greek_row_api.amazon_s3:
+        class: Aws\S3\S3Client
+        factory_class: Aws\S3\S3Client
+        factory_method: 'factory'
+        arguments:
+        -
+          credentials:
+            key: '%amazon_aws_key%'
+            secret: '%amazon_aws_secret_key%'
+          region: '%amazon_s3_region%'
+          version: '%amazon_s3_version%'
+
+
+    greek_row_api.photo_uploader:
+        class: AppBundle\Service\PhotoUploader
+        arguments: ['@photo_storage_filesystem']
+
+
+    my_user_provider:
+        class: "%my_user_provider.class%"
+        #this is the place where the properties are passed to the UserProvider - see config.yml
+        arguments: ['@fos_user.user_manager',{facebook: facebook_id}]
