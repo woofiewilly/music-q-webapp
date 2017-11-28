@@ -33,23 +33,21 @@ $(function() {
 
     });
 
-    $(document).ready(function() {
-        $('#spotifyloginbutton').click(
-            function ()
-            {
-                console.log('click registered');
-                $.getJSON('/getauthorizeurl/', function(data) {
-                    console.log('Got response');
-                    console.log(JSON.stringify(data));
+    $('#spotifyloginbutton').click(
+        function ()
+        {
+            console.log('click registered');
+            $.getJSON('/getauthorizeurl/', function(data) {
+                console.log('Got response');
+                console.log(JSON.stringify(data));
 
-                    window.location = data.redirect_url;
-                }).fail(function (data) {
-                    console.log('failure');
-                    console.log(JSON.stringify(data));
-                });
-            }
-        );
-    });
+                window.location = data.redirect_url;
+            }).fail(function (data) {
+                console.log('failure');
+                console.log(JSON.stringify(data));
+            });
+        }
+    );
 
     $('#op2').click( function() {
         console.log("explicit checked")
@@ -173,25 +171,18 @@ $(function() {
     });
 
 
-    $(document).ready(function() {
-        $('#fastforward').click(
-            function ()
-            {
-                console.log('click registered');
-                $.getJSON('/fastforward/', function(data) {
-                    console.log('Got response');
-                    console.log(JSON.stringify(data));
-                }).fail(function (data) {
-                    console.log('failure');
-                    console.log(JSON.stringify(data));
-                });
-            }
-        );
-    });
-
-
-
-
-
+    $('#fastforward').click(
+        function ()
+        {
+            console.log('click registered');
+            $.getJSON('/fastforward/', function(data) {
+                console.log('Got response');
+                console.log(JSON.stringify(data));
+            }).fail(function (data) {
+                console.log('failure');
+                console.log(JSON.stringify(data));
+            });
+        }
+    );
 
 });
