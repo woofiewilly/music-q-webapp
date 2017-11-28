@@ -381,6 +381,7 @@ class Room
         $this->description = $description;
     }
 
+
     /**
      * Checks if user attempting to join a room is valid given the roomMode and whitelist/blacklist
      *
@@ -407,5 +408,6 @@ class Room
         //TODO: Add error catch for if roomMode is not set
         return false;
     }
+
 }
 

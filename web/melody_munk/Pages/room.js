@@ -8,6 +8,11 @@ $(function() {
     var host_review_content = $('#mm_host_review_content');
     var host_review_submit = $('#mm_host_review_submit');
 
+    var mm_reported_users = $('#mm_reported_users');
+
+
+    var mm_report_user_btn = $('.mm_report_user_btn');
+
 
     host_review_submit.on('click', function() {
 
@@ -40,7 +45,6 @@ $(function() {
             $.getJSON('/getauthorizeurl/', function(data) {
                 console.log('Got response');
                 console.log(JSON.stringify(data));
-
                 window.location = data.redirect_url;
             }).fail(function (data) {
                 console.log('failure');
@@ -48,6 +52,7 @@ $(function() {
             });
         }
     );
+
 
     $('#op2').click( function() {
         console.log("explicit checked")

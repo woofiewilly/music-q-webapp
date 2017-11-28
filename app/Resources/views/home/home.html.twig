@@ -16,7 +16,8 @@
 
             <div class="row mt">
                 <div class="col-xs-6">
-                    <button type="button" class="btn btn-theme02 btn-lg btn-block">Join Room</button>
+                    <button type="button" data-toggle="modal" data-target="#join_room_modal" class="btn btn-theme02 btn-lg btn-block">Join Room</button>
+
                 </div>
                 <div class="col-xs-6">
                     <button type="button" class="btn btn-theme02 btn-lg btn-block" data-toggle="modal" data-target="#new_room_modal">Create New Room</button>
@@ -154,6 +155,39 @@
                     <div class="clearfix"></div>
 
                     {{ form_end(newRoomForm) }}
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="join_room_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Join MelodyMunk Room</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-3 control-label">Room Name</label>
+                        <div class="col-sm-9">
+                            <input id="join_room_content" type="text" class="form-control round-form" placeholder="Room Code">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group no-margin">
+                        <button type="button" id="mm_join_room_btn" class="btn btn-orange pull-right">Join Room</button>
+                        <button type="button" class="btn btn-default pull-right mr" data-dismiss="modal">Close</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
 
 
                 </div>

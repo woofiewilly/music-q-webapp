@@ -85,15 +85,38 @@ fos_user:
 
 #KNPGaufretteBundle Configuration
 #-------------------------------
-#knp_gaufrette:
-#    adapters:
-#        photo_storage:
-#            aws_s3:
-#                service_id: greek_row_api.amazon_s3
-#                bucket_name:  '%amazon_s3_bucket_name%'
-#                options:
-#                    create: false
-#    filesystems:
-#        photo_storage:
-#            adapter:    photo_storage
-#            alias:      photo_storage_filesystem
+knp_gaufrette:
+    adapters:
+        photo_storage:
+            aws_s3:
+                service_id: greek_row_api.amazon_s3
+                bucket_name:  '%amazon_s3_bucket_name%'
+                options:
+                    create: false
+    filesystems:
+        photo_storage:
+            adapter:    photo_storage
+            alias:      photo_storage_filesystem
+
+
+# HWIOAuthBundle Configuration
+# ----------------------------
+hwi_oauth:
+    #this is my custom user provider, created from FOSUBUserProvider - will manage the
+    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+    #and also, the connecting part (get the token and the user_id)
+    connect:
+        account_connector: my_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_names: [main]
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebook_id
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           "%facebook_app_id%"
+            client_secret:       "%facebook_app_secret%"
+            scope:               ""
