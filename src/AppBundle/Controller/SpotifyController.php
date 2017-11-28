@@ -39,7 +39,8 @@ class SpotifyController extends Controller
                 'playlist-read-private',
                 'user-read-private',
                 'playlist-modify-private',
-                'user-modify-playback-state'
+                'user-modify-playback-state',
+                'user-read-playback-state'
             ],
         ];
 
