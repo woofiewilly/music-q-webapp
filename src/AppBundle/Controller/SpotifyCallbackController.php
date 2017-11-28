@@ -78,7 +78,12 @@ class SpotifyCallbackController extends Controller
         $playback_info = $api->getMyCurrentPlaybackInfo();
         $playback_info = json_decode(json_encode($playback_info), true);
         $volume_percent = $playback_info["device"]["volume_percent"];
-        $api->changeVolume(['volume_percent' => $volume_percent + 10,]);
+        $volume_percent = ($volume_percent + 10);
+        if($volume_percent > 100)
+        {
+            $volume_percent = 100;
+        }
+        $api->changeVolume(['volume_percent' => $volume_percent,]);
         return new JsonResponse(array());
     }
     /**
@@ -93,7 +98,12 @@ class SpotifyCallbackController extends Controller
         $playback_info = $api->getMyCurrentPlaybackInfo();
         $playback_info = json_decode(json_encode($playback_info), true);
         $volume_percent = $playback_info["device"]["volume_percent"];
-        $api->changeVolume(['volume_percent' => $volume_percent - 10,]);
+        $volume_percent = $volume_percent - 10;
+        if($volume_percent < 0)
+        {
+            $volume_percent = 0;
+        }
+        $api->changeVolume(['volume_percent' => $volume_percent,]);
         return new JsonResponse(array());
     }
     /**
