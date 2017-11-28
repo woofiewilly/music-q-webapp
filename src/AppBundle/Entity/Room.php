@@ -52,6 +52,33 @@ class Room
     private $room_code;
 
     /**
+     * @var string
+     *
+     * Access Token For Spotify
+     *
+     * @ORM\Column(name="access_token", type="string")
+     */
+    private $access_token;
+
+    /**
+     * @var string
+     *
+     * Refresh Token For Spotify
+     *
+     * @ORM\Column(name="refresh_token", type="string")
+     */
+    private $refresh_token;
+
+    /**
+     * @var boolean
+     *
+     * Unique room code for URL prefix
+     *
+     * @ORM\Column(name="explicit", type="boolean")
+     */
+    private $explicit;
+
+    /**
      * @var UserList
      *
      * @ORM\OneToOne(targetEntity="UserList", cascade={"persist", "remove"})
@@ -70,6 +97,7 @@ class Room
     /* --- ManyToOne SQL Relationships --- */
 
     //-1 is blacklist mode, 1 is whitelist mode, 0 is neither
+
     /**
      * @var integer
      *
@@ -78,14 +106,13 @@ class Room
      * @ORM\Column(name="roomMode", type="integer")
      */
     private $roomMode;
-
-
     /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $roomOwner;
+
 
     /**
      * @var UserList
@@ -94,7 +121,6 @@ class Room
      * @ORM\JoinColumn(name="usersInRoom", referencedColumnName="id")
      */
     private $usersInRoom;
-
 
     public function __construct(User $roomOwner, $name) {
         $this->dateCreated = new \DateTime();
@@ -105,7 +131,11 @@ class Room
         $this->usersInRoom = new UserList();
         $this->roomMode = 0;
         $this->room_code = random_bytes(10);
+        $this->explicit = true;
+        $this->access_token = "";
+        $this->refresh_token = "";
     }
+
 
     /**
      * Get id
@@ -179,6 +209,54 @@ class Room
     public function setRoomCode($room_code)
     {
         $this->room_code = $room_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+
+    /**
+     * @param string $access_token
+     */
+    public function setAccessToken($access_token)
+    {
+        $this->access_token = $access_token;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRefreshToken()
+    {
+        return $this->refresh_token;
+    }
+
+    /**
+     * @param string $refresh_token
+     */
+    public function setRefreshToken($refresh_token)
+    {
+        $this->refresh_token = $refresh_token;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isExplicit()
+    {
+        return $this->explicit;
+    }
+
+    /**
+     * @param bool $explicit
+     */
+    public function setExplicit($explicit)
+    {
+        $this->explicit = $explicit;
     }
 
 

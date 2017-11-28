@@ -30,7 +30,9 @@
                         </div>
 
                         <input id="op1" name="op1" type="checkbox" checked="">
+                        <input id="op2" name="op2" type="checkbox" checked="">
                         <label for="op1">Request To Be Admin</label>
+                        <label for="op2">Allow Explicit Songs</label>
                         <label>Request Song</label>
                         <label>Leave Room</label>
                         <a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>
@@ -52,8 +54,21 @@
                                 <h4>{{ room.roomOwner.firstName }} {{ room.roomOwner.lastName }}</h4>
                             </div>
                         </div>
+                        <label id="spotifyloginbutton">Log in with Spotify</label>
                         <label>View Profile</label>
                         <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
+
+                        <!-- ROOM OWNER SECTION -->
+                        <input class="mm_dj_info_header" value="Control Spotify Playback" disabled>
+                        <label id="playbutton">Play a song</label>
+                        <label id="pausebutton"> Pause a song</label>
+                        <label id="raisevolumebutton">Raise Volume</label>
+                        <label id="lowervolumebutton">Lower Volume</label>
+                        <label id="nextsong">Next Song</label>
+                        <label id="prevsong">Previous Song</label>
+                        <label id="fastforward">Fast Forward</label>
+
+
 
                     </div>
                 </div>

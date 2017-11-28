@@ -30,7 +30,6 @@ class SpotifyCallbackController extends Controller
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $me = $api->me();
-        echo $me->display_name;
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
         fclose($myfile);
@@ -76,7 +75,15 @@ class SpotifyCallbackController extends Controller
         $accessToken = fread($myfile,filesize("spotifyat.txt"));
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        $api->changeVolume(['volume_percent' => 100,]);
+        $playback_info = $api->getMyCurrentPlaybackInfo();
+        $playback_info = json_decode(json_encode($playback_info), true);
+        $volume_percent = $playback_info["device"]["volume_percent"];
+        $volume_percent = ($volume_percent + 10);
+        if($volume_percent > 100)
+        {
+            $volume_percent = 100;
+        }
+        $api->changeVolume(['volume_percent' => $volume_percent,]);
         return new JsonResponse(array());
     }
     /**
@@ -88,7 +95,15 @@ class SpotifyCallbackController extends Controller
         $accessToken = fread($myfile,filesize("spotifyat.txt"));
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        $api->changeVolume(['volume_percent' => 20,]);
+        $playback_info = $api->getMyCurrentPlaybackInfo();
+        $playback_info = json_decode(json_encode($playback_info), true);
+        $volume_percent = $playback_info["device"]["volume_percent"];
+        $volume_percent = $volume_percent - 10;
+        if($volume_percent < 0)
+        {
+            $volume_percent = 0;
+        }
+        $api->changeVolume(['volume_percent' => $volume_percent,]);
         return new JsonResponse(array());
     }
     /**
