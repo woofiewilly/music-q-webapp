@@ -6,28 +6,74 @@
 
 {% block stylesheets %} {% endblock %}
 
+{% block wholebody %}
+<div id = "room">
 
-{% block body %}
+    <ul class = "nav nav-tabs device-small" >
+        <li  class ="active"><a data-toggle="tab" href="#roomInfo">Room Info</a></li>
+        <li ><a data-toggle="tab" href="#chat">Chat</a></li>
+        <li ><a data-toggle="tab" href="#playlist">Playlist</a></li>
+    </ul>
 
-    <div class="row">
+    <div class="row tab-content">
 
-        <!-- START SECTION MIDDLE -->
-        <div class="col-xs-12">
+        <div  class="tab-pane active col col-xs-12 col-sm-4" id="roomInfo"> <!--room info, mb mt-->
+            <div class="steps">
 
-            <div class="row">
+                <!-- ROOM INFO SECTION -->
+                <input class="mm_dj_info_header" value="Room Info" disabled>
+                <div id="profile-02">
+                    <div class="user">
+                        <h3>{{ room.name }}</h3>
+                        <h4>Room Code: {{ room.roomCode }}</h4>
+                    </div>
+                </div>
 
+                <input id="op1" name="op1" type="checkbox" checked="">
+                <label for="op1">Request To Be Admin</label>
+                <label>Request Song</label>
+                <label>Leave Room</label>
+                <!-- END ROOM INFO SECTION -->
 
-                <div class="col-lg-3 col-md-12 mb mt">
-                    <div class="steps">
+                <!-- ROOM OWNER SECTION -->
+                <input class="mm_dj_info_header" value="Room Owner Info" disabled>
+                <div id="profile-02">
+                    <div class="user">
+                        {% if room.roomOwner.imageURL %}
+                            <img src="{{ room.roomOwner.imageURL }}" class="img-circle mm-img-av" width="80">
+                        {% else %}
+                            <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av" width="80">
+                        {% endif %}
+                        <h4>{{ room.roomOwner.firstName }} {{ room.roomOwner.lastName }}</h4>
+                    </div>
+                </div>
+                <label>View Profile</label>
+                <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
+            </div>
+        </div> <!--end room info-->
 
-                        <!-- ROOM INFO SECTION -->
-                        <input class="mm_dj_info_header" value="Room Info" disabled>
-                        <div id="profile-02">
-                            <div class="user">
-                                <h3>{{ room.name }}</h3>
-                                <h4>Room Code: {{ room.roomCode }}</h4>
-                            </div>
+        <div  class="tab-pane col-xs-12 col-sm-4" id="chat"> <!--chat, mt-->
+
+            <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
+
+            <div class="content-panel">
+
+                <div class="mm_chat" style="height: 600px;">
+
+                    <div class="desc">
+                        <div class="thumb">
+                            {% if room.roomOwner.imageURL %}
+                                <img src="{{ room.roomOwner.imageURL }}" class="img-circle mm-chat-img-av">
+                            {% else %}
+                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-chat-img-av">
+                            {% endif %}
                         </div>
+
+                        <div class="details">
+                            <p class="chat-content">This is an example chat message in a room.</p>
+                            <p class="chat-time">2 Minutes Ago</p>
+                        </div>
+
 
                         <input id="op1" name="op1" type="checkbox" checked="">
                         <input id="op2" name="op2" type="checkbox" checked="">
@@ -69,79 +115,83 @@
                         <label id="prevsong">Previous Song</label>
 
 
+
+                    </div>
+
+                </div>
+
+                <hr class="no-padding mt-0" style="margin-bottom: 7.5px; "/>
+
+                <div class="col-xs-12">
+                    <div class="row">
+
+                        <div class="form-group">
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control round-form no-margin" placeholder="Room Chat Message Content...." />
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn btn-block btn_edit_profile">Send</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-md-5 mt">
+                <div class="clearfix"></div>
+            </div>
+        </div> <!--end chat-->
 
-                    <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
+        <div  class="tab-pane col-xs-12 col-sm-4" id="playlist"> <!--playlist, mb mt-->
+            <!--<div class="col-xs-12">-->
+                <input class="mm_dj_info_header" value="Current Song" disabled>
 
-                    <div class="content-panel">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="content-panel pn">
+                            <div id="spotify">
+                                <div class="sp-title">
+                                    <h3>Bank Account</h3>
+                                    <h4>21 Savage</h4>
+                                </div>
+                                <div class="play">
+                                    <i class="fa fa-play-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        <div class="mm_chat" style="height: 600px;">
+
+                <input class="mm_dj_info_header" value="Active Users" disabled>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="content-panel ds">
 
                             <div class="desc">
                                 <div class="thumb">
-                                    {% if room.roomOwner.imageURL %}
-                                        <img src="{{ room.roomOwner.imageURL }}" class="img-circle mm-chat-img-av">
-                                    {% else %}
-                                        <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-chat-img-av">
-                                    {% endif %}
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
                                 </div>
                                 <div class="details">
-                                    <p class="chat-content">This is an example chat message in a room.</p>
-                                    <p class="chat-time">2 Minutes Ago</p>
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
                                 </div>
                             </div>
 
-                        </div>
 
-                        <hr class="no-padding mt-0" style="margin-bottom: 7.5px; "/>
-
-                        <div class="col-xs-12">
-                            <div class="row">
-
-                                <div class="form-group">
-                                    <div class="col-xs-9">
-                                        <input type="text" class="form-control round-form no-margin" placeholder="Room Chat Message Content...." />
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <button class="btn btn-block btn_edit_profile">Send Message</button>
-                                    </div>
-
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
                                 </div>
-
-
-
-                            </div>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-xs-12 col-md-4 mb mt">
-                    <div class="col-xs-12">
-                        <input class="mm_dj_info_header" value="Current Song" disabled>
-
-                        <div class="row">
-                            <div class="col-xs-12">
-                            <div class="content-panel pn">
-                                <div id="spotify">
-                                    <div class="sp-title">
-                                        <h3>Bank Account</h3>
-                                        <h4>21 Savage</h4>
-                                    </div>
-                                    <div class="play">
-                                        <i class="fa fa-play-circle"></i>
-                                    </div>
+                                <div class="details">
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
                                 </div>
                             </div>
-                            </div>
-                        </div>
 
+=======
                         <div class="row mb-0">
                             <div class="col-xs-12 mb-0">
                                 <div class="mm_visualize_panel">
@@ -257,27 +307,43 @@
                                     </div>
 
 
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                </div>
+                                <div class="details">
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                </div>
+                                <div class="details">
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-
-
-
                 </div>
+            <!--</div>-->
+        </div> <!--end playlist-->
 
-
-            </div>
-
-
+    </div> <!--row tab-content-->
+    <a href="#">
+        <div class="float" >
+            <i class="fa fa-cog fa-3x my-float"></i>
         </div>
-        <!-- END SECTION MIDDLE -->
+    </a>
 
 
-    </div><! --/row -->
-
-
+</div> <!--room-->
 {% endblock %}
 
 
