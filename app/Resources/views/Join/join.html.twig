@@ -32,7 +32,7 @@
         <br>
 
         {%  if app.user %}
-        hey you're logged in. neat
+        Hey you're already logged in. Neat.
         {% else %}
         <p> Want to join with your MelodyMunk account? </p>
         <button class="btn btn-theme btn-block" id="_submit" name="_submit" type="submit"
@@ -49,6 +49,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         {{ include('@FOSUser/Security/login_content.html.twig') }}
+                        <!--how to redirect to room after login??? TODO -->
                     </div>
                 </div>
             </div>
