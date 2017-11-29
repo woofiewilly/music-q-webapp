@@ -32,6 +32,8 @@ class SpotifyCallbackController extends Controller
         $me = $api->me();
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
+        $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");
+        fwrite($myfile, $refreshToken);
         fclose($myfile);
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
@@ -39,10 +41,10 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/play/", name="play")
      */
-    public function playsong()
+    public function playsong(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $this->setAccessToken($request);
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         try{
@@ -57,10 +59,9 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/pause/", name="pause")
      */
-    public function pausesong()
+    public function pausesong(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $api->pause();
@@ -69,10 +70,9 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/raisevolume/", name="raisevolume")
      */
-    public function raisevolume()
+    public function raisevolume(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $playback_info = $api->getMyCurrentPlaybackInfo();
@@ -89,10 +89,9 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/lowervolume/", name="lowervolume")
      */
-    public function lowervolume()
+    public function lowervolume(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $playback_info = $api->getMyCurrentPlaybackInfo();
@@ -109,10 +108,9 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/nextsong/", name="nextsong")
      */
-    public function nextsong()
+    public function nextsong(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $api->next();
@@ -121,27 +119,73 @@ class SpotifyCallbackController extends Controller
     /**
      * @Route("/prevsong/", name="prevsong")
      */
-    public function prevsong()
+    public function prevsong(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $api->previous();
         return new JsonResponse(array());
     }
-    /**
-     * @Route("/fastforward/", name="fastforward")
-     */
-    public function fastforward()
+
+    private function getAccessToken(Request $request)
     {
-        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $accessToken = fread($myfile,filesize("spotifyat.txt"));
-        $api = new \SpotifyWebAPI\SpotifyWebAPI();
-        $api->setAccessToken($accessToken);
-        $api->seek(['position_ms' => 60000 + 37000, // Move to the 1.37 minute mark
-        ]);
-        return new JsonResponse(array());
+        if ($request->isXmlHttpRequest()) {
+
+            //Get Request Params
+            $roomID = $request->request->get('room_id');
+            $value = $request->request->get('value');
+
+            $db_manager = $this->getDoctrine()->getManager();
+            //Find room with ID
+            $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+
+            //If no room found, return error response
+            if (!$room) {
+                return new JsonResponse(array(
+                    'success' => false,
+                    'message' => "Room Not Found!"
+                ));
+            }
+            $accessToken = $room->getAccessToken();
+            $db_manager->clear();
+
+            return $accessToken;
+        }
+        else
+        {
+            return "Error";
+        }
     }
 
+    private function setAccessToken(Request $request)
+    {
+        $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
+        $myfile2 = fopen("spotifyrt.txt","r") or die("Unable to open file!");
+        $accessToken = fread($myfile,filesize("spotifyat.txt"));
+        $refreshToken = fread($myfile2,filesize("spotifyrt.txt"));
+        if ($request->isXmlHttpRequest()) {
+
+            //Get Request Params
+            $roomID = $request->request->get('room_id');
+            $value = $request->request->get('value');
+
+            $db_manager = $this->getDoctrine()->getManager();
+            //Find room with ID
+            $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+
+            //If no room found, return error response
+            if (!$room) {
+                return new JsonResponse(array(
+                    'success' => false,
+                    'message' => "Room Not Found!"
+                ));
+            }
+            $room->setAccessToken($accessToken);
+            $room->setRefreshToken($refreshToken);
+            $db_manager->persist($room);
+            $db_manager->flush();
+            $db_manager->clear();
+        }
+    }
 }

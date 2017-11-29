@@ -175,19 +175,4 @@ $(function() {
         });
     });
 
-
-    $('#fastforward').click(
-        function ()
-        {
-            console.log('click registered');
-            $.getJSON('/fastforward/', function(data) {
-                console.log('Got response');
-                console.log(JSON.stringify(data));
-            }).fail(function (data) {
-                console.log('failure');
-                console.log(JSON.stringify(data));
-            });
-        }
-    );
-
 });
