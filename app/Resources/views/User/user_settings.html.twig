@@ -54,6 +54,16 @@
                                 <td> {{ user.email }}</td>
                             </tr>
 
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.dob }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.country }}</td>
+                            </tr>
+
                             </tbody>
                         </table>
 
@@ -93,6 +103,20 @@
                         <label class="col-sm-2 col-sm-2 control-label">Description</label>
                         <div class="col-sm-10">
                             {{ form_widget(userForm.description) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Date Of Birth</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.dob) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.country) }}
                         </div>
                     </div>
 

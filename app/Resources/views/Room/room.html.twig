@@ -68,10 +68,56 @@
                                 <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-chat-img-av">
                             {% endif %}
                         </div>
+
                         <div class="details">
                             <p class="chat-content">This is an example chat message in a room.</p>
                             <p class="chat-time">2 Minutes Ago</p>
                         </div>
+
+
+                        <input id="op1" name="op1" type="checkbox" checked="">
+                        <input id="op2" name="op2" type="checkbox" checked="">
+                        <label for="op1">Request To Be Admin</label>
+                        <label for="op2">Allow Explicit Songs</label>
+                        <label>Request Song</label>
+                        <label>Leave Room</label>
+                        <a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>
+
+                        <label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>
+
+
+                        <!-- END ROOM INFO SECTION -->
+
+
+                        <!-- ROOM OWNER SECTION -->
+                        <input class="mm_dj_info_header" value="Room Owner Info" disabled>
+                        <div id="profile-02">
+                            <div class="user">
+                                {% if room.roomOwner.imageURL %}
+                                    <img src="{{ room.roomOwner.imageURL }}" class="img-circle mm-img-av" width="80">
+                                {% else %}
+                                    <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av" width="80">
+                                {% endif %}
+                                <h4>{{ room.roomOwner.firstName }} {{ room.roomOwner.lastName }}</h4>
+                            </div>
+                        </div>
+                        <label id="spotifyloginbutton">Log in with Spotify</label>
+                        <label>View Profile</label>
+                        <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
+
+                        <!-- ROOM OWNER SECTION -->
+                        <input class="mm_dj_info_header" value="Control Spotify Playback" disabled>
+                        <label id="playbutton">Play a song</label>
+                        <label id="pausebutton"> Pause a song</label>
+                        <label id="raisevolumebutton">Raise Volume</label>
+                        <label id="lowervolumebutton">Lower Volume</label>
+                        <label id="nextsong">Next Song</label>
+                        <label id="prevsong">Previous Song</label>
+                        <label id="fastforward">Fast Forward</label>
+
+
+
+
                     </div>
 
                 </div>
@@ -135,6 +181,7 @@
                                 </div>
                             </div>
 
+
                             <div class="desc">
                                 <div class="thumb">
                                     <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
@@ -145,6 +192,121 @@
                                     </p>
                                 </div>
                             </div>
+
+=======
+                        <div class="row mb-0">
+                            <div class="col-xs-12 mb-0">
+                                <div class="mm_visualize_panel">
+                                    <canvas id="canvas" width="397" height="150" style="margin-bottom: -7px;"></canvas>
+                                    <audio src="{{ asset('js/visualize/assets/sample.mp3') }}" id="audio" style="margin-bottom: -6px;" controls>HTML5 Audio element not supported</audio>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div id="mm_reported_users" class="row hidden">
+                            <div class="col-xs-12">
+                                <input class="mm_dj_info_header" value="Reported Users" disabled>
+
+                                <div class="content-panel ds">
+
+                                    <div class="desc">
+                                        <div class="thumb">
+                                            <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                        </div>
+                                        <div class="details">
+                                            <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                                <muted>Available</muted>
+                                            </p>
+                                        </div>
+
+                                        <div class="dropdown">
+                                            <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#">Remove User</a></li>
+                                                <li><a href="#">Archive Report</a></li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <input class="mm_dj_info_header" value="Active Users" disabled>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="content-panel ds">
+
+                                    <div class="desc">
+                                        <div class="thumb">
+                                            <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                        </div>
+                                        <div class="details">
+                                            <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                                <muted>Available</muted>
+                                            </p>
+                                        </div>
+
+                                        <div class="dropdown">
+                                            <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+
+                                                <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                                <li><a href="#">Promote to Admin</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="desc">
+                                        <div class="thumb">
+                                            <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                        </div>
+                                        <div class="details">
+                                            <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                                <muted>Available</muted>
+                                            </p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+
+                                                <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                                <li><a href="#">Promote to Admin</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="desc">
+                                        <div class="thumb">
+                                            <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                        </div>
+                                        <div class="details">
+                                            <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                                <muted>Available</muted>
+                                            </p>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                                <li><a href="#">Promote to Admin</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
 
 
                             <div class="desc">
@@ -221,10 +383,31 @@
         </div>
     </div>
 
+    <div class="modal fade" id="qr_code_modal" tabindex="-1" role="dialog" aria-labelledby="QR Code for sharing" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">QR Code for Room {{ room.name|e('html') }}</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="qr" src="{{ path('generate_qr', {room_code: room.roomCode}) }}" width="300px">
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ path('print_qr', {room_code: room.roomCode}) }}" class="btn btn-primary" target="_blank">Print Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 
 {% block javascripts %}
+
+    <script src="{{ asset('js/visualize/main.js') }}"></script>
 
     <script src="{{ asset('melody_munk/Pages/room.js') }}"></script>
 
