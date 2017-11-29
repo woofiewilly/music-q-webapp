@@ -25,13 +25,15 @@
                 <div id="profile-02">
                     <div class="user">
                         <h3>{{ room.name }}</h3>
-                        <h4>Room Code: {{ room.roomCode }}</h4>
+                        <h4>{{ room.description }}</h4>
+                        <!--<h4>Room Code: { room.roomCode }}</h4>-->
                     </div>
                 </div>
 
                 <input id="op1" name="op1" type="checkbox" checked="">
                 <label for="op1">Request To Be Admin</label>
                 <label>Request Song</label>
+                <label>Room Settings</label>
                 <label>Leave Room</label>
                 <!-- END ROOM INFO SECTION -->
 
@@ -176,11 +178,6 @@
         </div> <!--end playlist-->
 
     </div> <!--row tab-content-->
-    <a href="#">
-        <div class="float" >
-            <i class="fa fa-cog fa-3x my-float"></i>
-        </div>
-    </a>
 
 
 </div> <!--room-->

@@ -10,24 +10,6 @@ Premium: http://www.gridgum.com
 @import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700,900);
 /* BASIC THEME CONFIGURATION */
 
-*{padding:0;margin:0;}
-
-.float{
-  position:fixed;
-  width:60px;
-  height:60px;
-  bottom:40px;
-  right:40px;
-  background-color:#0C9;
-  color:#FFF;
-  border-radius:50px;
-  text-align:center;
-  box-shadow: 2px 2px 3px #999;
-}
-.my-float{
-  margin-top:12px;
-}
-
 body {
   color: #ED8524;
   background: #f2f6fb;
