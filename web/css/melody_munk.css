@@ -211,7 +211,6 @@
     margin-right: 10px;
 }
 
-
 /* --- MODAL CENTER CSS --- */
 .modal {
     text-align: center;
@@ -379,4 +378,7 @@ audio#audio {
 }
 
 
-
+.followers {
+    margin-left: 5px;
+    margin-top: 5px;
+}

@@ -85,19 +85,34 @@ function connectToChat() {
         console.log(e);
     };
 
-    conn.onclose(function(e) {
+    conn.onclose = function(e) {
         console.log(e);
-        displayChatMessage('Info', 'Connection lost, attempting to reconnect...');
 
-        reconnect();
+        reconnect(1);
 
-    });
+    };
 
     return false;
 }
 
-function reconnect() {
-    
+function reconnect(attempt) {
+    // 0 = connecting, 1 = ready
+    while (conn.readyState === 0) {
+        // Wait until conn is done connecting (not 0)
+    }
+    if (conn.readyState === 1) {
+        return; // In case it wasn't ready outside before while loop
+    }
+
+    displayChatMessage('Info', 'Connection lost, attempting to reconnect, attempt ' + attempt + '...');
+    connectToChat();
+
+    setTimeout(function() {
+        if (conn.readyState !== 1) {
+            reconnect(attempt + 1);
+        }
+    }, 5000);
+
 }
 
 function sendChatMessage() {

@@ -42,7 +42,6 @@ class DefaultController extends Controller
             $secuityService = $this->get('melodymunk.security');
             $room->setRoomCode($secuityService->createRoomCode());
 
-
             //Persist Changes to DB
             $db_manager = $this->getDoctrine()->getManager();
 
@@ -54,7 +53,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute('room_page', array(
                 'room_code' => $room->getRoomCode()
             ));
-
         }
 
 
