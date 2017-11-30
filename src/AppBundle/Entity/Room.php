@@ -145,7 +145,7 @@ class Room
         $this->explicit = true;
         $this->access_token = "";
         $this->refresh_token = "";
-        $this->playlist_id = ""; 
+        $this->playlist_id = "";
     }
 
 

@@ -29,18 +29,22 @@ class SpotifyCallbackController extends Controller
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $me = $api->me();
-        $playlist = $api->createUserPlaylist($me,array("melodymunkplaylist",));
+        $me = $playlist = json_decode(json_encode($me), true);
+        $me_id = $me["id"];
+        $api->createUserPlaylist($me_id, ['name' => $string = base64_encode(random_bytes(10))]);
         $playlist = json_decode(json_encode($playlist), true);
         $playlist_uri = $playlist["uri"];
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
+        fclose($myfile);
         $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $refreshToken);
+        fclose($myfile);
         $myfile = fopen("spotifyyuri.txt","w") or die ("Unable to open file!");
         fwrite($myfile, $playlist_uri);
-        $api->play("",array($playlist_uri));
-        $api->pause();
         fclose($myfile);
+        //$api->play('', ['context_uri' => $playlist_uri]);
+        //$api->pause();
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
     }
@@ -178,11 +182,14 @@ class SpotifyCallbackController extends Controller
     private function setAccessToken(Request $request)
     {
         $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
-        $myfile2 = fopen("spotifyrt.txt","r") or die("Unable to open file!");
-        $myfile3 = fopen("spotifyyuri.txt","r") or die ("Unable to open file!");
         $accessToken = fread($myfile,filesize("spotifyat.txt"));
-        $refreshToken = fread($myfile2,filesize("spotifyrt.txt"));
-        $playlist_uri = fread($myfile3,filesize("spotifyuri.txt"));
+        fclose($myfile);
+        $myfile = fopen("spotifyrt.txt","r") or die("Unable to open file!");
+        $refreshToken = fread($myfile,filesize("spotifyrt.txt"));
+        fclose($myfile);
+        $myfile = fopen("spotifyyuri.txt","r") or die ("Unable to open file!");
+        $playlist_uri = fread($myfile,filesize("spotifyuri.txt"));
+        fclose($myfile);
         if ($request->isXmlHttpRequest()) {
 
             //Get Request Params
