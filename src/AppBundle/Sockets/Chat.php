@@ -8,7 +8,7 @@ use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
 /**
- * Class Chat
+ * Class ChatBundle
  *
  * Much of the chat functionality was inspired from
  * https://ourcodeworld.com/articles/read/242/creating-an-agnostic-realtime-chat-with-php-using-sockets-in-symfony-93
