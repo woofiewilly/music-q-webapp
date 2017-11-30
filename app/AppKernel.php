@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new \Aws\Symfony\AwsBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-
+            new Chat\ChatBundle\ChatBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
