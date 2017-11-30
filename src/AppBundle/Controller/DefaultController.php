@@ -51,6 +51,7 @@ class DefaultController extends Controller
 
 
             return $this->redirectToRoute('room_page', array(
+
                 'room_code' => $room->getRoomCode()
             ));
         }

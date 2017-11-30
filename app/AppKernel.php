@@ -17,9 +17,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new \Aws\Symfony\AwsBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Chat\ChatBundle\ChatBundle(),
+            new \Aws\Symfony\AwsBundle(),
+            new Http\HttplugBundle\HttplugBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle()
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
