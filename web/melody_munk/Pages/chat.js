@@ -14,6 +14,13 @@ $(document).ready(function () {
        }
     });
 
+    window.setInterval(function () {
+        console.log('Checking if chat is alive. readystate = ' + conn.readyState + ' rec = ' + reconnecting);
+        if ((conn.readyState !== 0 || conn.readyState !== 1) && !reconnecting) {
+            reconnect(1);
+        }
+    }, 5000);
+
 });
 
 // Change localhost to the name or ip address of the host running the chat server
@@ -83,24 +90,33 @@ function connectToChat() {
 
     conn.onerror = function(e) {
         console.log(e);
+
+        conn.close();
     };
 
     conn.onclose = function(e) {
         console.log(e);
 
-        reconnect(1);
+        if (!reconnecting) {
+            reconnect(1);
+        }
 
     };
 
     return false;
 }
 
+reconnecting = false;
 function reconnect(attempt) {
+    reconnecting = true;
+
     // 0 = connecting, 1 = ready
     while (conn.readyState === 0) {
         // Wait until conn is done connecting (not 0)
     }
     if (conn.readyState === 1) {
+        console.log('Successfully reconnected');
+        reconnecting = false;
         return; // In case it wasn't ready outside before while loop
     }
 
@@ -110,6 +126,9 @@ function reconnect(attempt) {
     setTimeout(function() {
         if (conn.readyState !== 1) {
             reconnect(attempt + 1);
+        } else {
+            console.log('Successfully reconnected');
+            reconnecting = false;
         }
     }, 5000);
 
