@@ -24,12 +24,10 @@ class SpotifyCallbackController extends Controller
 
         // Request a access token using the code from Spotify
         $session->requestAccessToken($_GET['code']);
-
         $accessToken = $session->getAccessToken();
         $refreshToken = $session->getRefreshToken();
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        $me = $api->me();
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
         $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");

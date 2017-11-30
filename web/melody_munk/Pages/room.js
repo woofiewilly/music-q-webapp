@@ -45,7 +45,9 @@ $(function() {
             $.getJSON('/getauthorizeurl/', function(data) {
                 console.log('Got response');
                 console.log(JSON.stringify(data));
-                window.location = data.redirect_url;
+                var callbackurl = data.redirect_url;
+                console.log(callbackurl);
+                window.location = callbackurl;
             }).fail(function (data) {
                 console.log('failure');
                 console.log(JSON.stringify(data));
