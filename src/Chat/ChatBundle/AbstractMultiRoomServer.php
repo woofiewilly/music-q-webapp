@@ -177,6 +177,12 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
             case self::ACTION_REFRESH_PLAYLIST:
                 $this->sendRefresh($client, $roomId);
                 break;
+            case self::ACTION_ANNOUNCEMENT_RECEIVED:
+                $msg['timestamp'] = isset($msg['timestamp']) ? $msg['timestamp'] : time();
+                $this->logMessageReceived($client, $roomId, $msg['message'], $msg['timestamp']);
+                $this->sendAnnouncement($client, $roomId, $msg['message'], $msg['timestamp']);
+                $this->sendUserStoppedTypingMessage($client, $roomId);
+                break;
             default: throw new InvalidActionException('Invalid action: '.$msg['action']);
         }
     }
@@ -283,6 +289,26 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
 
         $clients = $this->findRoomClients($roomId);
         $this->sendDataToClients($clients, $dataPacket);
+    }
+
+    /**
+     * @param ConnectedClientInterface $client
+     * @param $roomId
+     * @param $announcement
+     * @param $timestamp
+     */
+    protected function sendAnnouncement(ConnectedClientInterface $client, $roomId, $announcement, $timestamp)
+    {
+        $dataPacket = array(
+            'type'=>self::PACKET_TYPE_ANNOUNCEMENT,
+            'from'=>$client->asArray(),
+            'timestamp'=>$timestamp,
+            'announcement'=>$this->makeMessageReceivedMessage($client, $announcement, $timestamp),//TODO: Check this function with Brooks
+        );
+
+        $clients = $this->findRoomClients($roomId);
+        $this->sendDataToClients($clients, $dataPacket);
+        //TODO: Send to room DB
     }
 
     protected function sendRefresh(ConnectedClientInterface $client, $roomId) {
