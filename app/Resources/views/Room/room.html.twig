@@ -55,12 +55,12 @@
                                 <h4>{{ room.roomOwner.firstName }} {{ room.roomOwner.lastName }}</h4>
                             </div>
                         </div>
-                        <label id="spotifyloginbutton">Log in with Spotify</label>
                         <label>View Profile</label>
                         <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
 
-                        <!-- ROOM OWNER SECTION -->
-                        <input class="mm_dj_info_header" value="Control Spotify Playback" disabled>
+                        <!-- SPOTIFY SECTION -->
+                        <input class="mm_dj_info_header" value="Control Spotify" disabled>
+                        <label id="spotifyloginbutton">Log in with Spotify</label>
                         <label id="playbutton">Play a song</label>
                         <label id="pausebutton"> Pause a song</label>
                         <label id="raisevolumebutton">Raise Volume</label>
@@ -74,8 +74,8 @@
 
                 <div class="col-xs-12 col-md-5 mt">
 
-                    <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
 
+                    <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
 
                     <div class="content-panel">
 
@@ -128,11 +128,7 @@
                                     <div class="col-xs-3">
                                         <button class="btn btn-block btn_edit_profile">Send Message</button>
                                     </div>
-
                                 </div>
-
-
-
                             </div>
                         </div>
 
@@ -171,8 +167,6 @@
 
                             </div>
                         </div>
-
-
 
                         <div id="mm_reported_users" class="row hidden">
                             <div class="col-xs-12">
@@ -275,12 +269,21 @@
                                             </ul>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
 
                         </div>
+
+                        <input class="mm_dj_info_header" value="Search and Add Songs To Queue" disabled>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="content-panel ds">
+                                    <input id= "search" type="text" name="search" placeholder="Search..">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 
