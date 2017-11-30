@@ -1,31 +1,3 @@
-/*FOR COLUMNS/TABS IN ROOM PAGE*/
-/* small device, small and down*/
-@media (max-width: 767px) {
-    #room > .device-big {
-        display: none;
-    }
-    #room > .device-small {
-        display: block;
-    }
-    #roomInfo, #chat, #playlist{
-        padding-right: 0;
-    }
-
-}
-/* big device, medium and up */
-@media only screen and (min-width : 768px) {
-    #room > .device-big, #room > .tab-content > .tab-pane {
-        display: block;
-
-    }
-    #room > .device-small { /*don't display tabs*/
-        display: none;
-    }
-    #room > .tab-content > .tab-pane { /*display tab content*/
-        display: block;
-    }
-}
-
 @media (min-width: 980px) {
     /*-----*/
     .custom-bar-chart {
