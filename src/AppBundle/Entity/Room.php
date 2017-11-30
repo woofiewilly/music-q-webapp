@@ -115,6 +115,17 @@ class Room
 
 
     /**
+     * @var string
+     *
+     * Spotify Playlist ID
+     *
+     * @ORM\Column(name="playlist_id", type="string")
+     */
+    private $playlist_id;
+
+
+
+    /**
      * @var UserList
      *
      * @ORM\OneToOne(targetEntity="UserList", cascade={"persist", "remove"})
@@ -134,6 +145,7 @@ class Room
         $this->explicit = true;
         $this->access_token = "";
         $this->refresh_token = "";
+        $this->playlist_id = ""; 
     }
 
 
@@ -379,6 +391,22 @@ class Room
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaylistId()
+    {
+        return $this->playlist_id;
+    }
+
+    /**
+     * @param string $playlist_id
+     */
+    public function setPlaylistId($playlist_id)
+    {
+        $this->playlist_id = $playlist_id;
     }
 
 

@@ -28,10 +28,18 @@ class SpotifyCallbackController extends Controller
         $refreshToken = $session->getRefreshToken();
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
+        $me = $api->me();
+        $playlist = $api->createUserPlaylist($me,array("melodymunkplaylist",));
+        $playlist = json_decode(json_encode($playlist), true);
+        $playlist_uri = $playlist["uri"];
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
         $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $refreshToken);
+        $myfile = fopen("spotifyyuri.txt","w") or die ("Unable to open file!");
+        fwrite($myfile, $playlist_uri);
+        $api->play("",array($playlist_uri));
+        $api->pause();
         fclose($myfile);
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
@@ -171,8 +179,10 @@ class SpotifyCallbackController extends Controller
     {
         $myfile = fopen("spotifyat.txt", "r") or die("Unable to open file!");
         $myfile2 = fopen("spotifyrt.txt","r") or die("Unable to open file!");
+        $myfile3 = fopen("spotifyyuri.txt","r") or die ("Unable to open file!");
         $accessToken = fread($myfile,filesize("spotifyat.txt"));
         $refreshToken = fread($myfile2,filesize("spotifyrt.txt"));
+        $playlist_uri = fread($myfile3,filesize("spotifyuri.txt"));
         if ($request->isXmlHttpRequest()) {
 
             //Get Request Params
@@ -192,6 +202,7 @@ class SpotifyCallbackController extends Controller
             }
             $room->setAccessToken($accessToken);
             $room->setRefreshToken($refreshToken);
+            $room->setPlaylistId($playlist_uri);
             $db_manager->persist($room);
             $db_manager->flush();
             $db_manager->clear();
