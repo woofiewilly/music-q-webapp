@@ -176,5 +176,23 @@ $(function() {
 
         });
     });
+    $('#search').keyup(function() {
+
+        searchText = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "/search/",
+            dataType: "json",
+            data: {
+                room_id: roomID,
+                searchText : searchText
+            },
+            success : function(response)
+            {
+                console.log(response);
+            }
+        });
+    });
 
 });

@@ -126,6 +126,17 @@ class SpotifyCallbackController extends Controller
         return new JsonResponse(array());
     }
 
+    /**
+     * @Route("/search/", name="search")
+     */
+    public function search(Request $request)
+    {
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        return new JsonResponse(array());
+    }
+
     private function getAccessToken(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
