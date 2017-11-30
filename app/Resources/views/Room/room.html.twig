@@ -69,10 +69,19 @@
                         <label id="prevsong">Previous Song</label>
                         <label id="fastforward">Fast Forward</label>
 
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-5 mt">
+
+                    <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
 
 
+                    <div class="content-panel">
 
+                        <div class="mm_chat" style="height: 600px;">
 
+                            
                             {# Removed for dynamic chat. #}
                             {#<div class="desc">#}
                                 {#<div class="thumb">#}
@@ -88,36 +97,10 @@
                                 {#</div>#}
                             {#</div>#}
 
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-md-5 mt">
-
-                    <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
-
-
-                    <div class="content-panel">
-
-                        <div class="mm_chat" style="height: 600px;">
-
-                            <div class="desc">
-                                <div class="thumb">
-                                    {% if room.roomOwner.imageURL %}
-                                        <img src="{{ room.roomOwner.imageURL }}" class="img-circle mm-chat-img-av">
-                                    {% else %}
-                                        <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-chat-img-av">
-                                    {% endif %}
-                                </div>
-                                <div class="details">
-                                    <p class="chat-content">This is an example chat message in a room.</p>
-                                    <p class="chat-time">2 Minutes Ago</p>
-                                </div>
-                            </div>
-
                         </div>
 
                         <hr class="no-padding mt-0" style="margin-bottom: 7.5px; "/>
-=======
+
                         <div id="chat_form" class="form-group">
                             <div class="col-xs-9">
                                 <input id="chat_form_message" type="text" class="form-control round-form no-margin" placeholder="Room Chat Message Content...." />
@@ -312,7 +295,7 @@
         <!-- END SECTION MIDDLE -->
 
 
-    </div><! --/row -->
+    </div><!-- /row -->
 
 
 {% endblock %}
