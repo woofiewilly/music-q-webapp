@@ -17,6 +17,7 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
 
     const ACTION_USER_CONNECTED = 'connect';
     const ACTION_MESSAGE_RECEIVED = 'message';
+    const ACTION_ANNOUNCEMENT_RECEIVED = 'announcement';
     const ACTION_LIST_USERS = 'list-users';
     const ACTION_USER_STARTED_TYPING = 'start-typing';
     const ACTION_USER_STOPPED_TYPING = 'stop-typing';
@@ -25,6 +26,7 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
     const PACKET_TYPE_USER_CONNECTED = 'user-connected';
     const PACKET_TYPE_USER_DISCONNECTED = 'user-disconnected';
     const PACKET_TYPE_MESSAGE = 'message';
+    const PACKET_TYPE_ANNOUNCEMENT = 'announcement';
     const PACKET_TYPE_USER_LIST = 'list-users';
     const PACKET_TYPE_USER_STARTED_TYPING = 'user-started-typing';
     const PACKET_TYPE_USER_STOPPED_TYPING = 'user-stopped-typing';
