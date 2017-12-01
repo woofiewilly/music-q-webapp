@@ -29,11 +29,9 @@ class SpotifyCallbackController extends Controller
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
         $me = $api->me();
-        $me = $playlist = json_decode(json_encode($me), true);
-        $me_id = $me["id"];
-        $api->createUserPlaylist($me_id, ['name' => $string = base64_encode(random_bytes(10))]);
-        $playlist = json_decode(json_encode($playlist), true);
-        $playlist_uri = $playlist["uri"];
+        $me_id = $me->id;
+        $playlist = $api->createUserPlaylist($me_id, ['name' => $string = base64_encode(random_bytes(10))]);
+        $playlist_uri = $playlist->uri; 
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
         fclose($myfile);
