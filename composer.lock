@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f2051868b32cd3caf6ff74bcbf1fa12",
+
+    "hash": "3219db70992673dc387cd928cc3206ed",
     "content-hash": "a6f7d187eb936518a61dbb638fe7fd5d",
     "packages": [
         {
@@ -1122,16 +1123,16 @@
         },
         {
             "name": "endroid/qrcode",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/QrCode.git",
-                "reference": "159423a97c74133e4bcbcc9c5b04957fdfed2935"
+                "reference": "a9a57ab57ac75928fcdcfb2a71179963ff6fe573"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/QrCode/zipball/159423a97c74133e4bcbcc9c5b04957fdfed2935",
-                "reference": "159423a97c74133e4bcbcc9c5b04957fdfed2935",
+                "url": "https://api.github.com/repos/endroid/QrCode/zipball/a9a57ab57ac75928fcdcfb2a71179963ff6fe573",
+                "reference": "a9a57ab57ac75928fcdcfb2a71179963ff6fe573",
                 "shasum": ""
             },
             "require": {
@@ -1140,19 +1141,22 @@
                 "khanamiryan/qrcode-detector-decoder": "^1.0",
                 "myclabs/php-enum": "^1.5",
                 "php": ">=5.6",
-                "symfony/options-resolver": "^2.7|^3.0",
-                "symfony/property-access": "^2.7|^3.0"
+
+                "symfony/options-resolver": ">=2.7",
+                "symfony/property-access": ">=2.7"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7|^6.0",
-                "symfony/asset": "^2.7|^3.0",
-                "symfony/browser-kit": "^2.7|^3.0",
-                "symfony/finder": "^2.7|^3.0",
-                "symfony/framework-bundle": "^2.7|^3.0",
-                "symfony/http-kernel": "^2.7|^3.0",
-                "symfony/templating": "^2.7|^3.0",
-                "symfony/twig-bundle": "^2.7|^3.0",
-                "symfony/yaml": "^2.7|^3.0"
+                "phpunit/phpunit": ">=5.7",
+                "symfony/asset": ">=2.7",
+                "symfony/browser-kit": ">=2.7",
+                "symfony/finder": ">=2.7",
+                "symfony/framework-bundle": ">=2.7",
+                "symfony/http-kernel": ">=2.7",
+                "symfony/templating": ">=2.7",
+                "symfony/twig-bundle": ">=2.7",
+                "symfony/yaml": ">=2.7"
+                "symfony/options-resolver": "^2.7|^3.0",
+                "symfony/property-access": "^2.7|^3.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1187,7 +1191,7 @@
                 "qrcode",
                 "symfony"
             ],
-            "time": "2017-10-22 12:17:28"
+            "time": "2017-10-22 18:56:00"
         },
         {
             "name": "evenement/evenement",

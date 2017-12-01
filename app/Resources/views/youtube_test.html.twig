@@ -12,15 +12,30 @@
 
     <div id="youtube_search"></div>
 
-    <div id="youtube_queue">
-        <ul>
-            <li>
-                <div class="yt_title">Name of video</div>
-                <div class="yt_channel">Name of channel</div>
-                <div class="yt_thumb">thumbnail</div>
-            </li>
-        </ul>
+    <form id="playlist_form">
+        <label for="playlist_id">Playlist Id to Load</label>
+        <input id="playlist_input" name="playlist_id" type="text">
+        <input type="submit" value="Load">
+    </form>
+    <br>
+    <br>
+    <button id="toggle_player">Hide player</button>
+    <br>
+    <div id="controls" hidden>
+        <button id="previous" class="btn btn-lg btn-info">Prev</button>
+        <button id="pause" class="btn btn-lg btn-primary">Pause / Play</button>
+        <button id="next" class="btn btn-lg btn-info">Next</button>
     </div>
+
+    {#<div id="youtube_queue">#}
+        {#<ul>#}
+            {#<li>#}
+                {#<div class="yt_title">Name of video</div>#}
+                {#<div class="yt_channel">Name of channel</div>#}
+                {#<div class="yt_thumb">thumbnail</div>#}
+            {#</li>#}
+        {#</ul>#}
+    {#</div>#}
 
 
     {# This div will be replaced by the iframe player #}
