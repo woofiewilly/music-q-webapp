@@ -25,17 +25,14 @@ class ExplicitController extends Controller
     {
 
         if ($request->isXmlHttpRequest()) {
-
-            //Get Current User
-            $user = $this->getUser();
-
+            
             //Get Request Params
             $roomID = $request->request->get('room_id');
             $value = $request->request->get('value');
 
-
+            $db_manager = $this->getDoctrine()->getManager();
             //Find room with ID
-            $room = $this->getDoctrine()->getRepository('AppBundle:Room')->find($roomID);
+            $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
 
             //If no room found, return error response
             if (!$room) {
@@ -45,8 +42,6 @@ class ExplicitController extends Controller
                 ));
             }
             $room->setExplicit($value == "true");
-            //Persist Review to DB
-            $db_manager = $this->getDoctrine()->getManager();
 
             $db_manager->persist($room);
             $db_manager->flush();

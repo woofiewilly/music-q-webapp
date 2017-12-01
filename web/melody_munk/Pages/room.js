@@ -12,6 +12,7 @@ $(function() {
 
 
     var mm_report_user_btn = $('.mm_report_user_btn');
+    
 
 
     host_review_submit.on('click', function() {
@@ -45,7 +46,9 @@ $(function() {
             $.getJSON('/getauthorizeurl/', function(data) {
                 console.log('Got response');
                 console.log(JSON.stringify(data));
-                window.location = data.redirect_url;
+                var callbackurl = data.redirect_url;
+                console.log(callbackurl);
+                window.location = callbackurl;
             }).fail(function (data) {
                 console.log('failure');
                 console.log(JSON.stringify(data));
@@ -175,19 +178,41 @@ $(function() {
         });
     });
 
+    $('#search').on('keyup', function() {
 
-    $('#fastforward').click(
-        function ()
-        {
-            console.log('click registered');
-            $.getJSON('/fastforward/', function(data) {
-                console.log('Got response');
-                console.log(JSON.stringify(data));
-            }).fail(function (data) {
-                console.log('failure');
-                console.log(JSON.stringify(data));
-            });
+        var searchText = $(this).val();
+
+        if (searchText === '') {
+            $('#mm_search_results').empty();
+            return;
         }
-    );
+
+        $.ajax({
+            type: "POST",
+            url: "/search/",
+            dataType: "json",
+            data: {
+                room_id: roomID,
+                searchText : searchText
+            },
+            error: function(e) {
+                console.log(e);
+            },
+            success : function(response)
+            {
+                console.log(response);
+
+                $('#mm_search_results').empty();
+
+                $.each(response.results.tracks.items, function(i, item) {
+                    console.log(item);
+                    $('#mm_search_results').append('<label>' + item.name + '</label>');
+                });
+
+                $('#mm_search_dropdown').attr('class', '');
+
+            }
+        });
+    });
 
 });

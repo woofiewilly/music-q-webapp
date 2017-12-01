@@ -48,6 +48,16 @@ doctrine:
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
+        host:     "%env(RDS_HOSTNAME)%"
+        port:     "%env(RDS_PORT)%"
+        dbname:   "%env(RDS_DB_NAME)%"
+        user:     "%env(RDS_USERNAME)%"
+        password: "%env(RDS_PASSWORD)%"
+#        host:     "%aws_database_host%"
+#        port:     "%aws_database_port%"
+#        dbname:   "%aws_database_name%"
+#        user:     "%aws_database_user%"
+#        password: "%aws_database_password%"
         charset: UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml

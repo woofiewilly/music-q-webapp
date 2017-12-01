@@ -30,13 +30,14 @@ class SpotifyController extends Controller
         $session = new \SpotifyWebAPI\Session(
             'f201b6c284a44bd6ac11f07430262360',
             'a087e72614b344ca8919c6c79200335f',
-            'http://localhost:8080/callback'
+            'http://localhost:8080/callback/'
         );
 
 
         $options = [
             'scope' => [
                 'playlist-read-private',
+                'playlist-modify-public',
                 'user-read-private',
                 'playlist-modify-private',
                 'user-modify-playback-state',
