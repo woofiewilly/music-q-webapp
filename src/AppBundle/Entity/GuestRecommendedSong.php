@@ -47,7 +47,7 @@ class GuestRecommendedSong
     /**
      * @var string
      *
-     * @ORM\Column(name="song_name", type="string")
+     * @ORM\Column(name="song_name", type="string", nullable=true)
      */
     private $songName;//name of song retrieved from Spotify
 
@@ -55,7 +55,7 @@ class GuestRecommendedSong
     /**
      * @var string
      *
-     * @ORM\Column(name="song_artist", type="string")
+     * @ORM\Column(name="song_artist", type="string", nullable=true)
      */
     private $songArtist;
 
@@ -76,7 +76,6 @@ class GuestRecommendedSong
     private $user;
 
 
-
     public function __construct(User $user, Room $room, $songName, $songArtist)
     {
         $this->user = $user;
@@ -84,7 +83,6 @@ class GuestRecommendedSong
         $this->songName = $songName;
         $this->songArtist = $songArtist;
         $this->timeRequested = time()-1501891200;//Time passed since 08/05/2017
-        $this->songName = null; //TODO: Grab song name from spotify
         $this->upVotes = 0;
         $this->score = $this->timeRequested/300;
     }
