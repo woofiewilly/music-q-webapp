@@ -19,12 +19,12 @@ $(document).ready(function () {
         if ((conn.readyState !== 0 || conn.readyState !== 1) && !reconnecting) {
             reconnect(1);
         }
-    }, 5000);
+    }, 50000);
 
 });
 
 // Change localhost to the name or ip address of the host running the chat server
-var chatUrl = 'ws://localhost:8081';
+var chatUrl = 'ws://melody-munk.us-west-2.elasticbeanstalk.com:8081';
 
 function displayChatMessage(from, message) {
     var chat_element = $('.mm_chat');
