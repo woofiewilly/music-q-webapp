@@ -176,9 +176,10 @@ $(function() {
 
         });
     });
-    $('#search').keyup(function() {
 
-        searchText = $(this).val();
+    $('#search').on('keyup', function() {
+
+        var searchText = $(this).val();
 
         $.ajax({
             type: "POST",
@@ -191,6 +192,14 @@ $(function() {
             success : function(response)
             {
                 console.log(response);
+
+
+                $.each(response.results.item, function(i, item) {
+                    $('#mm_search_results').append('<li>' + item.name + '</li>');
+                });
+
+                $('#mm_search_dropdown').dropdown('toggle');
+
             }
         });
     });

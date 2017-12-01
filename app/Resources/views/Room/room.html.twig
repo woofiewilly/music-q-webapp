@@ -29,6 +29,10 @@
                         </div>
                     </div>
 
+                    <label><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Join%20us%20on%20melodymunk.com/room/{{ room.roomCode }}">Share on Twitter</a></label>
+
+
+
 
                     <div class="steps dropdown" style="width: 100%;">
                         <button class="mm_info_header_toggle dropdown-toggle" type="button" style="width: 100%;" data-toggle="dropdown">Dropdown Example
@@ -133,6 +137,7 @@
                     <div class="clearfix"></div>
 
                 </div>
+
 
             </div>
 
@@ -249,46 +254,32 @@
 
                                 </div>
 
-                                <div class="desc">
-                                    <div class="thumb">
-                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
-                                    </div>
-                                    <div class="details">
-                                        <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
-                                            <muted>Available</muted>
-                                        </p>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a class="mm_report_user_btn">Report User</a></li>
+                            </div>
 
-                                            <li><a href="#">Promote to Admin</a></li>
-                                        </ul>
+                            <input class="mm_dj_info_header" value="Search and Add Songs To Queue" disabled>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="content-panel ds">
+                                        <input id= "search" type="text" name="search" placeholder="Search..">
+                                        <div id="mm_search_dropdown"  class="dropdown">
+                                            <ul id="mm_search_results" class="drowpdown-menu">
+                                                <li>Item</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
+
 
                     </div>
 
-                    <input class="mm_dj_info_header" value="Search and Add Songs To Queue" disabled>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="content-panel ds">
-                                <input id= "search" type="text" name="search" placeholder="Search..">
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
-
-
-
             </div>
-
-
         </div>
 
 
