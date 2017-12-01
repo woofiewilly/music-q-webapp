@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+
     "hash": "3219db70992673dc387cd928cc3206ed",
     "content-hash": "a6f7d187eb936518a61dbb638fe7fd5d",
     "packages": [
@@ -1140,6 +1141,7 @@
                 "khanamiryan/qrcode-detector-decoder": "^1.0",
                 "myclabs/php-enum": "^1.5",
                 "php": ">=5.6",
+
                 "symfony/options-resolver": ">=2.7",
                 "symfony/property-access": ">=2.7"
             },
@@ -1153,6 +1155,8 @@
                 "symfony/templating": ">=2.7",
                 "symfony/twig-bundle": ">=2.7",
                 "symfony/yaml": ">=2.7"
+                "symfony/options-resolver": "^2.7|^3.0",
+                "symfony/property-access": "^2.7|^3.0"
             },
             "type": "symfony-bundle",
             "extra": {
