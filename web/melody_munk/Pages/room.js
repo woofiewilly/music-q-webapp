@@ -12,6 +12,7 @@ $(function() {
 
 
     var mm_report_user_btn = $('.mm_report_user_btn');
+    
 
 
     host_review_submit.on('click', function() {

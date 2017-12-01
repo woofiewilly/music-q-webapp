@@ -288,16 +288,27 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 col-sm-3 control-label">Song</label>
-                                <div class="col-sm-9">
-                                    <input id="join_room_content" type="text" class="form-control round-form" placeholder="Search Song...">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-sm-3 control-label">Song Name</label>
+                                    <div class="col-sm-9">
+                                        <input id="mm_song_rec_name" type="text" class="form-control round-form" placeholder="Song Name...">
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-sm-3 control-label">Song Artist</label>
+                                    <div class="col-sm-9">
+                                        <input id="mm_song_rec_artist" type="text" class="form-control round-form" placeholder="Song Artist...">
+                                    </div>
+                                </div>
+                            </form>
+
+
                             <div class="clearfix"></div>
                         </div>
                         <div class="modal-footer">
-                            <button id="submit_song_suggestion" type="button" class="btn btn-primary">Submit</button>
+                            <button id="submit_song_suggestion" type="button" class="btn btn-orange">Submit</button>
                         </div>
                     </div>
                 </div>

@@ -19,49 +19,70 @@ class GuestRecommendedSong
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="spotify_id", type="string", nullable=true)
      */
     private $spotifyId;//ID used by Spotify for song
 
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="up_votes", type="integer")
      */
     private $upVotes;//Number of upvotes given to a song
 
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="score", type="integer")
      */
     private $score;//Score based off upvotes and time of request
 
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="time_requested", type="integer")
      */
     private $timeRequested;//time requested relative to set date
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="song_name", type="string")
      */
     private $songName;//name of song retrieved from Spotify
 
-    /**
-     * @var GuestRecommendedQueue
-     *
-     * @ORM\ManyToOne(targetEntity="GuestRecommendedQueue", inversedBy="songs")
-     * @ORM\JoinColumn(name="rec_queue", referencedColumnName="id")
-     */
-    private $guestRecommendedQueue;
 
-    public function __construct($spotifyId)
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="song_artist", type="string")
+     */
+    private $songArtist;
+
+
+    /**
+     * @var Room
+     *
+     * @ORM\ManyToOne(targetEntity="Room")
+     */
+    private $room;
+
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $user;
+
+
+
+    public function __construct(User $user, Room $room, $songName, $songArtist)
     {
-        $this->spotifyId = $spotifyId;
+        $this->user = $user;
+        $this->room = $room;
+        $this->songName = $songName;
+        $this->songArtist = $songArtist;
         $this->timeRequested = time()-1501891200;//Time passed since 08/05/2017
         $this->songName = null; //TODO: Grab song name from spotify
         $this->upVotes = 0;
@@ -138,5 +159,53 @@ class GuestRecommendedSong
     public function incrementUpVotes() {
         $this->upVotes++;
         $this->updateScore();
+    }
+
+    /**
+     * @return Room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * @param Room $room
+     */
+    public function setRoom($room)
+    {
+        $this->room = $room;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSongArtist()
+    {
+        return $this->songArtist;
+    }
+
+    /**
+     * @param string $songArtist
+     */
+    public function setSongArtist($songArtist)
+    {
+        $this->songArtist = $songArtist;
     }
 }
