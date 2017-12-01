@@ -37,6 +37,34 @@ class UserController extends Controller
     /**
      * PAGE RENDER FUNCTION
      * --------------------
+     * Renders the DJ Profile Page
+     *
+     * @Route("/dj_profile/{id}", name="dj_profile")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function viewUserProfileAction($id) {
+        //Get the Current User
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($id);
+
+        if (!$user) {
+            return $this->redirectToRoute('homepage');
+        }
+
+        //Get all the reviews for the user
+        $reviews = $this->getDoctrine()->getRepository('AppBundle:UserReview')->getAllReviewsForUser($user);
+
+        //Render User Profile Page
+        return $this->render(':User:dj_profile.html.twig', array(
+            'user' => $user,
+            'reviews' => $reviews,
+        ));
+    }
+
+
+    /**
+     * PAGE RENDER FUNCTION
+     * --------------------
      * Renders the Edit User Profile Page
      *
      * @Route("/profile_settings", name="profile_settings")
