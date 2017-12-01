@@ -206,7 +206,11 @@ $(function() {
 
                 $.each(response.results.tracks.items, function(i, item) {
                     console.log(item);
-                    $('#mm_search_results').append('<label>' + item.name + '</label>');
+
+                    if(response.explicit || !item.explicit)
+                    {
+                        $('#mm_search_results').append('<label onclick="addSongToPlaylist()" >' + item.name + '</label>');
+                    }
                 });
 
                 $('#mm_search_dropdown').attr('class', '');
@@ -216,3 +220,21 @@ $(function() {
     });
 
 });
+function addSongToPlaylist(songID) {
+    $.ajax({
+        type: 'POST',
+        url: '/addsong/',
+        data: {
+            room_id: roomID,
+            song_id: "2NyrXRn4tancYPW6JwtTl2"
+        },
+        error: function (e) {
+            console.log(e);
+        },
+        success: function (response) {
+            console.log(response);
+        }
+
+    });
+
+}
