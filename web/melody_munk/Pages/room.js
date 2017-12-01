@@ -45,7 +45,9 @@ $(function() {
             $.getJSON('/getauthorizeurl/', function(data) {
                 console.log('Got response');
                 console.log(JSON.stringify(data));
-                window.location = data.redirect_url;
+                var callbackurl = data.redirect_url;
+                console.log(callbackurl);
+                window.location = callbackurl;
             }).fail(function (data) {
                 console.log('failure');
                 console.log(JSON.stringify(data));
@@ -174,20 +176,32 @@ $(function() {
 
         });
     });
+    $('#search').keyup(function() {
+
+        searchText = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "/search/",
+            dataType: "json",
+            data: {
+                room_id: roomID,
+                searchText : searchText
+            },
+            success : function(response)
+            {
+
+                $.each(response.results, function(i, item) {
+                    $('#mm_search_results').append('<li>' + item.tracks.items[i]</li>');
+                });
+
+                    $('#mm_search_dropdown').dropdown('toggle');
+
+                console.log(response);
 
 
-    $('#fastforward').click(
-        function ()
-        {
-            console.log('click registered');
-            $.getJSON('/fastforward/', function(data) {
-                console.log('Got response');
-                console.log(JSON.stringify(data));
-            }).fail(function (data) {
-                console.log('failure');
-                console.log(JSON.stringify(data));
-            });
-        }
-    );
+            }
+        });
+    });
 
 });
