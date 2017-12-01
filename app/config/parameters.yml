@@ -18,10 +18,10 @@ parameters:
     amazon_aws_secret_key: 7xOY2zeDZv2+2kh9aVcK6sIDkAlGFbWsQWORdyOZ
     amazon_aws_region: us-west-2
     amazon_aws_version: latest
-    aws_database_host: $RDS_HOSTNAME
-    aws_database_port: $RDS_PORT
-    aws_database_name: greekrow_platform
-    aws_database_user: $RDS_USERNAME
-    aws_database_password: $RDS_PASSWORD
+    aws_database_host: melody-munk.cuirm0iyoup9.us-west-2.rds.amazonaws.com
+    aws_database_port: 3306
+    aws_database_name: melody_munk
+    aws_database_user: melodymunkroot
+    aws_database_password: MattMMGreekRow17!
     facebook_app_id: 1625764377476791
     facebook_app_secret: f4c99ff5c5f41f2c12768cde625f5648

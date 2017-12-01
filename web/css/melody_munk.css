@@ -238,6 +238,7 @@
 .mm_chat {
     background: #ffffff;
     padding-top: 20px;
+    overflow-y: scroll;
 }
 
 
@@ -380,5 +381,18 @@ audio#audio {
 .followers {
     margin-left: 5px;
     margin-top: 5px;
+}
+
+
+.btn-mm-social {
+    width: 50px;
+    height: 25px;
+    background: #ED8524;
+}
+
+.mm_info_header_toggle {
+    background: #eb8433;
+    padding: 3px;
+    color: white;
 }
 

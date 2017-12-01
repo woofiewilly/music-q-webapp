@@ -81,6 +81,62 @@ class User extends BaseUser
     protected $facebook_access_token;
 
 
+    /* ----- Social Media Links ----- */
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook_url", type="string", nullable=true)
+     */
+    private $facebookURL;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="twitter_url", type="string", nullable=true)
+     */
+    private $twitterURL;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instagram_url", type="string", nullable=true)
+     */
+    private $instagramURL;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="snapchat_name", type="string", nullable=true)
+     */
+    private $snapchatName;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="youtube_video_url", type="string", nullable=true)
+     */
+    private $youtubeVideoURL;
+
+    /* --- User Music Fields --- */
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="favorite_genre", type="string", nullable=true)
+     */
+    private $favoriteGenre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="favorite_artist", type="string", nullable=true)
+     */
+    private $favoriteArtist;
+
+
     public function __construct()
     {
         parent::__construct();
@@ -213,6 +269,118 @@ class User extends BaseUser
     public function setFacebookAccessToken($facebook_access_token)
     {
         $this->facebook_access_token = $facebook_access_token;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSnapchatName()
+    {
+        return $this->snapchatName;
+    }
+
+    /**
+     * @param string $snapchatName
+     */
+    public function setSnapchatName($snapchatName)
+    {
+        $this->snapchatName = $snapchatName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFacebookURL()
+    {
+        return $this->facebookURL;
+    }
+
+    /**
+     * @param string $facebookURL
+     */
+    public function setFacebookURL($facebookURL)
+    {
+        $this->facebookURL = $facebookURL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstagramURL()
+    {
+        return $this->instagramURL;
+    }
+
+    /**
+     * @param string $instagramURL
+     */
+    public function setInstagramURL($instagramURL)
+    {
+        $this->instagramURL = $instagramURL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterURL()
+    {
+        return $this->twitterURL;
+    }
+
+    /**
+     * @param string $twitterURL
+     */
+    public function setTwitterURL($twitterURL)
+    {
+        $this->twitterURL = $twitterURL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYoutubeVideoURL()
+    {
+        return $this->youtubeVideoURL;
+    }
+
+    /**
+     * @param string $youtubeVideoURL
+     */
+    public function setYoutubeVideoURL($youtubeVideoURL)
+    {
+        $this->youtubeVideoURL = $youtubeVideoURL;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFavoriteGenre()
+    {
+        return $this->favoriteGenre;
+    }
+
+    /**
+     * @param string $favoriteGenre
+     */
+    public function setFavoriteGenre($favoriteGenre)
+    {
+        $this->favoriteGenre = $favoriteGenre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFavoriteArtist()
+    {
+        return $this->favoriteArtist;
+    }
+
+    /**
+     * @param string $favoriteArtist
+     */
+    public function setFavoriteArtist($favoriteArtist)
+    {
+        $this->favoriteArtist = $favoriteArtist;
     }
 
 

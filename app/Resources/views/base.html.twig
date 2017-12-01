@@ -38,15 +38,17 @@
 <section id="container">
     {%  block wholebody %}
         {%  block nav %}
-        <!-- START TOP BAR CONTENT & NOTIFICATIONS -->
-        {% include ':Components/Navigation:top_navbar.html.twig' %}
-        <!-- END TOP BAR CONTENT & NOTIFICATIONS -->
+            <!-- START TOP BAR CONTENT & NOTIFICATIONS -->
+            {% include ':Components/Navigation:top_navbar.html.twig' %}
+            <!-- END TOP BAR CONTENT & NOTIFICATIONS -->
 
 
-        <!-- START MAIN NAVBAR CONTENT -->
-        {% include ':Components/Navigation:main_nav.html.twig' %}
-        <!-- END MAIN NAVBAR CONTENT -->
+            <!-- START MAIN NAVBAR CONTENT -->
+            {% include ':Components/Navigation:main_nav.html.twig' %}
+            <!-- END MAIN NAVBAR CONTENT -->
         {%  endblock %}
+
+
 
         <!-- START MAIN CONTENT -->
         <section id="main-content">
@@ -57,10 +59,10 @@
             </section>
         </section>
         <!-- END MAIN CONTENT -->
+    {% endblock %} {# / wholebody #}
 
+    {% block modals %}{% endblock %}
 
-        {% block modals %}{% endblock %}
-    {% endblock %}
 
 </section>
 

@@ -64,6 +64,36 @@
                                 <td> {{ user.country }}</td>
                             </tr>
 
+
+
+                            <tr>
+                                <td><i class="fa fa-music mm_orange"></i></td>
+                                <td> {{ user.favoriteGenre }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-play mm_orange"></i></td>
+                                <td> {{ user.favoriteArtist }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <h5>Music Preferences</h5>
+
+                        <table class="table table-hover table-borderless">
+
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-music mm_orange"></i></td>
+                                <td> {{ user.favoriteGenre }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-play mm_orange"></i></td>
+                                <td> {{ user.favoriteArtist }}</td>
+                            </tr>
+
                             </tbody>
                         </table>
 
@@ -83,6 +113,26 @@
             <!-- END Info Card -->
 
             <div class="col-md-9">
+
+
+                {% if user.youtubeVideoURL %}
+                    <div class="panel mar-btm">
+                        <div class="panel-heading" style="margin-bottom: 0;">
+                            <h4>User Promo Video</h4>
+                            <hr/>
+                        </div>
+                        <div class="panel-body" style="margin-top: 0;">
+                            <div class="media-block">
+                                <div class="media-body">
+                                    <iframe width="100%" height="355" class="embed-responsive-item" frameborder="0" allowfullscreen="" src="{{ user.youtubeVideoURL }}"></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+
+
                 <div class="showback">
 
                     <div class="mm_page_header">
@@ -93,25 +143,25 @@
 
                     <div class="mm_review">
 
-                            {% for review in reviews %}
-                                <div class="desc">
-                                    <div class="thumb">
-                                        {% if review.reviewUser.imageURL %}
-                                            <img src="{{ review.reviewUser.imageURL }}" class="img-circle"  width="35px" height="35px">
-                                        {% else %}
-                                            <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle"  width="35px" height="35px">
-                                        {% endif %}
-                                    </div>
-                                    <div class="details">
-                                        <p><a href="#">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</a></p>
-                                        <p><muted>Review Submitted: {{ review.dateCreated | date }}</muted></p>
-                                        <div class="content">
-                                            <p>{{ review.content }}</p>
-                                        </div>
-                                    </div>
-
+                        {% for review in reviews %}
+                            <div class="desc">
+                                <div class="thumb">
+                                    {% if review.reviewUser.imageURL %}
+                                        <img src="{{ review.reviewUser.imageURL }}" class="img-circle"  width="35px" height="35px">
+                                    {% else %}
+                                        <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle"  width="35px" height="35px">
+                                    {% endif %}
                                 </div>
-                            {% endfor %}
+                                <div class="details">
+                                    <p><a href="#">{{ review.reviewUser.firstName }} {{ review.reviewUser.lastName }}</a></p>
+                                    <p><muted>Review Submitted: {{ review.dateCreated | date }}</muted></p>
+                                    <div class="content">
+                                        <p>{{ review.content }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        {% endfor %}
 
 
 
