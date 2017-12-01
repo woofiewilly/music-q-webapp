@@ -161,16 +161,6 @@
                         </div>
                     </div>
 
-                    <div class="row mb-0">
-                        <div class="col-xs-12 mb-0">
-                            <div class="mm_visualize_panel">
-                                <canvas id="canvas" width="397" height="150" style="margin-bottom: -7px;"></canvas>
-                                <audio src="{{ asset('js/visualize/assets/sample.mp3') }}" id="audio" style="margin-bottom: -6px;" controls>HTML5 Audio element not supported</audio>
-                            </div>
-
-                        </div>
-                    </div>
-
                     <div id="mm_reported_users" class="row hidden">
                         <div class="col-xs-12">
                             <input class="mm_dj_info_header" value="Reported Users" disabled>
@@ -261,11 +251,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="content-panel ds">
-                                        <input id= "search" type="text" name="search" placeholder="Search..">
-                                        <div id="mm_search_dropdown"  class="dropdown">
-                                            <ul id="mm_search_results" class="drowpdown-menu">
-                                                <li>Item</li>
-                                            </ul>
+                                        <input id="search" type="text" name="search" placeholder="Search..">
+                                        <div id="mm_search_dropdown" class="hidden">
+                                            <div id="mm_search_results" class="steps">
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

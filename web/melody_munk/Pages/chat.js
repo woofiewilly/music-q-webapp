@@ -24,7 +24,7 @@ $(document).ready(function () {
 });
 
 // Change localhost to the name or ip address of the host running the chat server
-var chatUrl = 'ws://melody-munk.us-west-2.elasticbeanstalk.com:8081';
+var chatUrl = 'ws://localhost:8081';
 
 function displayChatMessage(from, message) {
     var chat_element = $('.mm_chat');
