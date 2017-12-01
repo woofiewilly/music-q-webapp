@@ -389,3 +389,9 @@ audio#audio {
     background: #ED8524;
 }
 
+.mm_info_header_toggle {
+    background: #eb8433;
+    padding: 3px;
+    color: white;
+}
+

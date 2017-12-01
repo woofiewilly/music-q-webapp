@@ -1,14 +1,14 @@
 branch-defaults:
   master:
-    environment: melody-munk
+    environment: melodymunk-prod
   matt_facebook_login:
-    environment: melody-munk
+    environment: melodymunk-prod
 environment-defaults:
   melody-munk:
     branch: null
     repository: null
 global:
-  application_name: getting-started
+  application_name: melody-munk
   default_ec2_keyname: null
   default_platform: PHP 7.0
   default_region: us-west-2

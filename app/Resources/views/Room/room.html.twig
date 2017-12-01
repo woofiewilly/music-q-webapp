@@ -29,15 +29,32 @@
                             </div>
                         </div>
 
-                        <input id="op1" name="op1" type="checkbox" checked="">
-                        <input id="op2" name="op2" type="checkbox" checked="">
-                        <label for="op1">Request To Be Admin</label>
-                        <label for="op2">Allow Explicit Songs</label>
-                        <label>Request Song</label>
-                        <label>Leave Room</label>
-                        <a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>
 
-                        <label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>
+                        <div class="steps dropdown" style="width: 100%;">
+                            <button class="mm_info_header_toggle dropdown-toggle" type="button" style="width: 100%;" data-toggle="dropdown">Dropdown Example
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu" style="width: 100%;">
+                                <div class="steps">
+                                    <li><label for="op1">Request To Be Admin</label></li>
+                                    <li><label for="op2">Allow Explicit Songs</label></li>
+                                    <li><a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a></li>
+                                    <li><label>Leave Room</label></li>
+                                    <li><a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a></li>
+
+                                    <li><label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label></li>
+                                </div>
+                            </ul>
+                        </div>
+
+                        {#<input id="op1" name="op1" type="checkbox" checked="">#}
+                        {#<input id="op2" name="op2" type="checkbox" checked="">#}
+                        {#<label for="op1">Request To Be Admin</label>#}
+                        {#<label for="op2">Allow Explicit Songs</label>#}
+                        {#<a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a>#}
+                        {#<label>Leave Room</label>#}
+                        {#<a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>#}
+
+                        {#<label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>#}
 
 
                         <!-- END ROOM INFO SECTION -->
@@ -60,6 +77,7 @@
                         <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
 
                         <!-- ROOM OWNER SECTION -->
+
                         <input class="mm_dj_info_header" value="Control Spotify Playback" disabled>
                         <label id="playbutton">Play a song</label>
                         <label id="pausebutton"> Pause a song</label>
@@ -284,6 +302,31 @@
 
 
 {% block modals %}
+
+    <div class="modal fade" id="mm_song_suggest" tabindex="-1" role="dialog" aria-labelledby="Song Suggestion" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Suggest a Song</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-3 control-label">Song</label>
+                        <div class="col-sm-9">
+                            <input id="join_room_content" type="text" class="form-control round-form" placeholder="Search Song...">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submit_song_suggestion" type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="new_host_review_modal">
         <div class="modal-dialog">
