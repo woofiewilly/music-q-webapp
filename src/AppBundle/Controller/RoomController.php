@@ -34,8 +34,12 @@ class RoomController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
+        //Get All Song Suggestions for Room
+        $songSuggestions = $this->getDoctrine()->getRepository('AppBundle:GuestRecommendedSong')->getAllByRoom($room);
+
         return $this->render(':Room:room.html.twig', array(
-            'room' => $room
+            'room' => $room,
+            'songSuggestions' => $songSuggestions
         ));
 
     }

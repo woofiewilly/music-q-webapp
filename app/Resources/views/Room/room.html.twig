@@ -9,62 +9,46 @@
 
 {% block body %}
 
-<div class="row">
+    <div class="row">
 
-    <!-- START SECTION MIDDLE -->
-    <div class="col-xs-12">
-
-        <div class="row">
+        <!-- START SECTION MIDDLE -->
+        <div class="col-xs-12">
 
 
             <div class="col-lg-3 col-md-12 mb mt">
+
+
                 <div class="steps">
 
                     <!-- ROOM INFO SECTION -->
                     <input class="mm_dj_info_header" value="Room Info" disabled>
-                    <div id="profile-02">
-                        <div class="user">
+                    <div id="profile-02" style="margin-bottom: 0;">
+                        <div class="user" style="margin-bottom: 0;">
                             <h3>{{ room.name }}</h3>
                             <h4>Room Code: {{ room.roomCode }}</h4>
+                            <h6><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Join%20us%20on%20melodymunk.com/room/{{ room.roomCode }}">Share on Twitter</a></h6>
+                        </div>
+                        <div class="dropdown" style="width: 100%; padding: 0; margin-top: 0;">
+                            <label class="mm_info_header_toggle dropdown-toggle" style="width: 100%;" data-toggle="dropdown">Room Actions<span class="caret"></span></label>
+                            <ul class="dropdown-menu" style="width: 100%; padding:0;">
+                                <li><label for="op1">Request To Be Admin</label></li>
+                                <li><label for="op2">Allow Explicit Songs</label></li>
+                                <li><label data-toggle="modal" data-target="#mm_song_suggest">Request Song</label></li>
+                                <li><label>Leave Room</label></li>
+                                <li><label onclick="window.location.href='{{ path('room_settings', {id: room.id}) }}'">Room Settings</label></li>
+
+                                <li><label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label></li>
+                            </ul>
                         </div>
                     </div>
 
-                    <label><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Join%20us%20on%20melodymunk.com/room/{{ room.roomCode }}">Share on Twitter</a></label>
+                </div>
+
+                <br/>
 
 
-
-
-                    <div class="steps dropdown" style="width: 100%;">
-                        <button class="mm_info_header_toggle dropdown-toggle" type="button" style="width: 100%;" data-toggle="dropdown">Dropdown Example
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu" style="width: 100%;">
-                            <div class="steps">
-                                <li><label for="op1">Request To Be Admin</label></li>
-                                <li><label for="op2">Allow Explicit Songs</label></li>
-                                <li><a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a></li>
-                                <li><label>Leave Room</label></li>
-                                <li><a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a></li>
-
-                                <li><label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label></li>
-                            </div>
-                        </ul>
-                    </div>
-
-                    {#<input id="op1" name="op1" type="checkbox" checked="">#}
-                    {#<input id="op2" name="op2" type="checkbox" checked="">#}
-                    {#<label for="op1">Request To Be Admin</label>#}
-                    {#<label for="op2">Allow Explicit Songs</label>#}
-                    {#<a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a>#}
-                    {#<label>Leave Room</label>#}
-                    {#<a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>#}
-
-                    {#<label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>#}
-
-
-                    <!-- END ROOM INFO SECTION -->
-
-
-                    <!-- ROOM OWNER SECTION -->
+                <!-- ROOM OWNER SECTION -->
+                <div class="steps">
                     <input class="mm_dj_info_header" value="Room Owner Info" disabled>
                     <div id="profile-02">
                         <div class="user">
@@ -75,10 +59,22 @@
                             {% endif %}
                             <h4>{{ room.roomOwner.firstName }} {{ room.roomOwner.lastName }}</h4>
                         </div>
-                    </div>
-                    <label>View Profile</label>
-                    <label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label>
 
+                        <div class="dropdown" style="width: 100%; padding: 0; margin-top: 0;">
+                            <label class="mm_info_header_toggle dropdown-toggle" style="width: 100%;" data-toggle="dropdown">DJ Actions<span class="caret"></span></label>
+                            <ul class="dropdown-menu" style="width: 100%; padding:0;">
+                                <li><label onclick="window.location.href='{{ path('dj_profile', { id: room.roomOwner.id }) }}'">View Profile</label></li>
+                                <li><label data-toggle="modal" data-target="#new_host_review_modal">Submit Host Review</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+
+
+                <div class="steps">
                     <!-- SPOTIFY SECTION -->
                     <input class="mm_dj_info_header" value="Control Spotify" disabled>
                     <label id="spotifyloginbutton">Log in with Spotify</label>
@@ -90,10 +86,11 @@
                     <label id="prevsong">Previous Song</label>
 
                 </div>
+
+
             </div>
 
             <div class="col-xs-12 col-md-5 mt">
-
 
                 <input class="mm_dj_info_header" value="Playlist Room Chat" disabled>
 
@@ -142,138 +139,116 @@
             </div>
 
             <div class="col-xs-12 col-md-4 col-lg-4 mb mt">
-                <div class="col-xs-12">
-                    <input class="mm_dj_info_header" value="Current Song" disabled>
+                <input class="mm_dj_info_header" value="Search and Add Songs To Queue" disabled>
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="content-panel pn">
-                                <div id="spotify">
-                                    <div class="sp-title">
-                                        <h3>Bank Account</h3>
-                                        <h4>21 Savage</h4>
-                                    </div>
-                                    <div class="play">
-                                        <i class="fa fa-play-circle"></i>
-                                    </div>
+                <div class="row">
+                    <div class="col-xs-12">
+
+                            <input id="search" type="text" class="form-control" name="search" placeholder="Search..">
+                            <div id="mm_search_dropdown" class="hidden">
+                                <div id="mm_search_results" class="steps">
+
                                 </div>
                             </div>
-                        </div>
                     </div>
+                </div>
 
-                    <div id="mm_reported_users" class="row hidden">
-                        <div class="col-xs-12">
-                            <input class="mm_dj_info_header" value="Reported Users" disabled>
+                <br/>
 
-                            <div class="content-panel ds">
+                <input class="mm_dj_info_header" value="Song Suggestions" disabled>
 
-                                <div class="desc">
-                                    <div class="thumb">
-                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
-                                    </div>
-                                    <div class="details">
-                                        <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
-                                            <muted>Available</muted>
-                                        </p>
-                                    </div>
-
-                                    <div class="dropdown">
-                                        <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#">Remove User</a></li>
-                                            <li><a href="#">Archive Report</a></li>
-
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <input class="mm_dj_info_header" value="Active Users" disabled>
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="content-panel ds">
-
-                                <div class="desc">
-                                    <div class="thumb">
-                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
-                                    </div>
-                                    <div class="details">
-                                        <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
-                                            <muted>Available</muted>
-                                        </p>
-                                    </div>
-
-                                    <div class="dropdown">
-                                        <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-
-                                            <li><a class="mm_report_user_btn">Report User</a></li>
-
-                                            <li><a href="#">Promote to Admin</a></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-                                <div class="desc">
-                                    <div class="thumb">
-                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
-                                    </div>
-                                    <div class="details">
-                                        <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
-                                            <muted>Available</muted>
-                                        </p>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-
-                                            <li><a class="mm_report_user_btn">Report User</a></li>
-
-                                            <li><a href="#">Promote to Admin</a></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <input class="mm_dj_info_header" value="Search and Add Songs To Queue" disabled>
-
+                {% if songSuggestions is empty %}
+                    <div class="stock card">
+                        <div class="stock current-price">
                             <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="content-panel ds">
-                                        <input id="search" type="text" name="search" placeholder="Search..">
-                                        <div id="mm_search_dropdown" class="hidden">
-                                            <div id="mm_search_results" class="steps">
+                                <div class="info col-xs-12"><abbr>No Suggestions Yet</abbr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
 
-                                            </div>
-                                        </div>
+                    {% for songRec in songSuggestions %}
+                        <div class="stock card">
+                            <div class="stock current-price">
+                                <div class="row">
+                                    <div class="info col-sm-6 col-xs-6"><abbr>{{ songRec.songName }}</abbr>
+                                        <time>{{ songRec.songArtist }}</time>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% endif %}
+                <br/>
+
+
+                <input class="mm_dj_info_header" value="Active Users" disabled>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="content-panel ds">
+
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                </div>
+                                <div class="details">
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
+                                </div>
+
+                                <div class="dropdown">
+                                    <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+
+                                        <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                        <li><a href="#">Promote to Admin</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="desc">
+                                <div class="thumb">
+                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                </div>
+                                <div class="details">
+                                    <p><a href="#" class="mm_orange">{{ app.user.firstName }} {{ app.user.lastName }}</a><br>
+                                        <muted>Available</muted>
+                                    </p>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+
+                                        <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                        <li><a href="#">Promote to Admin</a></li>
+                                    </ul>
+                                </div>
+
                             </div>
 
                         </div>
 
-
-
                     </div>
+
 
 
                 </div>
+
+
+
             </div>
         </div>
+    </div>
 
 
-        {% endblock %}
+{% endblock %}
 
 
         {% block modals %}
@@ -369,8 +344,6 @@
 
 
         {% block javascripts %}
-
-            <script src="{{ asset('js/visualize/main.js') }}"></script>
 
             <script src="{{ asset('melody_munk/Pages/room.js') }}"></script>
 

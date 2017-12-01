@@ -393,6 +393,40 @@ audio#audio {
 .mm_info_header_toggle {
     background: #eb8433;
     padding: 3px;
+    margin-top: 0 !important;
     color: white;
 }
 
+.steps2 label {
+    background: #868f97;
+    height: 65px;
+    line-height: 65px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #44494e;
+    color: #eb8433;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-indent: 52px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    margin: 0px; }
+
+.steps2 label:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    margin: 26px 0px 0px 18px;
+    border-radius: 100%;
+    transition: border 0.7s ease; }
+
+.steps2 label:hover {
+    background: #3a3e40;
+    color: #FCBF49; }
+
+.steps2 label:hover:before {
+    border: 1px solid #393D40 }

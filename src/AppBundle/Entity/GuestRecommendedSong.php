@@ -4,7 +4,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 //TODO: Create entity to hold recommended songs
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GuestRecommendedSongRepository")
  * @ORM\Table(name="guest_recommended_song")
  */
 class GuestRecommendedSong

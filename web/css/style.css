@@ -943,8 +943,8 @@ PANELS CONFIGURATIONS
 .card {
   background: white;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em;
-  height: 250px; }
+  margin-bottom: 1px;
+  height: auto; }
 
 .stock .stock-chart {
   background: #00c5de; }
@@ -954,7 +954,7 @@ PANELS CONFIGURATIONS
   background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat; }
 
 .stock .current-price {
-  background: #1d2122;
+  background: #454d56;
   padding: 10px; }
 
 .stock .current-price .info abbr {
@@ -978,7 +978,7 @@ PANELS CONFIGURATIONS
   color: #2f2f2f;
   display: block;
   background: #f2f2f2;
-  padding: 10px;
+
   text-align: center; }
 
 .stock .summary strong {
