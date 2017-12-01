@@ -177,6 +177,42 @@ $(function() {
 
         });
     });
+    $('#addsong').click( function() {
+        console.log("Add Song")
+        $.ajax({
+            type: 'POST',
+            url: '/addsong/',
+            data: {
+                room_id: roomID,
+                song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
+            },
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (response) {
+                console.log(response);
+            }
+
+        });
+    });
+    $('#getplaylist').click( function() {
+        console.log("Get Playlist")
+        $.ajax({
+            type: 'POST',
+            url: '/getplaylist/',
+            data: {
+                room_id: roomID,
+                song_id: "2NyrXRn4tancYPW6JwtTl2"
+            },
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (response) {
+                console.log(response.tracks);
+            }
+
+        });
+    });
 
     $('#search').on('keyup', function() {
 
@@ -226,7 +262,7 @@ function addSongToPlaylist(songID) {
         url: '/addsong/',
         data: {
             room_id: roomID,
-            song_id: "2NyrXRn4tancYPW6JwtTl2"
+            song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
         },
         error: function (e) {
             console.log(e);

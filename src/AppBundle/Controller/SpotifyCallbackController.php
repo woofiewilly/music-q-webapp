@@ -161,6 +161,30 @@ class SpotifyCallbackController extends Controller
         $db_manager->clear();
         return new JsonResponse(array());
     }
+    /**
+     * @Route("/getplaylist/", name="getplaylist")
+     */
+    public function getplaylist(Request $request)
+    {
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        $roomID = $request->request->get('room_id');
+        $songID = $request->request->get('song_id');
+        $db_manager = $this->getDoctrine()->getManager();
+        //Find room with ID
+        $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+        if (!$room) {
+            return new JsonResponse(array(
+                'success' => false,
+                'message' => "Room Not Found!"
+            ));
+        }
+        $playlistID = $room->getPlaylistId();
+        $tracks = $api->getUserPlaylistTracks($api->me()->id, $playlistID);
+        $db_manager->clear();
+        return new JsonResponse(array('tracks' => $tracks));
+    }
 
     /**
      * @Route("/search/", name="search")
