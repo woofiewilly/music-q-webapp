@@ -9,7 +9,7 @@
         <div class="col-xs-12">
 
             <div class="border-head">
-                <h3>My Profile</h3>
+                <h3>DJ Profile</h3>
             </div>
 
 
@@ -25,6 +25,18 @@
                                 <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av" width="80">
                             {% endif %}
                             <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
+
+                            <div class="pad-ver btn-groups">
+                                {% if user.facebookURL %}
+                                    <a href="{{ user.facebookURL }}" target="_blank" class="btn btn-mm-social btn-hover-primary fa fa-facebook icon-lg add-tooltip" data-original-title="Facebook" data-container="body"></a>
+                                {% endif %}
+                                {% if user.twitterURL %}
+                                    <a href="{{ user.twitterURL }}" target="_blank" class="btn btn-mm-social btn-hover-primary fa fa-twitter icon-lg add-tooltip" data-original-title="Twitter" data-container="body"></a>
+                                {% endif %}
+                                {% if user.instagramURL %}
+                                    <a href="{{ user.instagramURL }}" target="_blank" class="btn btn-mm-social btn-hover-primary fa fa-instagram icon-lg add-tooltip" data-original-title="Instagram" data-container="body"></a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -32,7 +44,7 @@
                 <div class="panel mm_profile_info_panel">
                     <div class="col-xs-12">
 
-                        <h4>About Me</h4>
+                        <h4>About DJ</h4>
 
                         {% if user.description %}
                             <p>{{ user.description }}</p>
@@ -99,11 +111,6 @@
 
                     </div>
 
-                    <a href="{{ path('profile_settings') }}">
-                        <button class="btn btn-block btn_edit_profile">Edit Profile</button>
-                    </a>
-
-
                     <div class="clearfix"></div>
 
                 </div>
@@ -118,7 +125,7 @@
                 {% if user.youtubeVideoURL %}
                     <div class="panel mar-btm">
                         <div class="panel-heading" style="margin-bottom: 0;">
-                            <h4>User Promo Video</h4>
+                            <h4>DJ Promo Video</h4>
                             <hr/>
                         </div>
                         <div class="panel-body" style="margin-top: 0;">
@@ -136,7 +143,7 @@
                 <div class="showback">
 
                     <div class="mm_page_header">
-                        <h3 class="no-padding">My Reviews</h3>
+                        <h3 class="no-padding">DJ Reviews</h3>
                     </div>
 
                     <br/>

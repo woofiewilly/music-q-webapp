@@ -12,6 +12,7 @@ $(function() {
 
 
     var mm_report_user_btn = $('.mm_report_user_btn');
+    
 
 
     host_review_submit.on('click', function() {
@@ -176,9 +177,15 @@ $(function() {
 
         });
     });
-    $('#search').keyup(function() {
 
-        searchText = $(this).val();
+    $('#search').on('keyup', function() {
+
+        var searchText = $(this).val();
+
+        if (searchText === '') {
+            $('#mm_search_results').empty();
+            return;
+        }
 
         $.ajax({
             type: "POST",
@@ -188,17 +195,21 @@ $(function() {
                 room_id: roomID,
                 searchText : searchText
             },
+            error: function(e) {
+                console.log(e);
+            },
             success : function(response)
             {
-
-                $.each(response.results, function(i, item) {
-                    $('#mm_search_results').append('<li>' + item.tracks.items[i]</li>');
-                });
-
-                    $('#mm_search_dropdown').dropdown('toggle');
-
                 console.log(response);
 
+                $('#mm_search_results').empty();
+
+                $.each(response.results.tracks.items, function(i, item) {
+                    console.log(item);
+                    $('#mm_search_results').append('<label>' + item.name + '</label>');
+                });
+
+                $('#mm_search_dropdown').attr('class', '');
 
             }
         });
