@@ -190,7 +190,16 @@ $(function() {
             },
             success : function(response)
             {
+
+                $.each(response.results, function(i, item) {
+                    $('#mm_search_results').append('<li>' + item.tracks.items[i]</li>');
+                });
+
+                    $('#mm_search_dropdown').dropdown('toggle');
+
                 console.log(response);
+
+
             }
         });
     });

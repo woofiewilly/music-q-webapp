@@ -40,7 +40,7 @@ class SpotifyCallbackController extends Controller
         $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $refreshToken);
         fclose($myfile);
-        $myfile = fopen("spotifyyuri.txt","w") or die ("Unable to open file!");
+        $myfile = fopen("spotifyuri.txt","w") or die ("Unable to open file!");
         fwrite($myfile, $playlist_uri);
         fclose($myfile);
         //$api->play('', ['context_uri' => $playlist_uri]);
@@ -146,7 +146,24 @@ class SpotifyCallbackController extends Controller
         $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
-        return new JsonResponse(array());
+        $searchText = $request->request->get('searchText');
+        $searchText = urlencode($searchText);
+        $results = $api->search($searchText, 'track');
+        $roomID = $request->request->get('room_id');
+        $db_manager = $this->getDoctrine()->getManager();
+        //Find room with ID
+        $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+        if (!$room) {
+            return new JsonResponse(array(
+                'success' => false,
+                'message' => "Room Not Found!"
+            ));
+        }
+        $explicit = $room->isExplicit();
+        $db_manager->clear();
+        
+
+        return new JsonResponse(array("results" => $results));
     }
 
     private function getAccessToken(Request $request)
@@ -187,7 +204,7 @@ class SpotifyCallbackController extends Controller
         $myfile = fopen("spotifyrt.txt","r") or die("Unable to open file!");
         $refreshToken = fread($myfile,filesize("spotifyrt.txt"));
         fclose($myfile);
-        $myfile = fopen("spotifyyuri.txt","r") or die ("Unable to open file!");
+        $myfile = fopen("spotifyuri.txt","r") or die ("Unable to open file!");
         $playlist_uri = fread($myfile,filesize("spotifyuri.txt"));
         fclose($myfile);
         if ($request->isXmlHttpRequest()) {
