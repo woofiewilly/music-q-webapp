@@ -25,7 +25,7 @@
                         <div id="profile-02">
                             <div class="user">
                                 <h3>{{ room.name }}</h3>
-                                <h4>Room Code: {{ room.GetRoomCode() }}</h4>
+                                <h4>Room Code: {{ room.roomCode }}</h4>
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@
                         <label for="op1">Request To Be Admin</label>
                         <label>Request Song</label>
                         <label>Leave Room</label>
-                        <a href="{{ path('room_page', {room_code: room.roomCode }) }}"><label>Back to Room</label></a>
+                        <a href="{{ path('room_page', {id: room.roomCode}) }}"><label>Back to Room</label></a>
                         <!-- END ROOM INFO SECTION -->
 
 

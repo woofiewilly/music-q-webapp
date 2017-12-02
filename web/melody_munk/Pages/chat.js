@@ -23,18 +23,6 @@ $(document).ready(function () {
 
 });
 
-function sendRefreshMessage() {
-    data = {type: 'refresh-playlist'};
-
-    conn.send(JSON.stringify(data));
-}
-/**
- * Call this function when the playlist has updated
- */
-function refreshPlaylist() {
-
-}
-
 // Change localhost to the name or ip address of the host running the chat server
 var chatUrl = 'ws://localhost:8081';
 
@@ -96,9 +84,6 @@ function connectToChat() {
             }
             else if (data.type === 'user-stopped-typing') {
                 removeUserTypingMessage(data.from);
-            }
-            else if (data.type === 'refresh-playlist') {
-                refreshPlaylist();
             }
         }
     };

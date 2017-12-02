@@ -31,18 +31,19 @@ class SpotifyCallbackController extends Controller
         $me = $api->me();
         $me_id = $me->id;
         $playlist = $api->createUserPlaylist($me_id, ['name' => $string = base64_encode(random_bytes(10))]);
-        $playlist_uri = $playlist->uri; 
+        $playlist_uri = $playlist->uri;
+        $playlist_id = $playlist->id;
         $myfile = fopen("spotifyat.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $accessToken);
         fclose($myfile);
         $myfile = fopen("spotifyrt.txt", "w") or die("Unable to open file!");
         fwrite($myfile, $refreshToken);
         fclose($myfile);
-        $myfile = fopen("spotifyuri.txt","w") or die ("Unable to open file!");
-        fwrite($myfile, $playlist_uri);
+        $myfile = fopen("spotifyid.txt","w") or die ("Unable to open file!");
+        fwrite($myfile, $playlist_id);
         fclose($myfile);
-        //$api->play('', ['context_uri' => $playlist_uri]);
-        //$api->pause();
+        $api->play('', ['context_uri' => $playlist_uri]);
+        $api->pause();
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
     }
@@ -137,6 +138,55 @@ class SpotifyCallbackController extends Controller
     }
 
     /**
+     * @Route("/addsong/", name="addsong")
+     */
+    public function addsong(Request $request)
+    {
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        $roomID = $request->request->get('room_id');
+        $songID = $request->request->get('song_id');
+        $db_manager = $this->getDoctrine()->getManager();
+        //Find room with ID
+        $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+        if (!$room) {
+            return new JsonResponse(array(
+                'success' => false,
+                'message' => "Room Not Found!"
+            ));
+        }
+        $playlistID = $room->getPlaylistId();
+        $api->addUserPlaylistTracks($api->me()->id,$playlistID,[$songID]);
+        $db_manager->clear();
+        return new JsonResponse(array());
+    }
+    /**
+     * @Route("/getplaylist/", name="getplaylist")
+     */
+    public function getplaylist(Request $request)
+    {
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        $roomID = $request->request->get('room_id');
+        $songID = $request->request->get('song_id');
+        $db_manager = $this->getDoctrine()->getManager();
+        //Find room with ID
+        $room = $db_manager->getRepository('AppBundle:Room')->find($roomID);
+        if (!$room) {
+            return new JsonResponse(array(
+                'success' => false,
+                'message' => "Room Not Found!"
+            ));
+        }
+        $playlistID = $room->getPlaylistId();
+        $tracks = $api->getUserPlaylistTracks($api->me()->id, $playlistID);
+        $db_manager->clear();
+        return new JsonResponse(array('tracks' => $tracks));
+    }
+
+    /**
      * @Route("/search/", name="search")
      */
     public function search(Request $request)
@@ -161,7 +211,7 @@ class SpotifyCallbackController extends Controller
         $db_manager->clear();
         
 
-        return new JsonResponse(array("results" => $results));
+        return new JsonResponse(array("results" => $results, "explicit" => $explicit));
     }
 
     private function getAccessToken(Request $request)
@@ -202,8 +252,8 @@ class SpotifyCallbackController extends Controller
         $myfile = fopen("spotifyrt.txt","r") or die("Unable to open file!");
         $refreshToken = fread($myfile,filesize("spotifyrt.txt"));
         fclose($myfile);
-        $myfile = fopen("spotifyuri.txt","r") or die ("Unable to open file!");
-        $playlist_uri = fread($myfile,filesize("spotifyuri.txt"));
+        $myfile = fopen("spotifyid.txt","r") or die ("Unable to open file!");
+        $playlist_uri = fread($myfile,filesize("spotifyid.txt"));
         fclose($myfile);
         if ($request->isXmlHttpRequest()) {
 

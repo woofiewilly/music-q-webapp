@@ -20,7 +20,6 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
     const ACTION_LIST_USERS = 'list-users';
     const ACTION_USER_STARTED_TYPING = 'start-typing';
     const ACTION_USER_STOPPED_TYPING = 'stop-typing';
-    const ACTION_REFRESH_PLAYLIST = 'refresh-playlist';
 
     const PACKET_TYPE_USER_CONNECTED = 'user-connected';
     const PACKET_TYPE_USER_DISCONNECTED = 'user-disconnected';
@@ -172,9 +171,6 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
             case self::ACTION_USER_STOPPED_TYPING:
                 $this->sendUserStoppedTypingMessage($client, $roomId);
                 break;
-            case self::ACTION_REFRESH_PLAYLIST:
-                $this->sendRefresh($client, $roomId);
-                break;
             default: throw new InvalidActionException('Invalid action: '.$msg['action']);
         }
     }
@@ -277,17 +273,6 @@ abstract class AbstractMultiRoomServer implements MessageComponentInterface
             'from'=>$client->asArray(),
             'timestamp'=>$timestamp,
             'message'=>$this->makeMessageReceivedMessage($client, $message, $timestamp),
-        );
-
-        $clients = $this->findRoomClients($roomId);
-        $this->sendDataToClients($clients, $dataPacket);
-    }
-
-    protected function sendRefresh(ConnectedClientInterface $client, $roomId) {
-        echo 'Sending a refresh in room ' . $roomId;
-
-        $dataPacket = array(
-            'type'=>self::ACTION_REFRESH_PLAYLIST,
         );
 
         $clients = $this->findRoomClients($roomId);
