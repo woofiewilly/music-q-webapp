@@ -19,7 +19,7 @@ class SpotifyCallbackController extends Controller
         $session = new \SpotifyWebAPI\Session(
             'f201b6c284a44bd6ac11f07430262360',
             'a087e72614b344ca8919c6c79200335f',
-            'http://localhost:8080/callback/'
+            'http://melody-munk.us-west-2.elasticbeanstalk.com/callback/'
         );
 
         // Request a access token using the code from Spotify
@@ -43,16 +43,34 @@ class SpotifyCallbackController extends Controller
         fwrite($myfile, $playlist_id);
         fclose($myfile);
         $api->play('', ['context_uri' => $playlist_uri]);
-        $api->pause();
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
     }
+
+    /**
+     * @Route("/filldatabase/", name="filldatabase")
+     */
+    public function filldatabase(Request $request)
+    {
+        $this->setAccessToken($request);
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        try{
+            $api->play();
+        }
+        catch (SpotifyWebAPIException $exception)
+        {
+            return new JsonResponse(array("exception" => $exception));
+        }
+        return new JsonResponse(array());
+    }
+
     /**
      * @Route("/play/", name="play")
      */
     public function playsong(Request $request)
     {
-        $this->setAccessToken($request);
         $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);
