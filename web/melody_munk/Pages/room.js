@@ -3,6 +3,7 @@ $(function() {
 
     //Input fields
     var roomID = $('#mm_room_id').val();
+    var songID = "";
 
 
     var host_review_content = $('#mm_host_review_content');
@@ -188,7 +189,7 @@ $(function() {
             url: '/addsong/',
             data: {
                 room_id: roomID,
-                song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
+                song_id: songID
             },
             error: function (e) {
                 console.log(e);
@@ -213,6 +214,33 @@ $(function() {
             },
             success: function (response) {
                 console.log(response.tracks);
+                $('#mm_playlist_results').empty();
+
+                $.each(response.tracks.items, function(i, item) {
+                    console.log(item);
+                    $('#mm_playlist_results').append('<label>' + item.track.name + '</label>');
+
+                });
+
+                $('#mm_playlist_dropdown').attr('class', '');
+            }
+
+        });
+    });
+
+    $('#filldatabase').click( function() {
+        console.log("Fill Database")
+        $.ajax({
+            type: 'POST',
+            url: '/filldatabase/',
+            data: {
+                room_id: roomID,
+            },
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (response) {
+                console.log(response);
             }
 
         });
@@ -246,10 +274,14 @@ $(function() {
 
                 $.each(response.results.tracks.items, function(i, item) {
                     console.log(item);
+                    if(i == 0)
+                    {
+                        songID = item.id;
+                    }
 
                     if(response.explicit || !item.explicit)
                     {
-                        $('#mm_search_results').append('<label onclick="addSongToPlaylist()" >' + item.name + '</label>');
+                        $('#mm_search_results').append('<label onclick="addSongToPlaylist(item.id);" >' + item.name + '</label>');
                     }
                 });
 
@@ -258,7 +290,20 @@ $(function() {
             }
         });
     });
-
+    function addSongToPlaylist(songID) {
+        $.ajax({
+            type: 'POST',
+            url: '/addsong/',
+            data: {
+                room_id: roomID,
+                song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
+            },
+            error: function (e) {
+                console.log(e);
+            },
+            success: function (response) {
+                console.log(response);
+            }
 
     mm_submit_song_rec.on('click', function() {
 
@@ -316,4 +361,5 @@ function addSongToPlaylist(songID) {
 
     });
 
-}
+    }
+});
