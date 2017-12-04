@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\RoomUser;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,13 +30,40 @@ class RoomController extends Controller
 
         $room = $this->getDoctrine()->getRepository('AppBundle:Room')->findRoomByRoomCode($room_code);
 
+
         //If No Room found, redirect to error page
         if (!$room) {
             return $this->redirectToRoute('homepage');
         }
 
+
+        //Look for User in Room
+        $roomUser = $this->getDoctrine()->getRepository('AppBundle:RoomUser')->findRoomUser($user, $room);
+
+        if (!$roomUser) {
+
+            //Create new Room User
+            $roomUser = new RoomUser($user, $room);
+
+
+            $db_manager = $this->getDoctrine()->getManager();
+            $db_manager->persist($roomUser);
+            $db_manager->flush();
+            $db_manager->clear();
+        }
+
+
+        //Get All Users in Room
+        $roomUsers = $this->getDoctrine()->getRepository('AppBundle:RoomUser')->getRoomUsers($room);
+
+
+        //Get All Song Suggestions for Room
+        $songSuggestions = $this->getDoctrine()->getRepository('AppBundle:GuestRecommendedSong')->getAllByRoom($room);
+
         return $this->render(':Room:room.html.twig', array(
-            'room' => $room
+            'room' => $room,
+            'songSuggestions' => $songSuggestions,
+            'roomUsers' => $roomUsers
         ));
 
     }
