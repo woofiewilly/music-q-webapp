@@ -32,17 +32,28 @@
                             <label class="mm_info_header_toggle dropdown-toggle" style="width: 100%;" data-toggle="dropdown">Room Actions<span class="caret"></span></label>
                             <ul class="dropdown-menu" style="width: 100%; padding:0;">
                                 <li><label for="op1">Request To Be Admin</label></li>
-                                <li><label for="op2">Allow Explicit Songs</label></li>
-                                <li><label data-toggle="modal" data-target="#mm_song_suggest">Request Song</label></li>
-                                <li><label>Leave Room</label></li>
-                                <li><label onclick="window.location.href='{{ path('room_settings', {id: room.id}) }}'">Room Settings</label></li>
+
+
+                                <li><a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a></li>
+                                <li><label onclick="window.location.href='{{ path('room_settings', {id: room.code}) }}'">Room Settings</label></li>
 
                                 <li><label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label></li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
+
+                    {#<input id="op1" name="op1" type="checkbox" checked="">#}
+                    <input id="op2" name="op2" type="checkbox" checked="">
+                    {#<label for="op1">Request To Be Admin</label>#}
+                    <label for="op2">Allow Explicit Songs</label>
+                    {#<a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a>#}
+                    {#<label>Leave Room</label>#}
+                    {#<a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>#}
+
+                    {#<label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>#}
+
+
 
                 <br/>
 
@@ -84,7 +95,8 @@
                     <label id="lowervolumebutton">Lower Volume</label>
                     <label id="nextsong">Next Song</label>
                     <label id="prevsong">Previous Song</label>
-
+                    <label id="addsong">Add Song To Playlist</label>
+                    <label id="getplaylist">Get Playlist</label>
                 </div>
 
 
