@@ -9,33 +9,6 @@ Premium: http://www.gridgum.com
 /*@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);*/
 @import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700,900);
 /* BASIC THEME CONFIGURATION */
-
-/*FOR COLUMNS/TABS IN ROOM PAGE*/
-/* small device, small and down*/
-@media (max-width: 767px) {
-      #room > .device-big {
-          display: none;
-      }
-      #room > .device-small {
-          display: block;
-      }
-      #roomInfo, #chat, #playlist{
-          padding-right: 0;
-      }
-  }
-/* big device, medium and up */
-@media only screen and (min-width : 768px) {
-      #room > .device-big, #room > .tab-content > .tab-pane {
-          display: block;
-      }
-      #room > .device-small { /*don't display tabs*/
-          display: none;
-      }
-      #room > .tab-content > .tab-pane { /*display tab content*/
-          display: block;
-      }
-  }
-
 body {
   color: #ED8524;
   background: #f2f6fb;
@@ -970,8 +943,8 @@ PANELS CONFIGURATIONS
 .card {
   background: white;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1em;
-  height: 250px; }
+  margin-bottom: 1px;
+  height: auto; }
 
 .stock .stock-chart {
   background: #00c5de; }
@@ -981,7 +954,7 @@ PANELS CONFIGURATIONS
   background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat; }
 
 .stock .current-price {
-  background: #1d2122;
+  background: #454d56;
   padding: 10px; }
 
 .stock .current-price .info abbr {
@@ -1005,7 +978,7 @@ PANELS CONFIGURATIONS
   color: #2f2f2f;
   display: block;
   background: #f2f2f2;
-  padding: 10px;
+
   text-align: center; }
 
 .stock .summary strong {

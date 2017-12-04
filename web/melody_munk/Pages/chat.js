@@ -19,7 +19,7 @@ $(document).ready(function () {
         if ((conn.readyState !== 0 || conn.readyState !== 1) && !reconnecting) {
             reconnect(1);
         }
-    }, 5000);
+    }, 50000);
 
 });
 

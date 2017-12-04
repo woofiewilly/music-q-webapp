@@ -39,7 +39,7 @@ class GuestRecSongController extends \Symfony\Bundle\FrameworkBundle\Controller\
 
     }
 
-    public function onAddSong(GuestRecommendedSong $recommendedSong) {
+    public function onAddSong(GuestRecommendedSongRepository $recommendedSong) {
 
     }*/
 }
