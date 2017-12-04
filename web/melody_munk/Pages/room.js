@@ -12,7 +12,11 @@ $(function() {
 
 
     var mm_report_user_btn = $('.mm_report_user_btn');
-    
+
+
+    var mm_submit_song_rec = $('#submit_song_suggestion');
+    var mm_song_rec_name = $('#mm_song_rec_name');
+    var mm_song_rec_artist = $('#mm_song_rec_artist');
 
 
     host_review_submit.on('click', function() {
@@ -254,6 +258,45 @@ $(function() {
             }
         });
     });
+
+
+    mm_submit_song_rec.on('click', function() {
+
+        $.ajax({
+            type: 'POST',
+            url: '/ajax_recommend_song',
+            data: {
+                roomID: roomID,
+                songName: mm_song_rec_name.val(),
+                songArtist: mm_song_rec_artist.val()
+            },
+            error: function(e) {
+                console.log(e);
+            },
+            success: function(response) {
+                console.log(response);
+                window.location.reload();
+            }
+        });
+
+
+    });
+
+
+    var dropdown = $('.dropdown');
+    var item = $('.item');
+
+    item.on('click', function() {
+        item.toggleClass('collapse');
+
+        if (dropdown.hasClass('dropped')) {
+            dropdown.toggleClass('dropped');
+        } else {
+            setTimeout(function() {
+                dropdown.toggleClass('dropped');
+            }, 150);
+        }
+    })
 
 });
 function addSongToPlaylist(songID) {
