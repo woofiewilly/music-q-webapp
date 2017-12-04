@@ -182,24 +182,6 @@ $(function() {
 
         });
     });
-    $('#addsong').click( function() {
-        console.log("Add Song")
-        $.ajax({
-            type: 'POST',
-            url: '/addsong/',
-            data: {
-                room_id: roomID,
-                song_id: songID
-            },
-            error: function (e) {
-                console.log(e);
-            },
-            success: function (response) {
-                console.log(response);
-            }
-
-        });
-    });
     $('#getplaylist').click( function() {
         console.log("Get Playlist")
         $.ajax({
@@ -296,7 +278,7 @@ $(function() {
             url: '/addsong/',
             data: {
                 room_id: roomID,
-                song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
+                song_id: songID
             },
             error: function (e) {
                 console.log(e);
@@ -304,6 +286,7 @@ $(function() {
             success: function (response) {
                 console.log(response);
             }
+        })};
 
     mm_submit_song_rec.on('click', function() {
 
@@ -343,23 +326,5 @@ $(function() {
         }
     })
 
-});
-function addSongToPlaylist(songID) {
-    $.ajax({
-        type: 'POST',
-        url: '/addsong/',
-        data: {
-            room_id: roomID,
-            song_id: "5LZQ5s0kRZS9nBSd1xLK7U"
-        },
-        error: function (e) {
-            console.log(e);
-        },
-        success: function (response) {
-            console.log(response);
-        }
 
-    });
-
-    }
 });
