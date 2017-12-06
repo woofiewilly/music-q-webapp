@@ -43,16 +43,16 @@ twig:
 doctrine:
     dbal:
         driver: pdo_mysql
-#        host: '%database_host%'
-#        port: '%database_port%'
-#        dbname: '%database_name%'
-#        user: '%database_user%'
-#        password: '%database_password%'
-        host:     "%env(RDS_HOSTNAME)%"
-        port:     "%env(RDS_PORT)%"
-        dbname:   "%env(RDS_DB_NAME)%"
-        user:     "%env(RDS_USERNAME)%"
-        password: "%env(RDS_PASSWORD)%"
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+#        host:     "%env(RDS_HOSTNAME)%"
+#        port:     "%env(RDS_PORT)%"
+#        dbname:   "%env(RDS_DB_NAME)%"
+#        user:     "%env(RDS_USERNAME)%"
+#        password: "%env(RDS_PASSWORD)%"
 #        host:     "%aws_database_host%"
 #        port:     "%aws_database_port%"
 #        dbname:   "%aws_database_name%"
