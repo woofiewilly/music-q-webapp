@@ -43,15 +43,15 @@
                     </div>
                 </div>
 
-                    {#<input id="op1" name="op1" type="checkbox" checked="">#}
-                    <input id="op2" name="op2" type="checkbox" checked="">
-                    {#<label for="op1">Request To Be Admin</label>#}
-                    <label for="op2">Allow Explicit Songs</label>
-                    {#<a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a>#}
-                    {#<label>Leave Room</label>#}
-                    {#<a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>#}
+                {#<input id="op1" name="op1" type="checkbox" checked="">#}
+                <input id="op2" name="op2" type="checkbox" checked="">
+                {#<label for="op1">Request To Be Admin</label>#}
+                <label for="op2">Allow Explicit Songs</label>
+                {#<a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a>#}
+                {#<label>Leave Room</label>#}
+                {#<a href="{{ path('room_settings', {id: room.id}) }}"><label>Room Settings</label></a>#}
 
-                    {#<label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>#}
+                {#<label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label>#}
 
 
 
@@ -162,12 +162,12 @@
                 <div class="row">
                     <div class="col-xs-12">
 
-                            <input id="search" type="text" class="form-control" name="search" placeholder="Search..">
-                            <div id="mm_search_dropdown" class="hidden">
-                                <div id="mm_search_results" class="steps">
+                        <input id="search" type="text" class="form-control" name="search" placeholder="Search..">
+                        <div id="mm_search_dropdown" class="hidden">
+                            <div id="mm_search_results" class="steps">
 
-                                </div>
                             </div>
+                        </div>
                     </div>
                 </div>
 
@@ -211,34 +211,32 @@
 
                             {% for roomUser in roomUsers %}
 
-                            <div class="desc">
-                                <div class="thumb">
-                                    <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                <div class="desc">
+                                    <div class="thumb">
+                                        <img class="img-circle" src="{{ asset('img/placeholders/default.jpeg') }}" width="35px" height="35px" align="">
+                                    </div>
+                                    <div class="details">
+                                        <p><a href="#" class="mm_orange">{{ roomUser.user.firstName }} {{ roomUser.user.lastName }}</a><br>
+                                            <muted>Joined Room: {{ roomUser.dateAdded | date }}</muted>
+                                        </p>
+                                    </div>
+
+                                    <div class="dropdown">
+                                        <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+
+                                            <li><a class="mm_report_user_btn">Report User</a></li>
+
+                                            <li><a href="#">Promote to Admin</a></li>
+                                        </ul>
+                                    </div>
+
                                 </div>
-                                <div class="details">
-                                    <p><a href="#" class="mm_orange">{{ roomUser.user.firstName }} {{ roomUser.user.lastName }}</a><br>
-                                        <muted>Joined Room: {{ roomUser.dateAdded | date }}</muted>
-                                    </p>
-                                </div>
-
-                                <div class="dropdown">
-                                    <a class="mm_more_info pull-right" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-
-                                        <li><a class="mm_report_user_btn">Report User</a></li>
-
-                                        <li><a href="#">Promote to Admin</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
                             {% endfor %}
 
                         </div>
 
                     </div>
-
-
 
                 </div>
 
@@ -313,6 +311,9 @@
 
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Modal content-->
             <div class="modal-content">
@@ -323,37 +324,37 @@
 
                     <div style="margin-left: 10px">
 
-                            <h3>Settings</h3>
+                        <h3>Settings</h3>
 
-                            <form class="form-horizontal mm_room_settings_form">
+                        <form class="form-horizontal mm_room_settings_form">
 
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="">Chat</label>
-                                    </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Chat</label>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="">Announcements</label>
-                                    </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Announcements</label>
                                 </div>
+                            </div>
 
 
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="">Song Suggestions</label>
-                                    </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Song Suggestions</label>
                                 </div>
+                            </div>
 
 
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="">Allow Anonymous Users</label>
-                                    </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Allow Anonymous Users</label>
                                 </div>
+                            </div>
 
-                            </form>
+                        </form>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
