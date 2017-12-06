@@ -272,7 +272,7 @@ $(function() {
             }
         });
     });
-    function addSongToPlaylist(songID) {
+    $('#addsong').click( function(){
         $.ajax({
             type: 'POST',
             url: '/addsong/',
@@ -286,7 +286,7 @@ $(function() {
             success: function (response) {
                 console.log(response);
             }
-        })};
+        })});
 
     mm_submit_song_rec.on('click', function() {
 
