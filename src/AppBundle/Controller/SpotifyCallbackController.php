@@ -44,16 +44,34 @@ class SpotifyCallbackController extends Controller
         fwrite($myfile, $playlist_id);
         fclose($myfile);
         $api->play('', ['context_uri' => $playlist_uri]);
-        $api->pause();
         // replace this example code with whatever you need
         return $this->render('spotify/spotifycallback.twig');
     }
+
+    /**
+     * @Route("/filldatabase/", name="filldatabase")
+     */
+    public function filldatabase(Request $request)
+    {
+        $this->setAccessToken($request);
+        $accessToken = $this->getAccessToken($request);
+        $api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $api->setAccessToken($accessToken);
+        try{
+            $api->play();
+        }
+        catch (SpotifyWebAPIException $exception)
+        {
+            return new JsonResponse(array("exception" => $exception));
+        }
+        return new JsonResponse(array());
+    }
+
     /**
      * @Route("/play/", name="play")
      */
     public function playsong(Request $request)
     {
-        $this->setAccessToken($request);
         $accessToken = $this->getAccessToken($request);
         $api = new \SpotifyWebAPI\SpotifyWebAPI();
         $api->setAccessToken($accessToken);

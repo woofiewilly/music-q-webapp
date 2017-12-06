@@ -35,7 +35,7 @@
 
 
                                 <li><a data-toggle="modal" data-target="#mm_song_suggest"><label>Request Song</label></a></li>
-                                <li><label onclick="window.location.href='{{ path('room_settings', {id: room.code}) }}'">Room Settings</label></li>
+                                <li><label onclick="window.location.href='{{ path('room_settings', {id: room.roomCode}) }}'">Room Settings</label></li>
 
                                 <li><label data-toggle="modal" data-target="#qr_code_modal">Get QR Code</label></li>
                             </ul>
@@ -89,6 +89,7 @@
                     <!-- SPOTIFY SECTION -->
                     <input class="mm_dj_info_header" value="Control Spotify" disabled>
                     <label id="spotifyloginbutton">Log in with Spotify</label>
+                    <label id="filldatabase">Authenticate All Users in Room</label>
                     <label id="playbutton">Play a song</label>
                     <label id="pausebutton"> Pause a song</label>
                     <label id="raisevolumebutton">Raise Volume</label>
@@ -97,6 +98,11 @@
                     <label id="prevsong">Previous Song</label>
                     <label id="addsong">Add Song To Playlist</label>
                     <label id="getplaylist">Get Playlist</label>
+                    <div id="mm_playlist_dropdown" class="hidden">
+                        <div id="mm_playlist_results" class="steps">
+
+                        </div>
+                    </div>
                 </div>
 
 
@@ -308,10 +314,52 @@
                             </form>
                         </div>
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <div style="margin-left: 10px">
+
+                            <h3>Settings</h3>
+
+                            <form class="form-horizontal mm_room_settings_form">
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="">Chat</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="">Announcements</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="">Song Suggestions</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="">Allow Anonymous Users</label>
+                                    </div>
+                                </div>
+
+                            </form>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button id="mm_host_review_submit" type="button" class="btn btn-orange">Submit Review</button>
                         </div>
+
                     </div>
                 </div>
             </div>

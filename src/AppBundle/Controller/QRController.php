@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Endroid\QrCode\QrCode;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class QRController extends Controller
 {
@@ -68,7 +69,7 @@ class QRController extends Controller
 //        $full_url = $base_url . $room_code;
 
         // true parameter indicates to generate absolute url
-         $full_url = $this->generateUrl('room_page', array('room_code' => $room_code), true);
+         $full_url = $this->generateUrl('room_page', array('room_code' => $room_code), UrlGeneratorInterface::ABSOLUTE_URL);
 
         $qrCode = new QrCode($full_url);
         $qrCode->setSize(500);
