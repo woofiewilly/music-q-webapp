@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Test Chat Page{% endblock %}
+
+{% block body %}
+
+    <h1>Public chat</h1>
+    <ul id="chat-list"></ul>
+    <hr>
+    <textarea id="form-message" placeholder="Your public message here"></textarea>
+    <input type="button" id="form-submit" value="Send message"/>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('melody_munk/chat-scripts/chat.js') }}"></script>
+{% endblock %}

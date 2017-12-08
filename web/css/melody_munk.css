@@ -1,0 +1,432 @@
+
+
+/* --- IMAGE CSS --- */
+
+.mm-img-av {
+    height: 75px;
+    width: 75px;
+}
+
+.mm-chat-img-av {
+    height: 35px;
+    width: 35px;
+}
+
+
+/* --- MAIN NAVBAR CSS --- */
+.mm_nav_hover:hover {
+    background-color:  #fed67e;
+}
+
+.mm_nav_break {
+    width: 80%;
+    border-color: #5e697f;
+}
+
+/* --- TEXT CSS --- */
+.mm_orange {
+    color: #fbbe55;
+}
+
+.mm_page_header h3 {
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    color: #989898;
+}
+
+
+
+/* --- HOMEPAGE CSS --- */
+
+.mm_hp_room_link {
+    text-decoration: none;
+    color: #fbbe55;
+}
+
+.mm_hp_room_link:hover {
+    text-decoration: none;
+    color: #fed67e;
+}
+
+
+
+/* --- PROFILE CSS --- */
+
+.mm_profile_header {
+    background: #464e57;
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+.mm_profile_info_panel {
+    background: #f5f6f8;
+    color: #bf9043;
+    border-radius: 0;
+}
+
+.profile_info {
+    padding-left: 2px;
+}
+
+.profile_info_item {
+    padding-top: 2rem;
+}
+
+.info_icon {
+    font-size: 2rem;
+    color: #fed67e;
+    text-align: center;
+    margin: auto;
+    padding-right: 2rem;
+    padding-left: 1rem;
+}
+
+.btn-orange {
+    color: #ffffff;
+    background-color:  #fed67e;
+}
+
+.btn_edit_profile {
+    text-align: center;
+    background: #FCBF49;
+    border: none;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+
+/* --- REVIEWS CSS --- */
+
+.mm_review {
+    background: #ffffff;
+    padding-top: 20px;
+}
+
+.mm_review h4 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mm_review h3 {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 0 10px;
+    line-height: 60px;
+    height: 60px;
+    margin: 0;
+    background: #ED8524;
+    text-align: center;
+}
+
+.mm_review i {
+    font-size: 12px;
+    /*line-height: 16px;*/
+}
+
+.mm_review .desc {
+    border-bottom: 1px solid #eaeaea;
+    display: inline-block;
+    /*padding: 15px 0;*/
+    width: 100%;
+}
+
+.mm_review .desc:hover {
+    background: #f2f2f2; }
+
+.mm_review .thumb {
+    width: 30px;
+    margin: 0 10px 0 20px;
+    display: block;
+    float: left;
+}
+
+.mm_review .details {
+    width: 80%;
+    float: left;
+    margin-left: 10px;
+}
+
+.mm_review .details .content {
+    width: 100%;
+    margin-top: 10px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.mm_review > .desc p {
+    font-size: 15px;
+    margin: 0px;
+}
+
+.mm_review p > muted {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+.mm_review a {
+    color: #68dff0;
+}
+
+
+/* --- PLAYLIST ROOM CSS --- */
+.mm_dj_info_header {
+    text-align: center;
+    background: #FCBF49;
+    border: none;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 55px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+.mm_dj_info_header:hover {
+    background: #fbbe55;
+}
+
+.mm_more_info {
+    margin-right: 10px;
+}
+
+
+/* --- MODAL CENTER CSS --- */
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/* --- CHAT CSS --- */
+
+.mm_chat {
+    background: #ffffff;
+    padding-top: 20px;
+    overflow-y: scroll;
+}
+
+
+.mm_chat .desc {
+    border-bottom: 1px solid #eaeaea;
+    display: inline-block;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.mm_chat .desc:hover {
+    background: #f2f2f2; }
+
+.mm_chat .thumb {
+    width: 30px;
+    margin: 0 10px 0 20px;
+    display: block;
+    float: left;
+}
+
+.mm_chat .details {
+    width: 80%;
+    float: left;
+    margin-left: 10px;
+}
+
+.mm_chat .details .content {
+    width: 100%;
+    margin-top: 10px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+
+.mm_chat .details .chat-content {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    color: #464e57;
+}
+
+
+
+.mm_chat > .desc p {
+    font-size: 11px;
+    margin: 0px;
+}
+
+.mm_chat > muted {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+
+/* --- Soptify Panel --- */
+#spotify {
+    background: url(../img/bank_account.jpg) no-repeat center top;
+    opacity: 0.8;
+    margin-top: -15px;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 250px;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#spotify .btn-clear-g {
+    top: 15%;
+    right: 10px;
+    position: absolute;
+    margin-top: 5px;
+    color: #efefef;
+    text-shadow: 2px 2px #000000;
+}
+
+#spotify .sp-title {
+    bottom: 5%;
+    margin-left: 5px;
+    position: absolute;
+    color: #efefef;
+    text-shadow: 1px 1px #000000;
+}
+
+#spotify .sp-title h3 {
+    font-weight: 900;
+}
+
+#spotify .sp-title h4 {
+    margin-left: 0px;
+    font-weight: 700;
+}
+
+#spotify .play {
+    bottom: 18%;
+    right: 25px;
+    position: absolute;
+    color: #efefef;
+    font-size: 20px;
+    color: #efefef;
+    text-shadow: 1px 1px #000000;
+}
+
+
+.mm_visualize_panel {
+    background: #464e57;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bar-wrapper {
+    position: relative;
+    height: 300px;
+
+}
+.bar {
+    position: relative;
+    width: 5px;
+    display: inline-block;
+    border: 1px solid red;
+    height: 5px;
+    border-bottom: 3px solid #fff;
+}
+
+
+audio#audio {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.followers {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+.btn-mm-social {
+    width: 50px;
+    height: 25px;
+    background: #ED8524;
+}
+
+.mm_info_header_toggle {
+    background: #eb8433;
+    padding: 3px;
+    margin-top: 0 !important;
+    color: white;
+}
+
+.steps2 label {
+    background: #868f97;
+    height: 65px;
+    line-height: 65px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #44494e;
+    color: #eb8433;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-indent: 52px;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    margin: 0px; }
+
+.steps2 label:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    margin: 26px 0px 0px 18px;
+    border-radius: 100%;
+    transition: border 0.7s ease; }
+
+.steps2 label:hover {
+    background: #3a3e40;
+    color: #FCBF49; }
+
+.steps2 label:hover:before {
+    border: 1px solid #393D40 }

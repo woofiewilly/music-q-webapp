@@ -1,0 +1,235 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="border-head">
+                <h3>My Profile</h3>
+            </div>
+
+
+
+            <!-- START Info Card -->
+            <div class="col-md-3">
+                <div class="darkblue-panel">
+                    <div class="darkblue-header">
+                        <div class="user mt">
+                            {% if user.imageURL %}
+                                <img src="{{ user.imageURL }}" class="img-circle mm-img-av">
+                            {% else %}
+                                <img src="{{ asset('img/placeholders/default.jpeg') }}" class="img-circle mm-img-av">
+                            {% endif %}
+                            <h4 class="mm_orange">{{ user.firstName }} {{ user.lastName }}</h4>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel">
+                    <div class="col-xs-12">
+
+                        <h4>About Me</h4>
+
+                        {% if user.description %}
+                            <p>{{ user.description }}</p>
+                        {% else %}
+                            <p class="text-center mb">No User Description</p>
+                        {% endif %}
+
+
+
+                        <table class="table table-hover table-borderless">
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-user mm_orange"></i></td>
+                                <td>{{ user.username }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-envelope mm_orange"></i></td>
+                                <td> {{ user.email }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.dob }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-globe mm_orange"></i></td>
+                                <td> {{ user.country }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <h5>Music Preferences</h5>
+
+                        <table class="table table-hover table-borderless">
+
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-music mm_orange"></i></td>
+                                <td> {{ user.favoriteGenre }}</td>
+                            </tr>
+
+                            <tr>
+                                <td><i class="fa fa-play mm_orange"></i></td>
+                                <td> {{ user.favoriteArtist }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+
+            </div>
+            <!-- END Info Card -->
+
+            <div class="col-md-9">
+                <div class="showback">
+                    <h4>Edit Profile</h4>
+                    <br/>
+
+                    {{ form_start(userForm, { attr: { class: 'form-horizontal'} }) }}
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">First Name</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.firstName) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Last Name</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.lastName) }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.description) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Date Of Birth</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.dob) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.country) }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Profile Picture</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.imageURL) }}
+                        </div>
+                    </div>
+
+                    <!-- Facebook URL-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">Facebook URL</label>
+                        <div class="col-md-10">
+                            <div class="input-group mar-btm">
+                                <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                                {{ form_widget(userForm.facebookURL) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Twitter URL -->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">Twitter URL</label>
+                        <div class="col-md-10">
+                            <div class="input-group mar-btm">
+                                <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                                {{ form_widget(userForm.twitterURL) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram URL -->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">Instagram URL</label>
+                        <div class="col-md-10">
+                            <div class="input-group mar-btm">
+                                <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+                                {{ form_widget(userForm.instagramURL) }}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Snapchat Name -->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">Snapchat Name</label>
+                        <div class="col-md-10">
+                            <div class="input-group mar-btm">
+                                <span class="input-group-addon"><i class="fa fa-snapchat-ghost"></i></span>
+                                {{ form_widget(userForm.snapchatName) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Youtube Video -->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="demo-text-input">Video URL</label>
+                        <div class="col-md-10">
+                            <div class="input-group mar-btm">
+                                <span class="input-group-addon"><i class="fa fa-youtube-square"></i></span>
+                                {{ form_widget(userForm.youtubeVideoURL) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Favorite Genre</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.favoriteGenre) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Favorite Artist</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(userForm.favoriteArtist) }}
+                        </div>
+                    </div>
+
+
+                        <button type="submit" class="btn btn-orange pull-right">Save Profile</button>
+
+                    {{ form_end(userForm) }}
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

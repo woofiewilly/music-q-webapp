@@ -1,0 +1,14 @@
+{% extends ":Auth:auth_base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <h2 class="form-login-heading">MelodyMunk Account Created</h2>
+
+    <div class="login-wrap">
+
+
+        <a href="{{ path('homepage') }}">Go to Homepage</a>
+
+    </div>
+{% endblock fos_user_content %}

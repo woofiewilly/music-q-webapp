@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>MelodyMunk | {% block title %}Home{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <!--external css-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/gritter/css/jquery.gritter.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('lineicons/style.css') }}"/>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+
+    <!-- CUSTOM CSS FILE FOR MELODYMUNK -->
+    <link href="{{ asset('css/melody_munk.css') }}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {% block stylesheets %}{% endblock %}
+
+</head>
+
+<body>
+
+<section id="container">
+
+    <!-- START TOP BAR CONTENT & NOTIFICATIONS -->
+    {% include ':Components/Navigation:top_navbar.html.twig' %}
+    <!-- END TOP BAR CONTENT & NOTIFICATIONS -->
+
+
+    <!-- START MAIN NAVBAR CONTENT -->
+    {% include ':Components/Navigation:main_nav.html.twig' %}
+    <!-- END MAIN NAVBAR CONTENT -->
+
+
+    <!-- START MAIN CONTENT -->
+    <section id="main-content">
+        <section class="wrapper">
+
+            {% block body %} {% endblock %}
+
+        </section>
+    </section>
+    <!-- END MAIN CONTENT -->
+
+
+    {% block modals %}{% endblock %}
+
+
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script class="include" type="text/javascript" src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
+<script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+<script src="{{ asset('js/jquery.nicescroll.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery.sparkline.js') }}"></script>
+
+
+<!--common script for all pages-->
+<script src="{{ asset('js/common-scripts.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('js/gritter/js/jquery.gritter.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/gritter-conf.js') }}"></script>
+
+
+
+
+
+{% block javascripts %}{% endblock %}
+
+
+</body>
+</html>
